@@ -10,6 +10,22 @@ function setUserId(id){
     user_id = id;
 }
 
+function setUserPW(pw){
+    user_pw = pw;
+}
+
+function getToken() {
+    return g_token;
+}
+
+function getUserId(){
+    return user_id;
+}
+
+function getUserPW(){
+    return user_pw;
+}
+
 function getLocationParameter( name ){
     name = name.replace(/[\[]/,"\\\[").replace(/[\]]/,"\\\]");
     var regexS = "[\\?&]"+name+"=([^&#]*)";

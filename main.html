@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
     <title>Soma 2nd Project</title>
     <meta charset="UTF-8">
@@ -17,42 +17,51 @@
 
     <!-- Javascript Libraries -->
     <script src="https://code.jquery.com/jquery-1.11.2.min.js"></script>
-   
+    
     <script src="vendors/bower_components/jquery/dist/jquery.min.js"></script>
     <script src="vendors/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
     <script src="vendors/bower_components/Waves/dist/waves.min.js"></script>
-    <script src="vendors/bower_components/bootstrap-sweetalert/lib/sweet-alert.min.js"></script>
-    <script src="vendors/bower_components/jquery.nicescroll/jquery.nicescroll.min.js"></script>
-    <script src="vendors/bootstrap-growl/bootstrap-growl.min.js"></script>
 
-    <script src="js/bootstrap.min.js"></script>
-    <script src="js/wraptalk.js"></script>
-    <script src="js/crud.js"></script>
+<!--  right pop up
+    <script src="vendors/bootstrap-growl/bootstrap-growl.min.js"></script>
+    <script src="js/demo.js"></script>
+-->  
+    <script src="vendors/bower_components/jquery.nicescroll/jquery.nicescroll.min.js"></script>
     <script src="js/functions.js"></script>
+
+    <script src="js/wraptalk.js"></script> 
 </head>
 
 <body>
     <header id="header">
-		<ul class="header-inner">
-			<li id="menu-trigger" data-trigger="#sidebar">
-				<div class="line-wrap">
-					<div class="line top"></div>
-					<div class="line center"></div>
-					<div class="line bottom"></div>
-				</div>
-			</li>
-		
-			<li class="logo hidden-xs">
-				<a href="">Wrap Talk</a>
-			</li>
-			
-			<li class="pull-right">
+        <ul class="header-inner">
+            <!-- hamburger icon -->
+            <li id="menu-trigger" data-trigger="#sidebar">
+                <div class="line-wrap">
+                    <div class="line top"></div>
+                    <div class="line center"></div>
+                    <div class="line bottom"></div>
+                </div>
+            </li>
+
+            <!-- title -->
+            <li class="logo hidden-xs">
+                <a href="index.html">Wrap Talk</a>
+            </li>
+            
+            <li class="pull-right">
 			<ul class="top-menu">
-				
+        <!--     like android switch btn : pop the drawer layout
+				<li id="toggle-width">
+					<div class="toggle-switch">
+						<input id="tw-switch" type="checkbox" hidden="hidden">
+						<label for="tw-switch" class="ts-helper"></label>
+					</div>
+				</li>
+        -->
 				<li id="top-search">
 					<a class="tm-search" href=""></a>
 				</li>
-                
 				<li class="dropdown">
 					<a data-toggle="dropdown" class="tm-message" href=""><i class="tmn-counts">4</i></a>
 					<div class="dropdown-menu dropdown-menu-lg pull-right">
@@ -68,7 +77,7 @@
 										</div>
 										<div class="media-body">
 											<div class="lv-title">지영</div>
-											<small class="lv-small">팀원1</small>
+											<small class="lv-small">팀원 1</small>
 										</div>
 									</div>
 								</a>
@@ -90,7 +99,7 @@
 										</div>
 										<div class="media-body">
 											<div class="lv-title">다현</div>
-											<small class="lv-small">팀원2</small>
+											<small class="lv-small">팀원 2</small>
 										</div>
 									</div>
 								</a>
@@ -101,7 +110,7 @@
 										</div>
 										<div class="media-body">
 											<div class="lv-title">경완</div>
-											<small class="lv-small">팀원3</small>
+											<small class="lv-small">팀원 3</small>
 										</div>
 									</div>
 								</a>
@@ -133,17 +142,19 @@
 										</div>
 										<div class="media-body">
 											<div class="lv-title">정원용 멘토님</div>
-											<small class="lv-small">프로젝트 화이팅!!</small>
+											<small class="lv-small">프로젝트 화이팅!</small>
 										</div>
 									</div>
 								</a>
 							</div>
+				
 							<a class="lv-footer" href="">View Previous</a>
 						</div>
 				
 					</div>
 				</li>
 				<li class="dropdown hidden-xs">
+					<a data-toggle="dropdown" class="tm-task" href=""></a>
 					<div class="dropdown-menu pull-right dropdown-menu-lg">
 						<div class="listview">
 							<div class="lv-header">
@@ -209,10 +220,7 @@
 							<a data-action="fullscreen" href=""><i class="zmdi zmdi-fullscreen"></i> Toggle Fullscreen</a>
 						</li>
 						<li>
-							<a href=""><i class="zmdi zmdi-face"></i> Privacy Settings</a>
-						</li>
-						<li>
-							<a href=""><i class="zmdi zmdi-settings"></i> Other Settings</a>
+							<a data-action="clear-localstorage" href=""><i class="zmdi zmdi-delete"></i> Clear Local Storage</a>
 						</li>
 					</ul>
 				</li>
@@ -224,34 +232,33 @@
 			<input type="text">
 			<i id="top-search-close">&times;</i>
 		</div>
-	</header>
+        </ul>
+    </header>
 
-    
-    
     <section id="main">
 		<aside id="sidebar">
 			<div class="sidebar-inner c-overflow">
 				<div class="profile-menu">
 					<a href="">
 						<div class="profile-pic">
-							<img src="img/profile-pics/3.jpg" alt="">
+							<img src="img/profile-pics/1.jpg" alt="">
 						</div>
 
-						<div class="profile-info">
-							Admin
-							<i class="zmdi zmdi-arrow-drop-down"></i>
+						<div id="drawer_user_id" class="profile-info">
+                            
+                            <i class="zmdi zmdi-arrow-drop-down"></i>
 						</div>
 					</a>
 
 					<ul class="main-menu">
 						<li>
-							<a href=""><i class="zmdi zmdi-account"></i> View Profile</a>
+							<a href="profile-about.html"><i class="zmdi zmdi-account"></i> View Profile</a>
 						</li>
 						<li>
 							<a href=""><i class="zmdi zmdi-input-antenna"></i> Privacy Settings</a>
 						</li>
 						<li>
-							<a href=""><i class="zmdi zmdi-settings"></i> Settings</a>
+							<a href=""><i class="zmdi zmdi-settings"></i> Other Settings</a>
 						</li>
 						<li>
 							<a href=""><i class="zmdi zmdi-time-restore"></i> Logout</a>
@@ -263,7 +270,6 @@
 				</ul>
 			</div>
 		</aside>
-    
         
         <section id="content">
 			<div class="container">
@@ -282,8 +288,9 @@
 								<div class="form-group fg-line">
 									<div class="fg-line select">
 										<select class="form-control" id="sel_table_search">
-											<option>User</option>
-                                            <option>Application</option>
+											<option>USER</option>
+											<option>Application</option>
+											<option>Channel</option>
 										</select>
 									</div>
 								</div>
@@ -316,12 +323,9 @@
 				
 			</div>
 		</section>
-    
-    
-    
-    
-    
-    
+    </section>    
+   
+
     <footer id="footer">
         Software Maestro &copy; 2015년 1단계 2차 프로젝트
 
@@ -332,7 +336,96 @@
             <li><a href="">Contact</a></li>
         </ul>
     </footer>
-
 </body>
+
+<script>
+
+function onCrud(table, json){
+	var $container = $('#content .container');
+	var $card = $('<div class="card"><div class="card-header"></div><div class="card-body"><table class="table table-striped table-bordered table-hover table-condensed"><thead></thead><tbody></tbody></table></div></div>');
+
+	// setting table name 
+	$card.find('.card-header').html('<h2>'+table+'</h2>');
+
+	// setting table header columns
+	var colArr = json.columnNames;
+	if(colArr.length > 0) {
+		var $thead = $card.find('thead');
+		var $tr = $('<tr></tr>');
+		for(i=0; i<colArr.length; i++) {
+			$tr.append('<th>'+colArr[i]+'</th>');
+		}
+		$thead.append($tr);
+
+		// 입력폼에 항목 추가
+		var input_template = '<div class="form-group"><label class="col-sm-2 control-label" for="input_id_{COLUMN}">{COLUMN}</label><div class="col-sm-10"><div class="fg-line"><input type="text" class="form-control input-sm" id="input_id_{COLUMN}" name="{COLUMN}" placeholder="{COLUMN}"></div></div></div>';
+		for(i=colArr.length-1; i>=0; i--) {
+			if(colArr[i] == 'seq' || colArr[i] == 'ipt_date')
+				continue;
+			$('#card_input .card-body').prepend(input_template.replaceAll('{COLUMN}', colArr[i].toUpperCase()));
+		}
+	}
+
+	// 내용 추가
+	var rowArr = json.results;
+	if(rowArr.length > 0) {
+		var $tbody = $card.find('tbody');
+		for(i=0; i<rowArr.length; i++) {
+			var $tr = $('<tr></tr>');
+			var dataArr = rowArr[i];
+			for(j=0; j<dataArr.length; j++) {
+				$($tr).append('<td>'+dataArr[j]+'</td>');
+			}
+			$tbody.append($tr);
+		}
+	}
+
+	//$container.append($card);
+	$('#content .block-header').after( $card );
+	$('#card_input').show();
+	$('#card_input button').click(function(event){
+		var json = getJsonFromFormGroup( $('#card_input') );
+		json['table_name'] = g_target_table;
+		var str = JSON.stringify(json);
+		console.log(str);
+		str = Base64.encode(str);
+		console.log(str);
+
+		requestInsert(json, function(table, recv) {
+			console.log(table + ','+recv);
+			//alert(recv.count + '개의 레코드가 입력되었습니다.');
+		});
+	})
+}
+
+$(document).ready(function(){
+    
+    g_token = getLocationParameter('token');
+    user_id = getLocationParameter('id');
+    console.log('token : '+g_token);
+    console.log('id : '+user_id);
+
+    if(user_id == "")
+        document.getElementById('drawer_user_id').innerHTML = 'default';
+    else document.getElementById('drawer_user_id').innerHTML = String(user_id);
+    
+	var table = getLocationParameter('type');
+	initMenu(table);
+	
+	if(table) {
+		requestSelect(table, onCrud);
+		return;
+	}
+
+	$('#btn_table_search').click(function(event){
+		var targetTable = $('#sel_table_search').val();
+		requestSelect(targetTable, onCrud);
+	});
+
+    $('#content .card').eq(0).show();
+});
+</script>
+
+
 </html>
 
