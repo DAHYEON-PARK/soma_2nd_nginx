@@ -1,44 +1,43 @@
 [
-
 {
 	"icon":"accounts-list-alt",
-	"title":"USER",
+	"title":"User",
 	"url":"crud.html?type=User"
 },
 {
-	"icon":"store",
-	"title":"setting",
-	"url":"crud.html?type=setting"
-},
-{
-	"icon":"account-circle",
-	"title":"session",
+	"icon":"menu",
+	"title":"Session",
 	"url":"crud.html?type=session"
 },
 {
-	"icon":"menu",
-	"title":"notice",
-	"url":"crud.html?type=notice"
+	"icon":"store",
+	"title":"App",
+	"url":"crud.html?type=app"
 },
 {
-	"icon":"developer-board",
-	"title":"channel user list",
-	"url":"crud.html?type=channel_user_list"
-},
-{
-	"icon":"edit",
-	"title":"channel",
-	"url":"crud.html?type=channel"
-},
-{
-	"icon":"mail-reply",
-	"title":"app user list",
+	"icon":"account-circle",
+	"title":"App User List",
 	"url":"crud.html?type=app_user_list"
 },
 {
+	"icon":"developer-board",
+	"title":"Channel",
+	"url":"crud.html?type=channel"
+},
+{
+	"icon":"edit",
+	"title":"Channel User List",
+	"url":"crud.html?type=channel_user_list"
+},
+{
+	"icon":"mail-reply",
+	"title":"Notice",
+	"url":"crud.html?type=notice"
+},
+{
 	"icon":"phone",
-	"title":"app",
-	"url":"crud.html?type=app"
+	"title":"Setting",
+	"url":"crud.html?type=setting"
 },
 {
 	"icon":"remote-control",
