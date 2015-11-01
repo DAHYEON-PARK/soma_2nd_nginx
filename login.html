@@ -54,7 +54,7 @@
         $('#join_user_email').val("");
         $('#join_user_pw').val("");
         $('#join_user_repw').val("");
-
+          
         if(pw == repw){
             $.ajax({
                 url:'http://133.130.113.101:7010/user/join?user_id=' +id+ '&user_pw=' +pw+ '&gcm_id=default&device_id=default',
@@ -105,6 +105,7 @@
                 if(obj.result_code == 0){
                     //g_token = obj.token;
                     //user_id = id;
+                    setUserInfoFromJson(obj.token, id, pw);
                     window.location.href = "main.html?token="+obj.token+"?id="+id;
                     //location.replace("main.html");
                 }else if(obj.result_code == -1){

@@ -391,7 +391,7 @@ function onCrud(table, json){
 	//$container.append($card);
 	$('#content .block-header').after( $card );
 	$('#card_input').show();
-	$('#card_input insertBtn').click(function(event){
+	$('#insertBtn').click(function(event){
 		var json = getJsonFromFormGroup( $('#card_input') );
 		json['table_name'] = g_target_table;
 		var str = JSON.stringify(json);
@@ -405,7 +405,7 @@ function onCrud(table, json){
 		});
 	})
     
-    $('#card_input updateBtn').click(function(event){
+    $('#updateBtn').click(function(event){
 		var json = getJsonFromFormGroup( $('#card_input') );
 		json['table_name'] = g_target_table;
 		var str = JSON.stringify(json);
@@ -419,7 +419,7 @@ function onCrud(table, json){
 		});
 	})
     
-    $('#card_input deleteBtn').click(function(event){
+    $('#deleteBtn').click(function(event){
 		var json = getJsonFromFormGroup( $('#card_input') );
 		json['table_name'] = g_target_table;
 		var str = JSON.stringify(json);
@@ -435,12 +435,14 @@ function onCrud(table, json){
 }
 
 $(document).ready(function(){
-    g_token = getLocationParameter('token');
-    user_id = getLocationParameter('id');
+//    g_token = getLocationParameter('token');
+//    user_id = getLocationParameter('id');
+//    
+//    if(user_id == "")
+//        document.getElementById('drawer_user_id').innerHTML = 'default';   
+//    else document.getElementById('drawer_user_id').innerHTML = String(user_id);
     
-    if(user_id == "")
-        document.getElementById('drawer_user_id').innerHTML = 'default';   
-    else document.getElementById('drawer_user_id').innerHTML = String(user_id);
+    getUserInfoFromJson();
     
 	var table = getLocationParameter('type');
 	initMenu(table);
@@ -456,8 +458,14 @@ $(document).ready(function(){
 	});
 
     $('#content .card').eq(0).show();
+    
+    $('#card_body ').click(function(event){
+		var targetTable = $('#sel_table_search').val();
+		requestSelect(targetTable, onCrud);
+	});
 });
 </script>
+    
     
 </html>
 
