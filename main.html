@@ -28,7 +28,10 @@
 -->  
     <script src="vendors/bower_components/jquery.nicescroll/jquery.nicescroll.min.js"></script>
     <script src="js/functions.js"></script>
-
+    
+    <script src="vendors/bower_components/bootstrap-sweetalert/lib/sweet-alert.min.js"></script>
+    
+    <script src="js/crud.js"></script> 
     <script src="js/wraptalk.js"></script> 
 </head>
 
@@ -46,7 +49,7 @@
 
             <!-- title -->
             <li class="logo hidden-xs">
-                <a href="index.html">Wrap Talk</a>
+                <a href="">Wrap Talk</a>
             </li>
             
             <li class="pull-right">
@@ -232,7 +235,6 @@
 			<input type="text">
 			<i id="top-search-close">&times;</i>
 		</div>
-        </ul>
     </header>
 
     <section id="main">
@@ -245,7 +247,6 @@
 						</div>
 
 						<div id="drawer_user_id" class="profile-info">
-                            
                             <i class="zmdi zmdi-arrow-drop-down"></i>
 						</div>
 					</a>
@@ -284,13 +285,18 @@
 
 					<div class="card-body card-padding">
 						<form class="row" role="form">
-							<div class="col-sm-3">
+							<div class="col-sm-5">
 								<div class="form-group fg-line">
 									<div class="fg-line select">
 										<select class="form-control" id="sel_table_search">
 											<option>USER</option>
-											<option>Application</option>
-											<option>Channel</option>
+                                            <option>SESSION</option>
+											<option>APP</option>
+                                            <option>APP USER LIST</option>
+                                            <option>CHANNEL</option>
+                                            <option>CHANNEL USER LIST</option>
+                                            <option>NOTICE</option>
+                                            <option>SETTING</option>
 										</select>
 									</div>
 								</div>
@@ -312,9 +318,9 @@
 						<div class="card-body card-padding">
 							<div class="form-group">
 								<div class="col-sm-offset-2 col-sm-10">
-									<button type="button" class="btn btn-primary btn-sm waves-effect">입력</button>
-									<button type="button" class="btn btn-success btn-sm waves-effect">수정</button>
-									<button type="button" class="btn btn-warning btn-sm waves-effect">삭제</button>
+									<button id="insertBtn" type="button" class="btn btn-primary btn-sm waves-effect">입력</button>
+									<button id="updateBtn" type="button" class="btn btn-success btn-sm waves-effect">수정</button>
+									<button id="deleteBtn" type="button" class="btn btn-warning btn-sm waves-effect">삭제</button>
 								</div>
 							</div>
 						</div>
@@ -325,7 +331,9 @@
 		</section>
     </section>    
    
-
+    
+    
+    
     <footer id="footer">
         Software Maestro &copy; 2015년 1단계 2차 프로젝트
 
@@ -383,7 +391,7 @@ function onCrud(table, json){
 	//$container.append($card);
 	$('#content .block-header').after( $card );
 	$('#card_input').show();
-	$('#card_input button').click(function(event){
+	$('#card_input insertBtn').click(function(event){
 		var json = getJsonFromFormGroup( $('#card_input') );
 		json['table_name'] = g_target_table;
 		var str = JSON.stringify(json);
@@ -396,17 +404,42 @@ function onCrud(table, json){
 			//alert(recv.count + '개의 레코드가 입력되었습니다.');
 		});
 	})
+    
+    $('#card_input updateBtn').click(function(event){
+		var json = getJsonFromFormGroup( $('#card_input') );
+		json['table_name'] = g_target_table;
+		var str = JSON.stringify(json);
+		console.log(str);
+		str = Base64.encode(str);
+		console.log(str);
+
+		requestUpdate(json, function(table, recv) {
+			console.log(table + ','+recv);
+			//alert(recv.count + '개의 레코드가 입력되었습니다.');
+		});
+	})
+    
+    $('#card_input deleteBtn').click(function(event){
+		var json = getJsonFromFormGroup( $('#card_input') );
+		json['table_name'] = g_target_table;
+		var str = JSON.stringify(json);
+		console.log(str);
+		str = Base64.encode(str);
+		console.log(str);
+
+		requestDelete(json, function(table, recv) {
+			console.log(table + ','+recv);
+			//alert(recv.count + '개의 레코드가 입력되었습니다.');
+		});
+	})
 }
 
 $(document).ready(function(){
-    
     g_token = getLocationParameter('token');
     user_id = getLocationParameter('id');
-    console.log('token : '+g_token);
-    console.log('id : '+user_id);
-
+    
     if(user_id == "")
-        document.getElementById('drawer_user_id').innerHTML = 'default';
+        document.getElementById('drawer_user_id').innerHTML = 'default';   
     else document.getElementById('drawer_user_id').innerHTML = String(user_id);
     
 	var table = getLocationParameter('type');
@@ -425,7 +458,7 @@ $(document).ready(function(){
     $('#content .card').eq(0).show();
 });
 </script>
-
-
+    
 </html>
+
 

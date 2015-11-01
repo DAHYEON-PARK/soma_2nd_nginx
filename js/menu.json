@@ -41,13 +41,18 @@
 },
 {
 	"icon":"remote-control",
-	"title":"메뉴9",
+	"title":"Black List",
 	"url":"crud.html?type=Table9"
 },
 {
 	"icon":"seat",
-	"title":"메뉴10",
+	"title":"Word Filter",
 	"url":"crud.html?type=Table10"
+},
+{
+	"icon":"portable-wifi",
+	"title":"Server Traffic",
+	"url":"crud.html?type=Table11"
 },
 {
 	"icon":"settings",

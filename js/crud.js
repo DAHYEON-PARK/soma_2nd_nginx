@@ -135,13 +135,6 @@ var Base64 = {
 
 }
 
-function parseJson(data)
-{
-	if(typeof(data) == 'object')
-		return data;
-	return JSON.parse(data);
-}
-
 function initMenu(menuKey)
 {
 	if(g_app_menu)
@@ -242,7 +235,7 @@ function requestInsert(table, cbComplete)
 	}
 
 	 var query = 'insert into '+table.table_name+' ('+attr+') values('+con+')';
- 	 query = query.toUpperCase();
+ 	 query = query.toLowerCase();
 	 query = encodeURIComponent(query);
         
 	$.ajax({
@@ -272,6 +265,90 @@ function requestInsert(table, cbComplete)
 	});
 }
 
+function requestUpdate(table, cbComplete)
+{
+	var cols = Object.keys(table);
+	
+	var attr = '';
+	for(var i=1; i<cols.length-2; i++)
+	{
+        attr = attr.concat(cols[i]+'=\''+table[cols[i]]+'\'');                 
+		if(i!=(cols.length-3))
+			attr = attr.concat(',');
+	}
+	var query = 'update ' +table['table_name']+ ' set ' +attr+ ' where ' +cols[0]+'=' +table[cols[0]],
+    query = query.toLowerCase();
+    query = encodeURIComponent(query);
+        
+	$.ajax({
+		type: 'POST',
+		url: 'http://133.130.113.101:7010/user/customQuery?query='+query,
+		success: function(data, status) {
+			
+			var obj;
+			try
+			{
+				obj = parseJson(data);
+			}
+			catch (e)
+			{
+				console.log('json error:'+data);
+				//alert("JSON Parsing Error. "+e);
+				alert(data);
+				return;
+			}
+			
+			if(cbComplete)
+				cbComplete(table, obj);
+		},
+		error: function(e) {
+			console.log('접속이 원활하지 않습니다.');
+		}
+	});
+}
+
+function requestDelete(table, cbComplete)
+{
+    var cols = Object.keys(table);
+    
+    var query = 'delete from '+table['table_name']+' where '+cols[0]+'=' +table[cols[0]],
+    query = query.toLowerCase();
+    query = encodeURIComponent(query);
+        
+	$.ajax({
+		type: 'POST',
+		url: 'http://133.130.113.101:7010/user/customQuery?query='+query,
+		success: function(data, status) {
+			
+			var obj;
+			try
+			{
+				obj = parseJson(data);
+			}
+			catch (e)
+			{
+				console.log('json error:'+data);
+				//alert("JSON Parsing Error. "+e);
+				alert(data);
+				return;
+			}
+			
+			if(cbComplete)
+				cbComplete(table, obj);
+		},
+		error: function(e) {
+			console.log('접속이 원활하지 않습니다.');
+		}
+	});
+}
+
+function parseJson(data)
+{
+	if(typeof(data) == 'object')
+		return data;
+	return JSON.parse(data);
+}
+
 function getJsonFromFormGroup($formGroupRoot) {
 	var json = {};
 	$formGroupRoot.find('.form-group').each(function(index, element){
@@ -291,4 +368,5 @@ function getLocationParameter( name ){
 	 if( results == null )    return "";  
 	else    return results[1];
 }
+
 
