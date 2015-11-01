@@ -434,6 +434,12 @@ function onCrud(table, json){
 	})
 }
 
+function func(id) {
+	if(id == "")
+        	document.getElementById('drawer_user_id').innerHTML = 'default';   
+    	else document.getElementById('drawer_user_id').innerHTML = String(id);
+}
+
 $(document).ready(function(){
 //    g_token = getLocationParameter('token');
 //    user_id = getLocationParameter('id');
@@ -442,7 +448,7 @@ $(document).ready(function(){
 //        document.getElementById('drawer_user_id').innerHTML = 'default';   
 //    else document.getElementById('drawer_user_id').innerHTML = String(user_id);
     
-    getUserInfoFromJson();
+    getUserInfoFromJson(func);
     
 	var table = getLocationParameter('type');
 	initMenu(table);
@@ -458,11 +464,6 @@ $(document).ready(function(){
 	});
 
     $('#content .card').eq(0).show();
-    
-    $('#card_body ').click(function(event){
-		var targetTable = $('#sel_table_search').val();
-		requestSelect(targetTable, onCrud);
-	});
 });
 </script>
     

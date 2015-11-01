@@ -35,18 +35,18 @@ function setUserInfoFromJson(token, id, pw) {
       user_pw = pw;
                   
       var userInfo = {
-        "token":String("\""+g_token+"\""),
-        "id":String("\""+user_id+"\""),
-        "pw":String("\""+user_pw+"\"")
+        "\"token\"":String(g_token),
+        "\"id\"":String(user_id),
+        "\"pw\"":String(user_pw)
       };
                                                              
       $.ajax({
           type: 'POST',
           url: 'js/menu.json',
-          data: JSON.stringify(userInfo),
-          contentType: "application/json; charset=utf-8",
+          data: userInfo,
+	  dataType: 'json',
           success: function(data, status) {
-            alert(data);
+            console.log(data);
           },
           error: function(e) {
             console.log('접속이 원활하지 않습니다.');
@@ -54,7 +54,7 @@ function setUserInfoFromJson(token, id, pw) {
       });   
 }
 
-function getUserInfoFromJson() {
+function getUserInfoFromJson(func) {
       
     $.ajax({
         type: 'GET',
@@ -68,10 +68,8 @@ function getUserInfoFromJson() {
           g_token = userJson.token;
           user_id = userJson.id;
           user_pw = userJson.pw;
-          
-          if(user_id == "")
-             document.getElementById('drawer_user_id').innerHTML = 'default';
-          else document.getElementById('drawer_user_id').innerHTML = String(user_id);
+ 
+	  func(user_id);         
         },
         error: function(e) {
           console.log('접속이 원활하지 않습니다.');

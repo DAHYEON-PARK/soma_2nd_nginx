@@ -34,22 +34,12 @@
  <body class="login-content">
 
     <script>
-
-        $(document).ready(function(){
-            /* get val into url parameter (?id=val) */
-            //document.location = 'main.html?type='+getLocationParameter("type");
-        });
-
       var id, pw, repw;
 
       function join() {
         id = $('#join_user_email').val();
         pw = $('#join_user_pw').val();
         repw = $('#join_user_repw').val();
-
-        //console.log('Join : user id = '+id);
-        //console.log('Join : user pw = '+pw);
-        //console.log('Join : user repw = '+repw);
 
         $('#join_user_email').val("");
         $('#join_user_pw').val("");
@@ -71,7 +61,6 @@
                         alert('Return to Login Page.');
                     }else if(obj.result_code == -1){
                         // id already exist
-                        // params error
                         alert(obj.result_msg);
                     }
                 }
@@ -84,9 +73,6 @@
       function login() {
         id = $('#login_user_email').val();
         pw = $('#login_user_pw').val();
-
-        //console.log('Login : user id = '+id);
-        //console.log('Login : user pw = '+pw);
 
         $('#login_user_email').val("");
         $('#login_user_pw').val("");
@@ -106,8 +92,7 @@
                     //g_token = obj.token;
                     //user_id = id;
                     setUserInfoFromJson(obj.token, id, pw);
-                    window.location.href = "main.html?token="+obj.token+"?id="+id;
-                    //location.replace("main.html");
+                    //window.location.href = "main.html?token="+obj.token+"?id="+id;
                 }else if(obj.result_code == -1){
                     alert(obj.result_msg);
                 }
