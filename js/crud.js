@@ -416,7 +416,7 @@ function requestQuery(json, cbComplete)
 {
     // json = { "key":"value" }
     var key = Object.keys(json);
-    var query = 'select * from channel_user_list where '+key[0]+'=\"'json[key[0]]+'\"';
+    var query = 'select * from channel_user_list where '+key[0]+'=\"'+json[key[0]]+'\"';
     query = query.toLowerCase();
     query = encodeURIComponent(query);
         
