@@ -381,6 +381,7 @@ function onCrud(table, json){
 		}
 	}
 	
+    
 	// 원래 table id 이름으로 찾아야 되지????
 	var table = document.getElementsByTagName("table")[0];
 	var tbody = table.getElementsByTagName("tbody")[0];
@@ -399,9 +400,10 @@ function onCrud(table, json){
         		}
     		}				
     		alert(data);
-		//$('').val();
+		  //$('').val();
 	};
 
+    
 	// 내용 추가
 	var rowArr = json.results;
 	if(rowArr.length > 0) {
