@@ -89,10 +89,10 @@
 
             success:function(obj){
                 if(obj.result_code == 0){
-                    //g_token = obj.token;
-                    //user_id = id;
-                    setUserInfoFromJson(obj.token, id, pw);
-                    //window.location.href = "main.html?token="+obj.token+"?id="+id;
+                    g_token = obj.token;
+                    user_id = id;
+                    //setUserInfoFromJson(obj.token, id, pw);
+                    window.location.href = "main.html?token="+obj.token+"?id="+id;
                 }else if(obj.result_code == -1){
                     alert(obj.result_msg);
                 }

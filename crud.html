@@ -356,7 +356,9 @@ function onCrud(table, json){
 	$card.find('.card-header').html('<h2>'+table+'</h2>');
 
 	// setting table header columns
-	var colArr = json.columnNames;
+	//var colArr = json.columnNames;
+	
+	var colArr = Object.keys(json.results[0]);
 	if(colArr.length > 0) {
 		var $thead = $card.find('thead');
 		var $tr = $('<tr></tr>');
@@ -435,6 +437,18 @@ function onCrud(table, json){
 }
 
 $(document).ready(function(){
+
+	token = getLocationParameter('token');
+    	if(token="") g_token = token;
+    
+    	userid = getLocationParameter('id');
+    	if(userid == "")
+        	document.getElementById('drawer_user_id').innerHTML = 'default';   
+    	else {
+        	uesr_id = userid;
+        	document.getElementById('drawer_user_id').innerHTML = String(user_id);
+    	}
+
 	var table = getLocationParameter('type');
 	initMenu(table);
 	
