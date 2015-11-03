@@ -436,8 +436,8 @@ function onCrud(table, json){
 	//$card.find('.card-header').html('<h2>'+table+'</h2>');
 
 	// setting table header columns
-	//var colArr = json.columnNames;
-	var colArr = Object.keys(json.results[0]);
+	var colArr = json.columnNames;
+	//var colArr = Object.keys(json.results[0]);
     
 	if(colArr.length > 0) {
 		var $thead = $card.find('thead');
@@ -456,12 +456,30 @@ function onCrud(table, json){
 		}
 	}
     
-    
+
+	// 내용 추가
+	var rowArr = json.results;
+	if(rowArr.length > 0) {
+		var $tbody = $card.find('tbody');
+		for(i=0; i<rowArr.length; i++) {
+			var $tr = $('<tr></tr>');
+			var dataArr = rowArr[i];
+			for(j=0; j<dataArr.length; j++) {
+				$($tr).append('<td>'+dataArr[j]+'</td>');
+			}
+			$tbody.append($tr);
+		}
+	}
+
+
+
     // 원래 table id 이름으로 찾아야 되지????
     // main.html과 다른 부분 --- test 필요
-	var table = document.getElementsByTagName("table")[0];
+	//var table = document.getElementsByTagName("table")[0];
     //var table = document.getElementsById("#card_table .table");
-	var tbody = table.getElementsByTagName("tbody")[0];
+	var table = $card.find('table');
+	//var tbody = table.getElementsByTagName("tbody")[0];
+	var tbody = $card.find('tbody');
 	tbody.onclick = function (e) {
     		e = e || window.event;
     		var data = [];
@@ -479,21 +497,8 @@ function onCrud(table, json){
     		alert(data);
 		  //$('').val();
 	};
-    
 
-	// 내용 추가
-	var rowArr = json.results;
-	if(rowArr.length > 0) {
-		var $tbody = $card.find('tbody');
-		for(i=0; i<rowArr.length; i++) {
-			var $tr = $('<tr></tr>');
-			var dataArr = rowArr[i];
-			for(j=0; j<dataArr.length; j++) {
-				$($tr).append('<td>'+dataArr[j]+'</td>');
-			}
-			$tbody.append($tr);
-		}
-	}
+
 
 	//$container.append($card);
 	//$('#content .block-header').after( $card );

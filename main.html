@@ -363,8 +363,9 @@ function onCrud(table, json){
 	//$card.find('.card-header').html('<h2>'+table+'</h2>');
 
 	// setting table header columns
-	//var colArr = json.columnNames;
-	var colArr = Object.keys(json.results[0]);
+	var colArr = json.columnNames;
+	//var colArr = Object.keys(json.results[0]);
+	//var colArr = json.results.columnNames;
 
 	if(colArr.length > 0) {
 		var $thead = $card.find('thead');
@@ -410,6 +411,7 @@ function onCrud(table, json){
     
 	// 내용 추가
 	var rowArr = json.results;
+	//var rowArr = json.results.results;
 	if(rowArr.length > 0) {
 		var $tbody = $card.find('tbody');
 		for(i=0; i<rowArr.length; i++) {
