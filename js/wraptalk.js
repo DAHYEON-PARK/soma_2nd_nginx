@@ -44,7 +44,7 @@ function setUserInfoFromJson(token, id, pw) {
           type: 'POST',
           url: 'js/menu.json',
           data: userInfo,
-	  dataType: 'json',
+	      dataType: 'json',
           success: function(data, status) {
             console.log(data);
           },
@@ -69,10 +69,11 @@ function getUserInfoFromJson(func) {
           user_id = userJson.id;
           user_pw = userJson.pw;
  
-	  func(user_id);         
+	      func(user_id);          
         },
         error: function(e) {
           console.log('접속이 원활하지 않습니다.');
         }
     });   
 }
+
