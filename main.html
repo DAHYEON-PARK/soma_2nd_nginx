@@ -357,7 +357,7 @@ function onCrud(table, json){
     
     var $container = $('#card_table');
    	var header = '<h2>'+table+' <small>Show database tables for admin user.</small></h2>';
-	var $card = $('<div class="card-header">'+header+'</div><div class="table-responsive"><table class="table table-striped"><thead></thead><tbody></tbody></table></div>');    
+	var $card = $('<div id="card_table" class="card"><div class="card-header">'+header+'</div><div class="table-responsive"><table class="table table-striped"><thead></thead><tbody></tbody></table></div></div>'); 
 
 	// setting table name 
 	//$card.find('.card-header').html('<h2>'+table+'</h2>');
@@ -384,12 +384,29 @@ function onCrud(table, json){
 		}
 	}
 	
-    
-	// 원래 table id 이름으로 찾아야 되지????
+	// 내용 추가
+	var rowArr = json.results;
+	//var rowArr = json.results.results;
+	if(rowArr.length > 0) {
+		var $tbody = $card.find('tbody');
+		for(i=0; i<rowArr.length; i++) {
+			var $tr = $('<tr></tr>');
+			var dataArr = rowArr[i];
+			for(j=0; j<dataArr.length; j++) {
+				$($tr).append('<td>'+dataArr[j]+'</td>');
+			}
+			$tbody.append($tr);
+		}
+	}
+
+
+    // 원래 table id 이름으로 찾아야 되지????
+    // main.html과 다른 부분 --- test 필요
 	//var table = document.getElementsByTagName("table")[0];
-    var table = document.getElementsById("table")[0];
-    // crud.html과 다른 부분 --- test 필요
-	var tbody = table.getElementsByTagName("tbody")[0];
+    //var table = document.getElementsById("#card_table .table");
+	var table = $card.find('table');
+	//var tbody = table.getElementsByTagName("tbody")[0];
+	var tbody = $card.find('tbody');
 	tbody.onclick = function (e) {
     		e = e || window.event;
     		var data = [];
@@ -408,26 +425,10 @@ function onCrud(table, json){
 		  //$('').val();
 	};
 
-    
-	// 내용 추가
-	var rowArr = json.results;
-	//var rowArr = json.results.results;
-	if(rowArr.length > 0) {
-		var $tbody = $card.find('tbody');
-		for(i=0; i<rowArr.length; i++) {
-			var $tr = $('<tr></tr>');
-			var dataArr = rowArr[i];
-			for(j=0; j<dataArr.length; j++) {
-				$($tr).append('<td>'+dataArr[j]+'</td>');
-			}
-			$tbody.append($tr);
-		}
-	}
 
 	//$container.append($card);
 	//$('#content .block-header').after( $card );
-    ///// 업데이트 필요!! ////
-    
+   	$('#card_input').after($card); 
 	$('#card_input').show();
 	
     $('#insertBtn').click(function(event){

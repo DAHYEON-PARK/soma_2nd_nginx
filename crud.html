@@ -430,7 +430,7 @@ function onCrud(table, json){
 
     var $container = $('#card_table');
    	var header = '<h2>'+table+' <small>Show database tables for admin user.</small></h2>';
-	var $card = $('<div class="card-header">'+header+'</div><div class="table-responsive"><table class="table table-striped"><thead></thead><tbody></tbody></table></div>');    
+	var $card = $('<div id="card_table" class="card"><div class="card-header">'+header+'</div><div class="table-responsive"><table class="table table-striped"><thead></thead><tbody></tbody></table></div></div>');  
     
 	// setting table name 
 	//$card.find('.card-header').html('<h2>'+table+'</h2>');
@@ -502,7 +502,7 @@ function onCrud(table, json){
 
 	//$container.append($card);
 	//$('#content .block-header').after( $card );
-    // 업데이트 필요!!
+	$('#card_input').after($card);
 	$('#card_input').show();
 	
     $('#insertBtn').click(function(event){
