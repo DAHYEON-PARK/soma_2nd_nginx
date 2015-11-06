@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+
 <head>
     <title>Soma 2nd Project</title>
     <meta charset="UTF-8">
@@ -22,13 +22,10 @@
     <script src="vendors/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
     <script src="vendors/bower_components/Waves/dist/waves.min.js"></script>
 
-<!--  right pop up
     <script src="vendors/bootstrap-growl/bootstrap-growl.min.js"></script>
-    <script src="js/demo.js"></script>
--->  
+    <script src="js/demo.js"></script> 
     <script src="vendors/bower_components/jquery.nicescroll/jquery.nicescroll.min.js"></script>
     <script src="js/functions.js"></script>
-    
     <script src="vendors/bower_components/bootstrap-sweetalert/lib/sweet-alert.min.js"></script>
     
     <script src="js/crud.js"></script> 
@@ -276,7 +273,9 @@
 			<div class="container">
                 
                 <div class="card" style="display: none;">
-					   <div class="card-header"></div>
+					   <div class="card-header">
+                           <h2>Table CRUD <small>테이블 스키마를 선택해서 데이터를 관리할 수 있습니다.</small></h2>
+                       </div>
 
 					   <div class="card-body card-padding">
 						  <form class="row" role="form">
@@ -321,10 +320,6 @@
                         </div>
 				    </form>
 				</div>
-                    
-                <div id="card_table" class="card">
-                </div> 
-                
 			</div>
 		</section>
     </section>    
@@ -356,7 +351,7 @@ function onCrud(table, json){
 //	var $card = $('<div class="card"><div class="card-header">'+str+'</div><div class="table-responsive"><table id="'+table_id+'" class="table table-striped"><thead></thead><tbody></tbody></table></div></div>');
     
     var $container = $('#card_table');
-   	var header = '<h2>'+table+' <small>Show database tables for admin user.</small></h2>';
+   	var header = '<h2>'+String(table)+' <small>Show database tables for admin user.</small></h2>';
 	var $card = $('<div id="card_table" class="card"><div class="card-header">'+header+'</div><div class="table-responsive"><table class="table table-striped"><thead></thead><tbody></tbody></table></div></div>'); 
 
 	// setting table name 
