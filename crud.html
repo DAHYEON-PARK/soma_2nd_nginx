@@ -417,6 +417,7 @@ function onCrud(table, json){
 		var $tbody = $card.find('tbody');
 		for(i=0; i<rowArr.length; i++) {
 			var $tr = $('<tr></tr>');
+            //$tr.click(function(e){ });도 가능하나 이건 row마다 click event가 붙음.
 			var dataArr = rowArr[i];
 			for(j=0; j<dataArr.length; j++) {
 				$($tr).append('<td>'+dataArr[j]+'</td>');
@@ -427,14 +428,11 @@ function onCrud(table, json){
 
 
 
-    // 원래 table id 이름으로 찾아야 되지????
-    // main.html과 다른 부분 --- test 필요
-	//var table = document.getElementsByTagName("table")[0];
-    //var table = document.getElementsById("#card_table .table");
-	var table = $card.find('table');
-	//var tbody = table.getElementsByTagName("tbody")[0];
-	var tbody = $card.find('tbody');
-	tbody.onclick = function (e) {
+    // 이건 table 하나에 전체 event 걸어놓은 것.
+    // $는 jQurey Obj를 의미함.
+	var $table = $card.find('table');
+	var $tbody = $card.find('tbody');
+	$tbody.click(function (e) {
     		e = e || window.event;
     		var data = [];
     		var target = e.srcElement || e.target;
@@ -444,13 +442,17 @@ function onCrud(table, json){
     		if (target) {
         		var cells = target.getElementsByTagName("td");
         		
-			for (var i = 0; i < cells.length; i++) {
+                for (var i = 0; i < cells.length; i++) {
             			data.push(cells[i].innerHTML);
         		}
     		}				
-    		alert(data);
-		  //$('').val();
-	};
+    		//alert(data);
+            for(int i=0; i<colArr.length; i++)
+            {
+                var name = 'input_id_'+colArr[i].toUpperCase();
+                $(name).val(data[i]);
+            }   
+	});
 
 
 
