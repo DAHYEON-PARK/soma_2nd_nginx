@@ -23,7 +23,7 @@
     <script src="vendors/bower_components/Waves/dist/waves.min.js"></script>
 
     <script src="vendors/bootstrap-growl/bootstrap-growl.min.js"></script>
-    <script src="js/demo.js"></script> 
+    <script src="js/demo.js"></script>
     <script src="vendors/bower_components/jquery.nicescroll/jquery.nicescroll.min.js"></script>
     <script src="js/functions.js"></script>
     <script src="vendors/bower_components/bootstrap-sweetalert/lib/sweet-alert.min.js"></script>
@@ -51,14 +51,6 @@
             
             <li class="pull-right">
 			<ul class="top-menu">
-        <!--     like android switch btn : pop the drawer layout
-				<li id="toggle-width">
-					<div class="toggle-switch">
-						<input id="tw-switch" type="checkbox" hidden="hidden">
-						<label for="tw-switch" class="ts-helper"></label>
-					</div>
-				</li>
-        -->
 				<li id="top-search">
 					<a class="tm-search" href=""></a>
 				</li>
@@ -207,7 +199,6 @@
 									</div>
 								</div>
 							</div>
-				
 							<a class="lv-footer" href="">View All</a>
 						</div>
 					</div>
@@ -274,34 +265,72 @@
                 
                 <div class="card" style="display: none;">
 					   <div class="card-header">
-                           <h2>Table CRUD <small>테이블 스키마를 선택해서 데이터를 관리할 수 있습니다.</small></h2>
+                           <h2>Table CRUD <small>CRUD : create / read / update / delete</small></h2>    
+                           <p class="c-gray f-500 m-b-20">테이블 스키마를 선택해서 데이터를 관리할 수 있습니다.</p>
                        </div>
-
 					   <div class="card-body card-padding">
-						  <form class="row" role="form">
-							 <div class="col-sm-5">
-								<div class="form-group fg-line">
-									<div class="fg-line select">
-										<select class="form-control" id="sel_table_search">
-											<option>USER</option>
-                                            <option>SESSION</option>
-											<option>APP</option>
-                                            <option>APP USER LIST</option>
-                                            <option>CHANNEL</option>
-                                            <option>CHANNEL USER LIST</option>
-                                            <option>NOTICE</option>
-                                            <option>SETTING</option>
-										</select>
-									</div>
-								</div>
-							 </div>
-
-							 <div class="col-sm-4">
-								<button type="button" id="btn_table_search" class="btn btn-primary btn-sm m-t-5">Search</button>
-							 </div>
-						  </form>
+                           <p class="c-deeporange f-500 m-b-20">Database Table은 옆의 메뉴에서 선택할 수 있습니다.</p>
+                           <br/><br/>
+                           <div class="row">
+                                <div class="col-sm-3">
+                                    <p class="c-darkgray f-500 m-b-20">Application</p>
+                                </div> 
+                                <div class="col-sm-3">
+                                    <p class="c-darkgray f-500 m-b-20">Channel</p>
+                                </div> 
+                                <div class="col-sm-3">
+                                    <p class="c-darkgray f-500 m-b-20">User</p>
+                                </div> 
+                           </div>
+                           <div class="row">
+                                <div class="col-sm-3">
+                                    <div class="form-group fg-line">
+                                        <div class="select">
+                                            <select class="form-control">
+                                                <option>Select an App</option>
+                                                <option>Option 1</option>
+                                                <option>Option 2</option>
+                                                <option>Option 3</option>
+                                                <option>Option 4</option>
+                                                <option>Option 5</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-sm-3">
+                                    <div class="form-group fg-line">
+                                        <div class="select">
+                                            <select class="form-control">
+                                                <option>Select an Channel</option>
+                                                <option>Option 1</option>
+                                                <option>Option 2</option>
+                                                <option>Option 3</option>
+                                                <option>Option 4</option>
+                                                <option>Option 5</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-sm-3">
+                                    <div class="form-group fg-line">
+                                        <div class="select">
+                                            <select class="form-control">
+                                                <option>Select an User</option>
+                                                <option>Option 1</option>
+                                                <option>Option 2</option>
+                                                <option>Option 3</option>
+                                                <option>Option 4</option>
+                                                <option>Option 5</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-sm-3">
+                                    <button type="button" id="btn_table_search" class="btn btn-primary btn-sm m-t-5">Search</button>
+							    </div>
+                            </div>
 					   </div>
-				    </div>
+				</div>
 
 				<div class="card" id="card_input" style="display: none;">
 				    <form class="form-horizontal" role="form">
@@ -498,10 +527,10 @@ $(document).ready(function(){
 		return;
 	}
 
-	$('#btn_table_search').click(function(event){
-		var targetTable = $('#sel_table_search').val();
-		requestSelect(targetTable, onCrud);
-	});
+//	$('#btn_table_search').click(function(event){
+//		var targetTable = $('#sel_table_search').val();
+//		requestSelect(targetTable, onCrud);
+//	});
 
     $('#content .card').eq(0).show();
 });
