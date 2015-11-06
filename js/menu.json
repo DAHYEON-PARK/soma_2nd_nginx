@@ -2,62 +2,62 @@
 {
 	"icon":"accounts-list-alt",
 	"title":"User",
-	"url":"crud.html?type=user"
+	"url":"main.html?type=user"
 },
 {
 	"icon":"store",
 	"title":"Session",
-	"url":"crud.html?type=session"
+	"url":"main.html?type=session"
 },
 {
 	"icon":"account-circle",
 	"title":"App",
-	"url":"crud.html?type=app"
+	"url":"main.html?type=app"
 },
 {
 	"icon":"menu",
 	"title":"App User List",
-	"url":"crud.html?type=app_user_list"
+	"url":"main.html?type=app_user_list"
 },
 {
 	"icon":"developer-board",
 	"title":"Channel",
-	"url":"crud.html?type=channel"
+	"url":"main.html?type=channel"
 },
 {
 	"icon":"edit",
 	"title":"Channel User List",
-	"url":"crud.html?type=channel_user_list"
+	"url":"main.html?type=channel_user_list"
 },
 {
 	"icon":"mail-reply",
 	"title":"Notice",
-	"url":"crud.html?type=notice"
+	"url":"main.html?type=notice"
 },
 {
 	"icon":"phone",
 	"title":"Setting",
-	"url":"crud.html?type=setting"
+	"url":"main.html?type=setting"
 },
 {
 	"icon":"remote-control",
 	"title":"Black List",
-	"url":"crud.html?type=Table9"
+	"url":"main.html?type=Table9"
 },
 {
 	"icon":"seat",
 	"title":"Word Filter",
-	"url":"crud.html?type=Table10"
+	"url":"main.html?type=Table10"
 },
 {
 	"icon":"portable-wifi",
 	"title":"Server Traffic",
-	"url":"crud.html?type=Table11"
+	"url":"main.html?type=Table11"
 },
 {
 	"icon":"settings",
 	"title":"Default",
-	"url":"crud.html"
+	"url":"main.html"
 }
 ]
 
