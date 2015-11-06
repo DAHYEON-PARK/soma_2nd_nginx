@@ -275,7 +275,7 @@ function requestUpdate(table, cbComplete)
         attr = attr.concat(cols[i]+'=\''+table[cols[i]]+'\'');                 
 		if(i!=(cols.length-3))
 			attr = attr.concat(',');
-	}
+    }
 	var query = 'update ' +table['table_name']+ ' set ' +attr+ ' where ' +cols[0]+'=' +table[cols[0]];
     query = query.toLowerCase();
     query = encodeURIComponent(query);
@@ -412,7 +412,7 @@ function requestUserByApp(json, cbComplete)
 }
 
 // category별 channel & app별 channel & user별 channel
-function requestQuery(json, cbComplete)
+function requestByChannel(json, cbComplete)
 {
     // json = { "key":"value" }
     var key = Object.keys(json);
