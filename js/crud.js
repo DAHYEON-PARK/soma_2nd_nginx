@@ -219,18 +219,18 @@ function requestInsert(table, cbComplete)
 	var cols = Object.keys(table);
 	
 	var attr = '';
-	for(var i=1; i<cols.length-2; i++)
+	for(var i=1; i<cols.length-1; i++)
 	{
 		attr = attr.concat(cols[i]);
-		if(i!=(cols.length-3))
+		if(i!=(cols.length-2))
 			attr = attr.concat(',');
 	}
 	
 	var con = '';
-	for(var i=1; i<cols.length-2; i++)
+	for(var i=1; i<cols.length-1; i++)
 	{
 		con = con.concat('\''+table[cols[i]]+'\'');
-		if(i!=(cols.length-3))
+		if(i!=(cols.length-2))
 			con = con.concat(',');
 	}
 
@@ -270,10 +270,10 @@ function requestUpdate(table, cbComplete)
 	var cols = Object.keys(table);
 	
 	var attr = '';
-	for(var i=1; i<cols.length-2; i++)
+	for(var i=1; i<cols.length-1; i++)
 	{
         attr = attr.concat(cols[i]+'=\''+table[cols[i]]+'\'');                 
-		if(i!=(cols.length-3))
+		if(i!=(cols.length-2))
 			attr = attr.concat(',');
     }
 	var query = 'update ' +table['table_name']+ ' set ' +attr+ ' where ' +cols[0]+'=' +table[cols[0]];
