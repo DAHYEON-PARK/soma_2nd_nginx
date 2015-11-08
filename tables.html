@@ -16,8 +16,9 @@
         <link href="css/app.min.1.css" rel="stylesheet">
         <link href="css/app.min.2.css" rel="stylesheet">
     </head>
+    
     <body>
-        <header id="header">
+        <header id="header" class="">
             <ul class="header-inner">
                 <li id="menu-trigger" data-trigger="#sidebar">
                     <div class="line-wrap">
@@ -267,19 +268,19 @@
                     <li class="hidden-xs" id="chat-trigger" data-trigger="#chat">
                         <a class="tm-chat" href=""></a>
                     </li>
-                </li>
+                
             </ul>
             
             <!-- Top Search Content -->
             <div id="top-search-wrap">
                 <input type="text">
-                <i id="top-search-close">&times;</i>
+                <i id="top-search-close">×</i>
             </div>
-        </header>
+        </li></ul></header>
         
         <section id="main">
             <aside id="sidebar">
-                <div class="sidebar-inner c-overflow">
+                <div class="sidebar-inner c-overflow" tabindex="7" style="overflow: hidden; outline: none;">
                     <div class="profile-menu">
                         <a href="">
                             <div class="profile-pic">
@@ -293,7 +294,7 @@
                             </div>
                         </a>
 
-                        <ul class="main-menu">
+                        <ul class="main-menu" style="display: none;">
                             <li>
                                 <a href="profile-about.html"><i class="zmdi zmdi-account"></i> View Profile</a>
                             </li>
@@ -347,7 +348,7 @@
                                 <li><a href="buttons.html">Buttons</a></li>
                                 <li><a href="icons.html">Icons</a></li>
                                 <li><a href="alerts.html">Alerts</a></li>
-                                <li><a href="notification-dialog.html">Notifications & Dialogs</a></li>
+                                <li><a href="notification-dialog.html">Notifications &amp; Dialogs</a></li>
                                 <li><a href="media.html">Media</a></li>
                                 <li><a href="components.html">Components</a></li>
                                 <li><a href="other-components.html">Others</a></li>
@@ -391,76 +392,212 @@
                 </div>
             </aside>
             
+            <aside id="chat" class="">
+                <ul class="tab-nav tn-justified" role="tablist" tabindex="6" style="overflow: hidden; outline: none;">
+                    <li role="presentation" class="active"><a href="#friends" aria-controls="friends" role="tab" data-toggle="tab">Friends</a></li>
+                    <li role="presentation"><a href="#online" aria-controls="online" role="tab" data-toggle="tab">Online Now</a></li>
+                </ul>
+            
+                <div class="chat-search">
+                    <div class="fg-line">
+                        <input type="text" class="form-control" placeholder="Search People">
+                    </div>
+                </div>
+                
+                <div class="tab-content">
+                    <div role="tabpanel" class="tab-pane fade in active" id="friends">
+                        <div class="listview">
+                            <a class="lv-item" href="">
+                                <div class="media">
+                                    <div class="pull-left p-relative">
+                                        <img class="lv-img-sm" src="img/profile-pics/2.jpg" alt="">
+                                        <i class="chat-status-busy"></i>
+                                    </div>
+                                    <div class="media-body">
+                                        <div class="lv-title">Jonathan Morris</div>
+                                        <small class="lv-small">Available</small>
+                                    </div>
+                                </div>
+                            </a>
+                            
+                            <a class="lv-item" href="">
+                                <div class="media">
+                                    <div class="pull-left">
+                                        <img class="lv-img-sm" src="img/profile-pics/1.jpg" alt="">
+                                    </div>
+                                    <div class="media-body">
+                                        <div class="lv-title">David Belle</div>
+                                        <small class="lv-small">Last seen 3 hours ago</small>
+                                    </div>
+                                </div>
+                            </a>
+                            
+                            <a class="lv-item" href="">
+                                <div class="media">
+                                    <div class="pull-left p-relative">
+                                        <img class="lv-img-sm" src="img/profile-pics/3.jpg" alt="">
+                                        <i class="chat-status-online"></i>
+                                    </div>
+                                    <div class="media-body">
+                                        <div class="lv-title">Fredric Mitchell Jr.</div>
+                                        <small class="lv-small">Availble</small>
+                                    </div>
+                                </div>
+                            </a>
+                            
+                            <a class="lv-item" href="">
+                                <div class="media">
+                                    <div class="pull-left p-relative">
+                                        <img class="lv-img-sm" src="img/profile-pics/4.jpg" alt="">
+                                        <i class="chat-status-online"></i>
+                                    </div>
+                                    <div class="media-body">
+                                        <div class="lv-title">Glenn Jecobs</div>
+                                        <small class="lv-small">Availble</small>
+                                    </div>
+                                </div>
+                            </a>
+                            
+                            <a class="lv-item" href="">
+                                <div class="media">
+                                    <div class="pull-left">
+                                        <img class="lv-img-sm" src="img/profile-pics/5.jpg" alt="">
+                                    </div>
+                                    <div class="media-body">
+                                        <div class="lv-title">Bill Phillips</div>
+                                        <small class="lv-small">Last seen 3 days ago</small>
+                                    </div>
+                                </div>
+                            </a>
+                            
+                            <a class="lv-item" href="">
+                                <div class="media">
+                                    <div class="pull-left">
+                                        <img class="lv-img-sm" src="img/profile-pics/6.jpg" alt="">
+                                    </div>
+                                    <div class="media-body">
+                                        <div class="lv-title">Wendy Mitchell</div>
+                                        <small class="lv-small">Last seen 2 minutes ago</small>
+                                    </div>
+                                </div>
+                            </a>
+                            <a class="lv-item" href="">
+                                <div class="media">
+                                    <div class="pull-left p-relative">
+                                        <img class="lv-img-sm" src="img/profile-pics/7.jpg" alt="">
+                                        <i class="chat-status-busy"></i>
+                                    </div>
+                                    <div class="media-body">
+                                        <div class="lv-title">Teena Bell Ann</div>
+                                        <small class="lv-small">Busy</small>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                    <div role="tabpanel" class="tab-pane fade" id="online">
+                        <div class="listview">
+                            <a class="lv-item" href="">
+                                <div class="media">
+                                    <div class="pull-left p-relative">
+                                        <img class="lv-img-sm" src="img/profile-pics/2.jpg" alt="">
+                                        <i class="chat-status-busy"></i>
+                                    </div>
+                                    <div class="media-body">
+                                        <div class="lv-title">Jonathan Morris</div>
+                                        <small class="lv-small">Available</small>
+                                    </div>
+                                </div>
+                            </a>
+                            
+                            <a class="lv-item" href="">
+                                <div class="media">
+                                    <div class="pull-left p-relative">
+                                        <img class="lv-img-sm" src="img/profile-pics/3.jpg" alt="">
+                                        <i class="chat-status-online"></i>
+                                    </div>
+                                    <div class="media-body">
+                                        <div class="lv-title">Fredric Mitchell Jr.</div>
+                                        <small class="lv-small">Availble</small>
+                                    </div>
+                                </div>
+                            </a>
+                            
+                            <a class="lv-item" href="">
+                                <div class="media">
+                                    <div class="pull-left p-relative">
+                                        <img class="lv-img-sm" src="img/profile-pics/4.jpg" alt="">
+                                        <i class="chat-status-online"></i>
+                                    </div>
+                                    <div class="media-body">
+                                        <div class="lv-title">Glenn Jecobs</div>
+                                        <small class="lv-small">Availble</small>
+                                    </div>
+                                </div>
+                            </a>
+
+                            <a class="lv-item" href="">
+                                <div class="media">
+                                    <div class="pull-left p-relative">
+                                        <img class="lv-img-sm" src="img/profile-pics/7.jpg" alt="">
+                                        <i class="chat-status-busy"></i>
+                                    </div>
+                                    <div class="media-body">
+                                        <div class="lv-title">Teena Bell Ann</div>
+                                        <small class="lv-small">Busy</small>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </aside>
+            
+            
             <section id="content">
                 <div class="container">
-                    
-                    <div class="card" > <!-- style="display: none;"> -->
-					   <div class="card-header">
-                          <h2>Table CRUD <small>테이블 스키마를 선택해서 데이터를 관리할 수 있습니다.</small></h2>
-					   </div>
-
-					   <div class="card-body card-padding">
-						  <form class="row" role="form">
-							 <div class="col-sm-5">
-								<div class="form-group fg-line">
-									<div class="fg-line select">
-										<select class="form-control" id="sel_table_search">
-											<option>USER</option>
-                                            <option>SESSION</option>
-											<option>APP</option>
-                                            <option>APP USER LIST</option>
-                                            <option>CHANNEL</option>
-                                            <option>CHANNEL USER LIST</option>
-                                            <option>NOTICE</option>
-                                            <option>SETTING</option>
-										</select>
-									</div>
-								</div>
-							 </div>
-
-							 <div class="col-sm-4">
-								<button type="button" id="btn_table_search" class="btn btn-primary btn-sm m-t-5">Search</button>
-							 </div>
-						  </form>
-					   </div>
-				    </div>
-
-				    <div class="card" id="card_input" > <!-- style="display: none;"> -->
-					   <form class="form-horizontal" role="form">
-						  <div class="card-header">
-							<div class="row">
-                                <div class="col-sm-9">
-                                    <h5><big>데이터</big> 입력 / 수정 / 삭제</h5> 
-                                </div>
+                    <div class="block-header">
+                        <h2>Table</h2>
+                        
+                        <ul class="actions">
+                            <li>
+                                <a href="">
+                                    <i class="zmdi zmdi-trending-up"></i>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="">
+                                    <i class="zmdi zmdi-check-all"></i>
+                                </a>
+                            </li>
+                            <li class="dropdown">
+                                <a href="" data-toggle="dropdown">
+                                    <i class="zmdi zmdi-more-vert"></i>
+                                </a>
                                 
-                                <div class="col-sm-3">
-                                    <button id="insertBtn" type="button" class="btn btn-primary btn-sm waves-effect">입력</button> 
-                                    <button id="updateBtn" type="button" class="btn btn-success btn-sm waves-effect">수정</button>
-                                    <button id="deleteBtn" type="button" class="btn btn-warning btn-sm waves-effect">삭제</button>
-                                </div> 
-                            </div>
-						</div>
-						
-						  <div class="card-body card-padding">
-                              <div class="form-group"><label class="col-sm-2 control-label" for="input_id_{COLUMN}">{COLUMN}</label><div class="col-sm-10"><div class="fg-line"><input type="text" class="form-control input-sm" id="input_id_{COLUMN}" name="{COLUMN}" placeholder="{COLUMN}"></div></div></div>
-                            <div class="form-group">
-								<div class="col-sm-offset-2 col-sm-10">
-									<button id="insertBtn" type="button" class="btn btn-primary btn-sm waves-effect">입력</button>
-									<button id="updateBtn" type="button" class="btn btn-success btn-sm waves-effect">수정</button>
-									<button id="deleteBtn" type="button" class="btn btn-warning btn-sm waves-effect">삭제</button>
-								</div>
-							</div>
-						  </div>
-					   </form>
-				    </div>
+                                <ul class="dropdown-menu dropdown-menu-right">
+                                    <li>
+                                        <a href="">Refresh</a>
+                                    </li>
+                                    <li>
+                                        <a href="">Manage Widgets</a>
+                                    </li>
+                                    <li>
+                                        <a href="">Widgets Settings</a>
+                                    </li>
+                                </ul>
+                            </li>
+                        </ul>
+                        
+                    </div>
                     
                     <div class="card">
                         <div class="card-header">
-                            <h2>Striped rows <small>Add zebra-striping to any table row within the tbody</small></h2>
+                            <h2>Basic Table <small>Basic example without any additional modification classes</small></h2>
                         </div>
                         
-                        <div class="table-responsive">
-                            <table class="table table-striped">
+                        <div class="card-body table-responsive" tabindex="0" style="overflow: hidden; outline: none;">
+                            <table class="table">
                                 <thead>
                                     <tr>
                                         <th>#</th>
@@ -481,7 +618,7 @@
                                     <tr>
                                         <td>2</td>
                                         <td>Madeleine</td>
-                                        <td>2d567204b50f2c36d3eb830223a66d787400bb89613619420d34d600fbe332b5 </td>
+                                        <td>Hollaway</td>
                                         <td>@hollway</td>
                                         <td>Cheese</td>
                                     </tr>
@@ -530,18 +667,383 @@
                                 </tbody>
                             </table>
                         </div>
-                    </div> 
+                    </div>
                     
+                    <div class="card">
+                        <div class="card-header">
+                            <h2>Striped rows <small>Add zebra-striping to any table row within the tbody</small></h2>
+                        </div>
+                        
+                        <div class="table-responsive" tabindex="1" style="overflow: hidden; outline: none;">
+                            <table class="table table-striped">
+                                <thead>
+                                    <tr>
+                                        <th>#</th>
+                                        <th>First Name</th>
+                                        <th>Last Name</th>
+                                        <th>Username</th>
+                                        <th>Nickname</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>1</td>
+                                        <td>Alexandra</td>
+                                        <td>Christopher</td>
+                                        <td>@makinton</td>
+                                        <td>Ducky</td>
+                                    </tr>
+                                    <tr>
+                                        <td>2</td>
+                                        <td>Madeleine</td>
+                                        <td>Hollaway</td>
+                                        <td>@hollway</td>
+                                        <td>Cheese</td>
+                                    </tr>
+                                    <tr>
+                                        <td>3</td>
+                                        <td>Sebastian</td>
+                                        <td>Johnston</td>
+                                        <td>@sebastian</td>
+                                        <td>Jaycee</td>
+                                    </tr>
+                                    <tr>
+                                        <td>4</td>
+                                        <td>Mitchell</td>
+                                        <td>Christin</td>
+                                        <td>@mitchell4u</td>
+                                        <td>AdskiDeAnus</td>
+                                    </tr>
+                                    <tr>
+                                        <td>5</td>
+                                        <td>Elizabeth</td>
+                                        <td>Belkitt</td>
+                                        <td>@belkitt</td>
+                                        <td>Goat</td>
+                                    </tr>
+                                    <tr>
+                                        <td>6</td>
+                                        <td>Benjamin</td>
+                                        <td>Parnell</td>
+                                        <td>@wayne234</td>
+                                        <td>Pokie</td>
+                                    </tr>
+                                    <tr>
+                                        <td>7</td>
+                                        <td>Katherine</td>
+                                        <td>Buckland</td>
+                                        <td>@anitabelle</td>
+                                        <td>Wokie</td>
+                                    </tr>
+                                    <tr>
+                                        <td>8</td>
+                                        <td>Nicholas</td>
+                                        <td>Walmart</td>
+                                        <td>@mwalmart</td>
+                                        <td>Spike</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    
+                    <div class="card">
+                        <div class="card-header">
+                            <h2>Bordered table <small>Tables with borders on all possible sides of the Table and Cells</small></h2>
+                        </div>
+                        
+                        <div class="table-responsive" tabindex="2" style="overflow: hidden; outline: none;">
+                            <table class="table table-bordered">
+                                <thead>
+                                    <tr>
+                                        <th>#</th>
+                                        <th>First Name</th>
+                                        <th>Last Name</th>
+                                        <th>Username</th>
+                                        <th>Nickname</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>1</td>
+                                        <td>Alexandra</td>
+                                        <td>Christopher</td>
+                                        <td>@makinton</td>
+                                        <td>Ducky</td>
+                                    </tr>
+                                    <tr>
+                                        <td>2</td>
+                                        <td>Madeleine</td>
+                                        <td>Hollaway</td>
+                                        <td>@hollway</td>
+                                        <td>Cheese</td>
+                                    </tr>
+                                    <tr>
+                                        <td>3</td>
+                                        <td>Sebastian</td>
+                                        <td>Johnston</td>
+                                        <td>@sebastian</td>
+                                        <td>Jaycee</td>
+                                    </tr>
+                                    <tr>
+                                        <td>4</td>
+                                        <td>Mitchell</td>
+                                        <td>Christin</td>
+                                        <td>@mitchell4u</td>
+                                        <td>AdskiDeAnus</td>
+                                    </tr>
+                                    <tr>
+                                        <td>5</td>
+                                        <td>Elizabeth</td>
+                                        <td>Belkitt</td>
+                                        <td>@belkitt</td>
+                                        <td>Goat</td>
+                                    </tr>
+                                    <tr>
+                                        <td>6</td>
+                                        <td>Benjamin</td>
+                                        <td>Parnell</td>
+                                        <td>@wayne234</td>
+                                        <td>Pokie</td>
+                                    </tr>
+                                    <tr>
+                                        <td>7</td>
+                                        <td>Katherine</td>
+                                        <td>Buckland</td>
+                                        <td>@anitabelle</td>
+                                        <td>Wokie</td>
+                                    </tr>
+                                    <tr>
+                                        <td>8</td>
+                                        <td>Nicholas</td>
+                                        <td>Walmart</td>
+                                        <td>@mwalmart</td>
+                                        <td>Spike</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    
+                    <div class="card">
+                        <div class="card-header">
+                            <h2>Hover Row <small>Enable a hover state on table rows within a tbody</small></h2>
+                        </div>
+                        
+                        <div class="table-responsive" tabindex="3" style="overflow: hidden; outline: none;">
+                            <table class="table table-hover">
+                                <thead>
+                                    <tr>
+                                        <th>#</th>
+                                        <th>First Name</th>
+                                        <th>Last Name</th>
+                                        <th>Username</th>
+                                        <th>Nickname</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>1</td>
+                                        <td>Alexandra</td>
+                                        <td>Christopher</td>
+                                        <td>@makinton</td>
+                                        <td>Ducky</td>
+                                    </tr>
+                                    <tr>
+                                        <td>2</td>
+                                        <td>Madeleine</td>
+                                        <td>Hollaway</td>
+                                        <td>@hollway</td>
+                                        <td>Cheese</td>
+                                    </tr>
+                                    <tr>
+                                        <td>3</td>
+                                        <td>Sebastian</td>
+                                        <td>Johnston</td>
+                                        <td>@sebastian</td>
+                                        <td>Jaycee</td>
+                                    </tr>
+                                    <tr>
+                                        <td>4</td>
+                                        <td>Mitchell</td>
+                                        <td>Christin</td>
+                                        <td>@mitchell4u</td>
+                                        <td>AdskiDeAnus</td>
+                                    </tr>
+                                    <tr>
+                                        <td>5</td>
+                                        <td>Elizabeth</td>
+                                        <td>Belkitt</td>
+                                        <td>@belkitt</td>
+                                        <td>Goat</td>
+                                    </tr>
+                                    <tr>
+                                        <td>6</td>
+                                        <td>Benjamin</td>
+                                        <td>Parnell</td>
+                                        <td>@wayne234</td>
+                                        <td>Pokie</td>
+                                    </tr>
+                                    <tr>
+                                        <td>7</td>
+                                        <td>Katherine</td>
+                                        <td>Buckland</td>
+                                        <td>@anitabelle</td>
+                                        <td>Wokie</td>
+                                    </tr>
+                                    <tr>
+                                        <td>8</td>
+                                        <td>Nicholas</td>
+                                        <td>Walmart</td>
+                                        <td>@mwalmart</td>
+                                        <td>Spike</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    
+                    <div class="card">
+                        <div class="card-header">
+                            <h2>Table Condensed <small>Make tables more compact by cutting cell padding in half.</small></h2>
+                        </div>
+                        
+                        <div class="table-responsive" tabindex="4" style="overflow: hidden; outline: none;">
+                            <table class="table table-condensed">
+                                <thead>
+                                    <tr>
+                                        <th>#</th>
+                                        <th>First Name</th>
+                                        <th>Last Name</th>
+                                        <th>Username</th>
+                                        <th>Nickname</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>1</td>
+                                        <td>Alexandra</td>
+                                        <td>Christopher</td>
+                                        <td>@makinton</td>
+                                        <td>Ducky</td>
+                                    </tr>
+                                    <tr>
+                                        <td>2</td>
+                                        <td>Madeleine</td>
+                                        <td>Hollaway</td>
+                                        <td>@hollway</td>
+                                        <td>Cheese</td>
+                                    </tr>
+                                    <tr>
+                                        <td>3</td>
+                                        <td>Sebastian</td>
+                                        <td>Johnston</td>
+                                        <td>@sebastian</td>
+                                        <td>Jaycee</td>
+                                    </tr>
+                                    <tr>
+                                        <td>4</td>
+                                        <td>Mitchell</td>
+                                        <td>Christin</td>
+                                        <td>@mitchell4u</td>
+                                        <td>AdskiDeAnus</td>
+                                    </tr>
+                                    <tr>
+                                        <td>5</td>
+                                        <td>Elizabeth</td>
+                                        <td>Belkitt</td>
+                                        <td>@belkitt</td>
+                                        <td>Goat</td>
+                                    </tr>
+                                    <tr>
+                                        <td>6</td>
+                                        <td>Benjamin</td>
+                                        <td>Parnell</td>
+                                        <td>@wayne234</td>
+                                        <td>Pokie</td>
+                                    </tr>
+                                    <tr>
+                                        <td>7</td>
+                                        <td>Katherine</td>
+                                        <td>Buckland</td>
+                                        <td>@anitabelle</td>
+                                        <td>Wokie</td>
+                                    </tr>
+                                    <tr>
+                                        <td>8</td>
+                                        <td>Nicholas</td>
+                                        <td>Walmart</td>
+                                        <td>@mwalmart</td>
+                                        <td>Spike</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    
+                    <div class="card">
+                        <div class="card-header">
+                            <h2>Contextual classes <small>Use contextual classes to color table rows or individual cells.</small></h2>
+                        </div>
+                        
+                        <div class="table-responsive" tabindex="5" style="overflow: hidden; outline: none;">
+                            <table class="table">
+                                <thead>
+                                    <tr>
+                                        <th>#</th>
+                                        <th>First Name</th>
+                                        <th>Last Name</th>
+                                        <th>Username</th>
+                                        <th>Nickname</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr class="active">
+                                        <td>1</td>
+                                        <td>Alexandra</td>
+                                        <td>Christopher</td>
+                                        <td>@makinton</td>
+                                        <td>Ducky</td>
+                                    </tr>
+                                    <tr class="info">
+                                        <td>3</td>
+                                        <td>Sebastian</td>
+                                        <td>Johnston</td>
+                                        <td>@sebastian</td>
+                                        <td>Jaycee</td>
+                                    </tr>
+                                    <tr class="warning">
+                                        <td>4</td>
+                                        <td>Mitchell</td>
+                                        <td>Christin</td>
+                                        <td>@mitchell4u</td>
+                                        <td>AdskiDeAnus</td>
+                                    </tr>
+                                    <tr class="success">
+                                        <td>2</td>
+                                        <td>Madeleine</td>
+                                        <td>Hollaway</td>
+                                        <td>@hollway</td>
+                                        <td>Cheese</td>
+                                    </tr>
+                                    <tr class="danger">
+                                        <td>5</td>
+                                        <td>Elizabeth</td>
+                                        <td>Belkitt</td>
+                                        <td>@belkitt</td>
+                                        <td>Goat</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
                     
                 </div>
             </section>
-            
-            
-            
         </section>
         
         <footer id="footer">
-            Copyright &copy; 2015 Material Admin
+            Copyright © 2015 Material Admin
             
             <ul class="f-menu">
                 <li><a href="">Home</a></li>
@@ -612,7 +1114,5 @@
         
         <script src="js/functions.js"></script>
         <script src="js/demo.js"></script>
-
-        
     </body>
   </html>

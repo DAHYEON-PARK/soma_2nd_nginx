@@ -27,6 +27,7 @@
     <script src="vendors/bower_components/jquery.nicescroll/jquery.nicescroll.min.js"></script>
     <script src="js/functions.js"></script>
     <script src="vendors/bower_components/bootstrap-sweetalert/lib/sweet-alert.min.js"></script>
+    <script src="vendors/bootgrid/jquery.bootgrid.min.js"></script>
     
     <script src="js/crud.js"></script> 
     <script src="js/wraptalk.js"></script> 
@@ -329,11 +330,11 @@
 					<form class="form-horizontal" role="form">
 						<div class="card-header">
 							<div class="row">
-                                <div class="col-sm-9">
+                                <div class="col-xs-12 col-sm-6 col-md-8">
                                     <h5><big>데이터</big> 입력 / 수정 / 삭제</h5> 
                                 </div>
                                 
-                                <div class="col-sm-3">
+                                <div class="col-xs-6 col-md-4">
                                     <button id="emptyBtn" type="button" class="btn btn-primary btn-sm waves-effect">비우기</button> 
                                     <button id="insertBtn" type="button" class="btn btn-success btn-sm waves-effect">입력</button> 
                                     <button id="updateBtn" type="button" class="btn btn-warning btn-sm waves-effect">수정</button>
@@ -370,7 +371,7 @@
 function onCrud(table, json){
     var $container = $('#card_table');
    	var header = '<h2>'+table+' <small>Show database tables for admin user.</small></h2>';
-	var $card = $('<div id="card_table" class="card"><div class="card-header">'+header+'</div><div class="table-responsive"><table class="table table-striped"><thead></thead><tbody></tbody></table></div></div>');  
+	var $card = $('<div id="card_table" class="card"><div class="card-header">'+header+'</div><div class="table-responsive"><table class="table table-striped" id="data-table-basic"><thead></thead><tbody></tbody></table></div></div>');  
 
     // setting table header columns
 	var colArr = json.columnNames;
@@ -378,7 +379,7 @@ function onCrud(table, json){
 		var $thead = $card.find('thead');
 		var $tr = $('<tr></tr>');
 		for(i=0; i<colArr.length; i++) {
-			$tr.append('<th>'+colArr[i]+'</th>');
+			$tr.append('<th data-column-id=\"'+colArr[i].toLowerCase()+'\">'+colArr[i].toUpperCase()+'</th>');
 		}
 		$thead.append($tr);
 
@@ -518,6 +519,17 @@ $(document).ready(function(){
 		requestSelect(table, onCrud);
 		return;
 	}
+    
+    //Basic Example
+    $("#data-table-basic").bootgrid({
+        css: {
+            icon: 'zmdi icon',
+            iconColumns: 'zmdi-view-module',
+            iconDown: 'zmdi-expand-more',
+            iconRefresh: 'zmdi-refresh',
+            iconUp: 'zmdi-expand-less'
+        },
+    });
 
 //	$('#btn_table_search').click(function(event){
 //		var targetTable = $('#sel_table_search').val();
