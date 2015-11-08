@@ -157,20 +157,18 @@ function initMenu(menuKey)
 				else if(!menuKey && g_app_menu[i].title == 'Default') 
 					cls = 'class="active"';
 
-				var $menu = '<li '+cls+'><a href="'+g_app_menu[i].url+'"><i class="zmdi zmdi-'+g_app_menu[i].icon+'"></i> '+g_app_menu[i].title+'</a></li>';
-				$('#menu-public').append($menu);
+				var $menu = '<li><a '+cls+' href="'+g_app_menu[i].url+'"><i class="zmdi zmdi-'+g_app_menu[i].icon+'"></i> '+g_app_menu[i].title+'</a></li>';
+				$('#menu-db-table').append($menu);
 			}
 
-			if(menuKey) {
-				
-				for(i=0; i<g_app_menu.length; i++) {
-					if(g_app_menu[i].url.indexOf(menuKey) != -1) {
-						$('#content .block-header h2').text(g_app_menu[i].title);
-						break;
-					}
-				}
-				
-			}
+//			if(menuKey) {
+//				for(i=0; i<g_app_menu.length; i++) {
+//					if(g_app_menu[i].url.indexOf(menuKey) != -1) {
+//						$('#content .block-header h2').text(g_app_menu[i].title);
+//						break;
+//					}
+//				}
+//			}
 		},
 		error: function(e) {
 			console.log('접속이 원활하지 않습니다.');
@@ -214,6 +212,7 @@ function requestSelect(table, cbComplete)
 	});
 }
 
+// 입력, 추가
 function requestInsert(table, cbComplete)
 {
 	var cols = Object.keys(table);
@@ -265,6 +264,7 @@ function requestInsert(table, cbComplete)
 	});
 }
 
+// 수정
 function requestUpdate(table, cbComplete)
 {
 	var cols = Object.keys(table);
@@ -307,6 +307,7 @@ function requestUpdate(table, cbComplete)
 	});
 }
 
+// 삭제
 function requestDelete(table, cbComplete)
 {
     var cols = Object.keys(table);
@@ -474,6 +475,4 @@ function getLocationParameter( name ){
 	 if( results == null )    return "";  
 	else    return results[1];
 }
-
-
 

@@ -1,47 +1,47 @@
 [
-{
-	"icon":"accounts-list-alt",
-	"title":"User",
-	"url":"main.html?type=user"
-},
-{
-	"icon":"store",
-	"title":"Session",
-	"url":"main.html?type=session"
-},
-{
-	"icon":"account-circle",
-	"title":"App",
-	"url":"main.html?type=app"
-},
-{
-	"icon":"menu",
-	"title":"App User List",
-	"url":"main.html?type=app_user_list"
-},
-{
-	"icon":"developer-board",
-	"title":"Channel",
-	"url":"main.html?type=channel"
-},
-{
-	"icon":"edit",
-	"title":"Channel User List",
-	"url":"main.html?type=channel_user_list"
-},
-{
-	"icon":"mail-reply",
-	"title":"Notice",
-	"url":"main.html?type=notice"
-},
-{
-	"icon":"phone",
-	"title":"Global Setting",
-	"url":"main.html?type=global_setting"
-},
- {
-	"icon":"widgets",
-	"title":"Setting",
-	"url":"main.html?type=setting"
-}
+    {
+        "icon":"accounts-list-alt",
+        "title":"User",
+        "url":"main.html?type=user"
+    },
+    {
+        "icon":"store",
+        "title":"Session",
+        "url":"main.html?type=session"
+    },
+    {
+        "icon":"account-circle",
+        "title":"App",
+        "url":"main.html?type=app"
+    },
+    {
+        "icon":"menu",
+        "title":"App User List",
+        "url":"main.html?type=app_user_list"
+    },
+    {
+        "icon":"developer-board",
+        "title":"Channel",
+        "url":"main.html?type=channel"
+    },
+    {
+        "icon":"edit",
+        "title":"Channel User List",
+        "url":"main.html?type=channel_user_list"
+    },
+    {
+        "icon":"mail-reply",
+        "title":"Notice",
+        "url":"main.html?type=notice"
+    },
+    {
+        "icon":"phone",
+        "title":"Global Setting",
+        "url":"main.html?type=global_setting"
+    },
+     {
+        "icon":"widgets",
+        "title":"Setting",
+        "url":"main.html?type=setting"
+    }
 ]

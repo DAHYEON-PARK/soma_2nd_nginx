@@ -231,7 +231,7 @@
 
                     <ul class="main-menu">
                         <!-- View Profile에 profile-about.html 연결하기 -->
-                        <li><a href=""><i class="zmdi zmdi-account"></i> View Profile</a></li>
+                        <li><a href="profile-about.html"><i class="zmdi zmdi-account"></i> View Profile</a></li>
                         <li class="sub-menu">
                             <a href=""><i class="zmdi zmdi-view-list"></i> Database Tables</a>
 
@@ -526,6 +526,12 @@
       
         <script type="text/javascript">
             $(document).ready(function(){
+                
+                var table = getLocationParameter('type');
+	            initMenu(table);
+                
+                if(table)
+                    requestSelect(table, onCrud);
                 
                 //Selection
                 $("#data-table-selection").bootgrid({
