@@ -13,41 +13,110 @@
     <!-- CSS -->
     <link href="css/app.min.1.css" rel="stylesheet">
     <link href="css/app.min.2.css" rel="stylesheet">
+ </head>
 
-    <!-- Javascript Libraries -->
-    <script src="https://code.jquery.com/jquery-1.11.2.min.js"></script>
+ <body class="login-content">
+     <!-- Login -->
+     <div class="lc-block toggled" id="l-login">
+         <div class="input-group m-b-20">
+             <span class="input-group-addon"><i class="zmdi zmdi-email"></i></span>
+             <div class="fg-line">
+                 <input id="login_user_email" type="text" class="form-control" placeholder="E-mail Address">
+             </div>
+         </div>
 
+         <div class="input-group m-b-20">
+             <span class="input-group-addon"><i class="zmdi zmdi-male"></i></span>
+             <div class="fg-line">
+                 <input id="login_user_pw" type="password" class="form-control" placeholder="Password">
+             </div>
+         </div>
+
+         <div class="clearfix"></div>
+
+         <button class="btn btn-login bgm-lime btn-float" onclick="login()"><i class="zmdi zmdi-arrow-forward"></i></button>
+
+         <ul class="login-navigation">
+             <li data-block="#l-register" class="bgm-red">Register</li>
+             <li data-block="#l-forget-password" class="bgm-orange">Forgot Password?</li>
+         </ul>
+     </div>
+
+     <!-- Register -->
+     <div class="lc-block" id="l-register">
+         <div class="input-group m-b-20">
+             <span class="input-group-addon"><i class="zmdi zmdi-email"></i></span>
+             <div class="fg-line">
+                 <input id="register_user_email" type="text" class="form-control" placeholder="E-mail Address">
+             </div>
+         </div>
+
+         <div class="input-group m-b-20">
+             <span class="input-group-addon"><i class="zmdi zmdi-male"></i></span>
+             <div class="fg-line">
+                 <input id="register_user_pw" type="password" class="form-control" placeholder="Password">
+             </div>
+         </div>
+
+         <div class="input-group m-b-20">
+             <span class="input-group-addon"><i class="zmdi zmdi-account"></i></span>
+             <div class="fg-line">
+                 <input id="register_user_repw" type="password" class="form-control" placeholder="Password Again">
+             </div>
+         </div>
+
+         <div class="clearfix"></div>
+
+         <button class="btn btn-login bgm-lime btn-float" onclick="join()"><i class="zmdi zmdi-arrow-forward"></i></button>
+
+         <ul class="login-navigation">
+             <li data-block="#l-login" class="bgm-amber">Login</li>
+             <li data-block="#l-forget-password" class="bgm-orange">Forgot Password?</li>
+         </ul>
+     </div>
+
+     <!-- Forgot Password -->
+     <div class="lc-block" id="l-forget-password">
+         <p class="text-left">Input your e-mail address used by user ID.</p>
+
+         <div class="input-group m-b-20">
+             <span class="input-group-addon"><i class="zmdi zmdi-email"></i></span>
+             <div class="fg-line">
+                 <input id="forget_user_email" type="text" class="form-control" placeholder="E-mail Address">
+             </div>
+         </div>
+
+         <button class="btn btn-login bgm-lime btn-float" onclick="findpw()"><i class="zmdi zmdi-arrow-forward"></i></button>
+
+         <ul class="login-navigation">
+             <li data-block="#l-login" class="bgm-amber">Login</li>
+             <li data-block="#l-register" class="bgm-red">Register</li>
+         </ul>
+     </div>
+
+     <!-- Javascript Libraries -->
     <script src="vendors/bower_components/jquery/dist/jquery.min.js"></script>
     <script src="vendors/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
     <script src="vendors/bower_components/Waves/dist/waves.min.js"></script>
 
     <script src="js/bootstrap.min.js"></script>
     <script src="js/functions.js"></script>
-
-    <script src="js/wraptalk.js"></script>
-<!--
-    <script src="//cdn.jsdelivr.net/sockjs/0.3.4/sockjs.min.js"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
--->
- </head>
-
- <body class="login-content">
-
+     
     <script>
       var id, pw, repw;
 
       function join() {
-        id = $('#join_user_email').val();
-        pw = $('#join_user_pw').val();
-        repw = $('#join_user_repw').val();
+        id = $('#register_user_email').val();
+        pw = $('#register_user_pw').val();
+        repw = $('#register_user_repw').val();
 
-        $('#join_user_email').val("");
-        $('#join_user_pw').val("");
-        $('#join_user_repw').val("");
+        $('#register_user_email').val("");
+        $('#register_user_pw').val("");
+        $('#register_user_repw').val("");
           
         if(pw == repw){
             $.ajax({
-                url:'http://133.130.113.101:7010/user/join?user_id=' +id+ '&user_pw=' +pw+ '&gcm_id=default&device_id=default',
+                url:'http://133.130.113.101:7010/user/join?user_id=' +id+ '&user_pw=' +pw+ '&gcm_id=web_admin&device_id=web_amdin',
                 type:'post',
                 timeout:1000,
                 dataType:'json',
@@ -87,11 +156,11 @@
                 alert('Network Error');
             },
 
+        /*
+        *********** sqlite로 저장하는 부분 추가하기
+        */
             success:function(obj){
                 if(obj.result_code == 0){
-                    g_token = obj.token;
-                    user_id = id;
-                    //setUserInfoFromJson(obj.token, id, pw);
                     window.location.href = "main.html?token="+obj.token+"?id="+id;
                 }else if(obj.result_code == -1){
                     alert(obj.result_msg);
@@ -101,91 +170,12 @@
       }
 
       function findpw() {
-        id = $('#forgot_user_id').val();
+        id = $('#forget_user_email').val();
         console.log('Find PW : user id = '+id);
-        $('#forgot_user_id').val("");
+        $('#forget_user_email').val("");
         // ajax - server request & response
       }
     </script>
-
-     <!-- Login -->
-     <div class="lc-block toggled" id="l-login">
-         <div class="input-group m-b-20">
-             <span class="input-group-addon"><i class="zmdi zmdi-email"></i></span>
-             <div class="fg-line">
-                 <input id="login_user_email" type="text" class="form-control" placeholder="E-mail Address">
-             </div>
-         </div>
-
-         <div class="input-group m-b-20">
-             <span class="input-group-addon"><i class="zmdi zmdi-male"></i></span>
-             <div class="fg-line">
-                 <input id="login_user_pw" type="password" class="form-control" placeholder="Password">
-             </div>
-         </div>
-
-         <div class="clearfix"></div>
-
-         <button class="btn btn-login bgm-lime btn-float" onclick="login()"><i class="zmdi zmdi-arrow-forward"></i></button>
-
-         <ul class="login-navigation">
-             <li data-block="#l-register" class="bgm-red">Register</li>
-             <li data-block="#l-forget-password" class="bgm-orange">Forgot Password?</li>
-         </ul>
-     </div>
-
-     <!-- Register -->
-     <div class="lc-block" id="l-register">
-         <div class="input-group m-b-20">
-             <span class="input-group-addon"><i class="zmdi zmdi-email"></i></span>
-             <div class="fg-line">
-                 <input id="join_user_email" type="text" class="form-control" placeholder="E-mail Address">
-             </div>
-         </div>
-
-         <div class="input-group m-b-20">
-             <span class="input-group-addon"><i class="zmdi zmdi-male"></i></span>
-             <div class="fg-line">
-                 <input id="join_user_pw" type="password" class="form-control" placeholder="Password">
-             </div>
-         </div>
-
-         <div class="input-group m-b-20">
-             <span class="input-group-addon"><i class="zmdi zmdi-account"></i></span>
-             <div class="fg-line">
-                 <input id="join_user_repw" type="password" class="form-control" placeholder="Password Again">
-             </div>
-         </div>
-
-         <div class="clearfix"></div>
-
-         <button class="btn btn-login bgm-lime btn-float" onclick="join()"><i class="zmdi zmdi-arrow-forward"></i></button>
-
-         <ul class="login-navigation">
-             <li data-block="#l-login" class="bgm-amber">Login</li>
-             <li data-block="#l-forget-password" class="bgm-orange">Forgot Password?</li>
-         </ul>
-     </div>
-
-     <!-- Forgot Password -->
-     <div class="lc-block" id="l-forget-password">
-         <p class="text-left">Input your e-mail address used by user ID.</p>
-
-         <div class="input-group m-b-20">
-             <span class="input-group-addon"><i class="zmdi zmdi-email"></i></span>
-             <div class="fg-line">
-                 <input id="forgot_user_id" type="text" class="form-control" placeholder="E-mail Address">
-             </div>
-         </div>
-
-         <button class="btn btn-login bgm-lime btn-float" onclick="findpw()"><i class="zmdi zmdi-arrow-forward"></i></button>
-
-         <ul class="login-navigation">
-             <li data-block="#l-login" class="bgm-amber">Login</li>
-             <li data-block="#l-register" class="bgm-red">Register</li>
-         </ul>
-     </div>
-
  </body>
 </html>
 

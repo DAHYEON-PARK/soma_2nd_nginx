@@ -36,28 +36,12 @@
 },
 {
 	"icon":"phone",
+	"title":"Global Setting",
+	"url":"main.html?type=global_setting"
+},
+ {
+	"icon":"widgets",
 	"title":"Setting",
 	"url":"main.html?type=setting"
-},
-{
-	"icon":"remote-control",
-	"title":"Black List",
-	"url":"main.html?type=Table9"
-},
-{
-	"icon":"seat",
-	"title":"Word Filter",
-	"url":"main.html?type=Table10"
-},
-{
-	"icon":"portable-wifi",
-	"title":"Server Traffic",
-	"url":"main.html?type=Table11"
-},
-{
-	"icon":"settings",
-	"title":"Default",
-	"url":"main.html"
 }
 ]
-
