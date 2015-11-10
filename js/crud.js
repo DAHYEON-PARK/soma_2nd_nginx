@@ -160,14 +160,13 @@ function initMenu(menuKey)
 				var $menu = '<li><a '+cls+' href="'+g_app_menu[i].url+'"><i class="zmdi zmdi-'+g_app_menu[i].icon+'"></i> '+g_app_menu[i].title+'</a></li>';
 				$('#menu-db-table').append($menu);
 			}
-
-//	ㅈ
 		},
 		error: function(e) {
 			console.log('접속이 원활하지 않습니다.');
 		}
 	});
 }
+
 
 function requestSelect(table, cbComplete)
 {
@@ -195,7 +194,7 @@ function requestSelect(table, cbComplete)
 			
 			if(cbComplete)
 			{
-				//alert(obj.result);
+				// table은 table 이름 - user, session...
 				cbComplete(table, obj.result);
 			}
 		},
@@ -449,7 +448,8 @@ function parseJson(data)
 	return JSON.parse(data);
 }
 
-function getJsonFromFormGroup($formGroupRoot) {
+function getJsonFromFormGroup($formGroupRoot) 
+{
 	var json = {};
 	$formGroupRoot.find('.form-group').each(function(index, element){
 		
@@ -460,7 +460,8 @@ function getJsonFromFormGroup($formGroupRoot) {
 	return json;
 }
 
-function getLocationParameter( name ){
+function getLocationParameter( name )
+{
 	name = name.replace(/[\[]/,"\\\[").replace(/[\]]/,"\\\]");  
 	var regexS = "[\\?&]"+name+"=([^&#]*)";  
 	var regex = new RegExp( regexS );  
@@ -468,6 +469,7 @@ function getLocationParameter( name ){
 	 if( results == null )    return "";  
 	else    return results[1];
 }
+
 
 function onCrud(table, json){
     var $container = $('#card_table');
@@ -540,10 +542,8 @@ function onCrud(table, json){
 		});   
 	});
 
-
-
    	$('#card_input').after($card); 
-	$('#card_input').show();
+	//$('#card_input').show();
 	
     $('#emptyBtn').click(function(event){
         var i=0;
