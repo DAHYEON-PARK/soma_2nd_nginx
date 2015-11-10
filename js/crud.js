@@ -495,7 +495,7 @@ function onCrud(table, json){
 			if(colArr[i] == 'seq' || colArr[i] == 'ipt_date')
 				continue;
             $input_htr.append('<th>'+colArr[i].toUpperCase()+'</th>');
-            $input_btr.append('<td><input type="text" class="form-control input-sm" id="input_id_'+colArr[i].toLowerCase()+'" name="'+colArr[i].toLowerCase()+'" placeholder="'+colArr[i].toLowerCase()+'"></td>');
+            $input_btr.prepend('<td><input type="text" class="form-control input-sm" id="input_id_'+colArr[i].toLowerCase()+'" name="'+colArr[i].toLowerCase()+'" placeholder="'+colArr[i].toLowerCase()+'"></td>');
 		}
         
         $input_head.append($input_htr);
