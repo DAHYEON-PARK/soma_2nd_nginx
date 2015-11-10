@@ -408,17 +408,16 @@
         <script type="text/javascript">
             $(document).ready(function(){
 
-		// sqlite부분으로 수정해야 함
-		var token = getLocationParameter('token');
-    		if(token!="") g_token = token;
-    			var userid = getLocationParameter('id');
-    		if(userid == "")
-       			document.getElementById('drawer_user_id').innerHTML = 'default';   
-    		else{
-	   		user_id = userid;
-	   		document.getElementById('drawer_user_id').innerHTML = String(user_id);
-    		}		
-                
+                // sqlite부분으로 수정해야 함
+                var token = getLocationParameter('token');
+                if(token!="") g_token = token;
+                    var userid = getLocationParameter('id');
+                if(userid == "")
+                    document.getElementById('drawer_user_id').innerHTML = 'default';   
+                else{
+                    user_id = userid;
+                    document.getElementById('drawer_user_id').innerHTML = String(user_id);
+                }		
 
 
                 var table = getLocationParameter('type');

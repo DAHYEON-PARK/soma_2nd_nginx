@@ -450,13 +450,23 @@ function parseJson(data)
 
 function getJsonFromFormGroup($formGroupRoot) 
 {
-	var json = {};
-	$formGroupRoot.find('.form-group').each(function(index, element){
-		
-		var name = $(this).find('input').attr('name');
-		var value = $(this).find('input').val();
-		json[name] = value;
+    var json = {};
+    var name = {};
+    var value = {};
+    
+    var i=0
+	$formGroupRoot.find('.table').find('th').each(function(index, element){
+		name[i++]=$(this).text();
 	});
+    
+    i=0;
+    $formGroupRoot.find('.table').find('td').each(function(index, element){
+		value[i++]=$(this).find('input').val();
+	});
+    
+    for(i--; i>=0; i--)
+		json[name[i]] = value[i];
+    
 	return json;
 }
 
@@ -495,7 +505,7 @@ function onCrud(table, json){
 			if(colArr[i] == 'seq' || colArr[i] == 'ipt_date')
 				continue;
             $input_htr.append('<th>'+colArr[i].toUpperCase()+'</th>');
-            $input_btr.prepend('<td><input type="text" class="form-control input-sm" id="input_id_'+colArr[i].toLowerCase()+'" name="'+colArr[i].toLowerCase()+'" placeholder="'+colArr[i].toLowerCase()+'"></td>');
+            $input_btr.append('<td><input type="text" class="form-control input-sm" id="input_id_'+colArr[i].toLowerCase()+'" name="'+colArr[i].toLowerCase()+'" placeholder="'+colArr[i].toLowerCase()+'"></td>');
 		}
         
         $input_head.append($input_htr);
