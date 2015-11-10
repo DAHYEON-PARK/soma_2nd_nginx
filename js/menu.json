@@ -2,46 +2,46 @@
     {
         "icon":"accounts-list-alt",
         "title":"User",
-        "url":"crud.html?type=user"
+        "url":"data-tables.html?type=user"
     },
     {
         "icon":"store",
         "title":"Session",
-        "url":"crud.html?type=session"
+        "url":"data-tables.html?type=session"
     },
     {
         "icon":"account-circle",
         "title":"App",
-        "url":"crud.html?type=app"
+        "url":"data-tables.html?type=app"
     },
     {
         "icon":"menu",
         "title":"App User List",
-        "url":"crud.html?type=app_user_list"
+        "url":"data-tables.html?type=app_user_list"
     },
     {
         "icon":"developer-board",
         "title":"Channel",
-        "url":"crud.html?type=channel"
+        "url":"data-tables.html?type=channel"
     },
     {
         "icon":"edit",
         "title":"Channel User List",
-        "url":"crud.html?type=channel_user_list"
+        "url":"data-tables.html?type=channel_user_list"
     },
     {
         "icon":"mail-reply",
         "title":"Notice",
-        "url":"crud.html?type=notice"
+        "url":"data-tables.html?type=notice"
     },
     {
         "icon":"phone",
         "title":"Global Setting",
-        "url":"crud.html?type=global_setting"
+        "url":"data-tables.html?type=global_setting"
     },
      {
         "icon":"widgets",
         "title":"Setting",
-        "url":"crud.html?type=setting"
+        "url":"data-tables.html?type=setting"
     }
 ]

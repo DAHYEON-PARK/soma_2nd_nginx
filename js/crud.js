@@ -469,3 +469,125 @@ function getLocationParameter( name ){
 	else    return results[1];
 }
 
+function onCrud(table, json){
+    var $container = $('#card_table');
+   	var header = '<h2>'+table+' <small>Show database tables for admin user.</small></h2>';
+	var $card = $('<div id="card_table" class="card"><div class="card-header">'+header+'</div><div class="table-responsive"><table class="table table-striped" id="data-table-basic"><thead></thead><tbody></tbody></table></div></div>');  
+
+    // setting table header columns
+	var colArr = json.columnNames;
+	if(colArr.length > 0) {
+		var $thead = $card.find('thead');
+		var $tr = $('<tr></tr>');
+		for(i=0; i<colArr.length; i++) {
+			$tr.append('<th data-column-id=\"'+colArr[i].toLowerCase()+'\">'+colArr[i].toUpperCase()+'</th>');
+		}
+		$thead.append($tr);
+
+		// 입력폼에 항목 추가 - 추가/수정/삭제 가능한 칸
+		var input_template = '<div class="form-group"><label class="col-sm-2 control-label" for="input_id_{COLUMN}">{COLUMN}</label><div class="col-sm-10"><div class="fg-line"><input type="text" class="form-control input-sm" id="input_id_{COLUMN}" name="{COLUMN}" placeholder="{COLUMN}"></div></div></div>';
+		for(i=colArr.length-1; i>=0; i--) {
+			if(colArr[i] == 'seq' || colArr[i] == 'ipt_date')
+				continue;
+			$('#card_input .card-body').prepend(input_template.replaceAll('{COLUMN}', colArr[i].toUpperCase()));
+		}
+	}
+	
+
+	// 내용 추가
+	var rowArr = json.results;
+	if(rowArr.length > 0) {
+		var $tbody = $card.find('tbody');
+		for(i=0; i<rowArr.length; i++) {
+			var $tr = $('<tr></tr>');
+            //$tr.click(function(e){ });도 가능하나 이건 row마다 click event가 붙음.
+			var dataArr = rowArr[i];
+			for(j=0; j<dataArr.length; j++) {
+				$($tr).append('<td>'+dataArr[j]+'</td>');
+			}
+			$tbody.append($tr);
+		}
+	}
+    
+    // 이건 table 하나에 전체 event 걸어놓은 것.
+    // $는 jQurey Obj를 의미함.
+	var $table = $card.find('table');
+	var $tbody = $card.find('tbody');
+	$tbody.click(function (e) {
+    		e = e || window.event;
+    		var data = [];
+    		var target = e.srcElement || e.target;
+    		while (target && target.nodeName !== "TR") {
+        		target = target.parentNode;
+    		}
+    		if (target) {
+        		var cells = target.getElementsByTagName("td");
+        		
+                for (i = 0; i < cells.length; i++) {
+            			data.push(cells[i].innerHTML);
+        		}
+    		}				
+    		//alert(data);
+            //for(i=0; i<colArr.length; i++)
+            //{
+            //    var name = 'input_id_'+colArr[i].toUpperCase();
+            //    $(name).val(data[i]);
+            //}
+
+		var i=0;
+		$('#card_input').find('.form-group').each(function(index, element){
+			$(this).find('input').val(data[i++]);
+		});   
+	});
+
+
+
+   	$('#card_input').after($card); 
+	$('#card_input').show();
+	
+    $('#emptyBtn').click(function(event){
+        var i=0;
+		$('#card_input').find('.form-group').each(function(index, element){
+			$(this).find('input').val("");
+		});   
+	})
+    
+    $('#insertBtn').click(function(event){
+		var json = getJsonFromFormGroup( $('#card_input') );
+		json['table_name'] = g_target_table;
+		var str = JSON.stringify(json);
+		console.log(str);
+		str = Base64.encode(str);
+		console.log(str);
+
+		requestInsert(json, function(table, recv) {
+			console.log(table + ','+recv);
+		});
+	})
+    
+    $('#updateBtn').click(function(event){
+		var json = getJsonFromFormGroup( $('#card_input') );
+		json['table_name'] = g_target_table;
+		var str = JSON.stringify(json);
+		console.log(str);
+		str = Base64.encode(str);
+		console.log(str);
+
+		requestUpdate(json, function(table, recv) {
+			console.log(table + ','+recv);
+		});
+	})
+    
+    $('#deleteBtn').click(function(event){
+		var json = getJsonFromFormGroup( $('#card_input') );
+		json['table_name'] = g_target_table;
+		var str = JSON.stringify(json);
+		console.log(str);
+		str = Base64.encode(str);
+		console.log(str);
+
+		requestDelete(json, function(table, recv) {
+			console.log(table + ','+recv);
+		});
+	})
+}
