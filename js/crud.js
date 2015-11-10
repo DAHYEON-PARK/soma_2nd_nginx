@@ -485,12 +485,26 @@ function onCrud(table, json){
 		$thead.append($tr);
 
 		// 입력폼에 항목 추가 - 추가/수정/삭제 가능한 칸
-		var input_template = '<div class="form-group"><label class="col-sm-2 control-label" for="input_id_{COLUMN}">{COLUMN}</label><div class="col-sm-10"><div class="fg-line"><input type="text" class="form-control input-sm" id="input_id_{COLUMN}" name="{COLUMN}" placeholder="{COLUMN}"></div></div></div>';
+        var $input_table = $('<table class="table table-bordered"><thead></thead><tbody></tbody></table><br/><br/>');
+        var $input_head = $input_table.find('thead');
+        var $input_htr = $('<tr></tr>');
+        var $input_body = $input_table.find('tbody');
+        var $input_btr = $('<tr></tr>');
+        
+//		var input_template = '<div class="form-group"><label class="col-sm-2 control-label" for="input_id_{COLUMN}">{COLUMN}</label><div class="col-sm-10"><div class="fg-line"><input type="text" class="form-control input-sm" id="input_id_{COLUMN}" name="{COLUMN}" placeholder="{COLUMN}"></div></div></div>';
 		for(i=colArr.length-1; i>=0; i--) {
 			if(colArr[i] == 'seq' || colArr[i] == 'ipt_date')
 				continue;
-			$('#card_input .card-body').prepend(input_template.replaceAll('{COLUMN}', colArr[i].toUpperCase()));
+            $input_htr.append('<th>'+colArr[i].toUpperCase()+'</th>');
+            $input_btr.append('<td><input type="text" class="form-control input-sm" id="input_id_{COLUMN}" name="{COLUMN}" placeholder="{COLUMN}"><td>');
+            $input_btr.replaceAll('{COLUMN}', colArr[i].toLowerCase());
+            
+//			$('#card_input .card-body').prepend(input_template.replaceAll('{COLUMN}', colArr[i].toUpperCase()));
 		}
+        
+        $input_head.append($input_htr);
+        $input_body.append($input_btr);
+        $('#card_input .table-responsive').append($input_table);
 	}
 	
 	// 내용 추가
