@@ -463,9 +463,10 @@ function getJsonFromFormGroup($formGroupRoot)
     $formGroupRoot.find('.table').find('td').each(function(index, element){
 		value[i++]=$(this).find('input').val();
 	});
-    
-    for(i--; i>=0; i--)
-		json[name[i]] = value[i];
+
+    j=0;    
+    for(; j<i; j++)
+		json[name[j]] = value[j];
     
 	return json;
 }
