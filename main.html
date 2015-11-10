@@ -1,547 +1,574 @@
 <!DOCTYPE html>
 
-<head>
-    <title>Soma 2nd Project</title>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <!-- Vendor CSS -->
-    <link href="vendors/bower_components/animate.css/animate.min.css" rel="stylesheet">
-    <link href="vendors/bower_components/material-design-iconic-font/dist/css/material-design-iconic-font.min.css" rel="stylesheet">
-    <link href="vendors/bower_components/bootstrap-sweetalert/lib/sweet-alert.css" rel="stylesheet">
-    <link href="vendors/bootgrid/jquery.bootgrid.min.css" rel="stylesheet">
-
-    <!-- CSS -->
-    <link href="css/app.min.1.css" rel="stylesheet">
-    <link href="css/app.min.2.css" rel="stylesheet">
-</head>
-
-<body>
-    <header id="header">
-        <ul class="header-inner">
-            <!-- hamburger icon -->
-            <li id="menu-trigger" data-trigger="#sidebar">
-                <div class="line-wrap">
-                    <div class="line top"></div>
-                    <div class="line center"></div>
-                    <div class="line bottom"></div>
-                </div>
-            </li>
-
-            <!-- title -->
-            <li class="logo hidden-xs">
-                <a href="">Wrap Talk</a>
-            </li>
-            
-            <li class="pull-right">
-			<ul class="top-menu">
-				<li id="top-search">
-					<a class="tm-search" href=""></a>
-				</li>
-				<li class="dropdown">
-					<a data-toggle="dropdown" class="tm-message" href=""><i class="tmn-counts">4</i></a>
-					<div class="dropdown-menu dropdown-menu-lg pull-right">
-						<div class="listview">
-							<div class="lv-header">
-								Messages
-							</div>
-							<div class="lv-body">
-								<a class="lv-item" href="">
-									<div class="media">
-										<div class="pull-left">
-											<img class="lv-img-sm" src="img/profile-pics/1.jpg" alt="">
-										</div>
-										<div class="media-body">
-											<div class="lv-title">지영</div>
-											<small class="lv-small">팀원 1</small>
-										</div>
-									</div>
-								</a>
-								<a class="lv-item" href="">
-									<div class="media">
-										<div class="pull-left">
-											<img class="lv-img-sm" src="img/profile-pics/2.jpg" alt="">
-										</div>
-										<div class="media-body">
-											<div class="lv-title">한별</div>
-											<small class="lv-small">팀장</small>
-										</div>
-									</div>
-								</a>
-								<a class="lv-item" href="">
-									<div class="media">
-										<div class="pull-left">
-											<img class="lv-img-sm" src="img/profile-pics/3.jpg" alt="">
-										</div>
-										<div class="media-body">
-											<div class="lv-title">다현</div>
-											<small class="lv-small">팀원 2</small>
-										</div>
-									</div>
-								</a>
-								<a class="lv-item" href="">
-									<div class="media">
-										<div class="pull-left">
-											<img class="lv-img-sm" src="img/profile-pics/4.jpg" alt="">
-										</div>
-										<div class="media-body">
-											<div class="lv-title">경완</div>
-											<small class="lv-small">팀원 3</small>
-										</div>
-									</div>
-								</a>
-							</div>
-							<a class="lv-footer" href="">View More</a>
-						</div>
-					</div>
-				</li>
-                
-				<li class="dropdown">
-					<a data-toggle="dropdown" class="tm-notification" href=""><i class="tmn-counts">1</i></a>
-					<div class="dropdown-menu dropdown-menu-lg pull-right">
-						<div class="listview" id="notifications">
-							<div class="lv-header">
-								Notification
-								<ul class="actions">
-									<li class="dropdown">
-										<a href="" data-clear="notification">
-											<i class="zmdi zmdi-check-all"></i>
-										</a>
-									</li>
-								</ul>
-							</div>
-							<div class="lv-body">
-								<a class="lv-item" href="">
-									<div class="media">
-										<div class="pull-left">
-											<img class="lv-img-sm" src="img/profile-pics/2.jpg" alt="">
-										</div>
-										<div class="media-body">
-											<div class="lv-title">정원용 멘토님</div>
-											<small class="lv-small">프로젝트 화이팅!</small>
-										</div>
-									</div>
-								</a>
-							</div>
-				
-							<a class="lv-footer" href="">View Previous</a>
-						</div>
-				
-					</div>
-				</li>
-				<li class="dropdown hidden-xs">
-					<a data-toggle="dropdown" class="tm-task" href=""></a>
-					<div class="dropdown-menu pull-right dropdown-menu-lg">
-						<div class="listview">
-							<div class="lv-header">
-								Tasks
-							</div>
-							<div class="lv-body">
-								<div class="lv-item">
-									<div class="lv-title m-b-5">HTML5 Validation Report</div>
-				
-									<div class="progress">
-										<div class="progress-bar" role="progressbar" aria-valuenow="95" aria-valuemin="0" aria-valuemax="100" style="width: 95%">
-											<span class="sr-only">95% Complete (success)</span>
-										</div>
-									</div>
-								</div>
-								<div class="lv-item">
-									<div class="lv-title m-b-5">Google Chrome Extension</div>
-				
-									<div class="progress">
-										<div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100" style="width: 80%">
-											<span class="sr-only">80% Complete (success)</span>
-										</div>
-									</div>
-								</div>
-								<div class="lv-item">
-									<div class="lv-title m-b-5">Social Intranet Projects</div>
-				
-									<div class="progress">
-										<div class="progress-bar progress-bar-info" role="progressbar" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100" style="width: 20%">
-											<span class="sr-only">20% Complete</span>
-										</div>
-									</div>
-								</div>
-								<div class="lv-item">
-									<div class="lv-title m-b-5">Bootstrap Admin Template</div>
-				
-									<div class="progress">
-										<div class="progress-bar progress-bar-warning" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 60%">
-											<span class="sr-only">60% Complete (warning)</span>
-										</div>
-									</div>
-								</div>
-								<div class="lv-item">
-									<div class="lv-title m-b-5">Youtube Client App</div>
-				
-									<div class="progress">
-										<div class="progress-bar progress-bar-danger" role="progressbar" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100" style="width: 80%">
-											<span class="sr-only">80% Complete (danger)</span>
-										</div>
-									</div>
-								</div>
-							</div>
-							<a class="lv-footer" href="">View All</a>
-						</div>
-					</div>
-				</li>
-                
-				<li class="dropdown">
-					<a data-toggle="dropdown" class="tm-settings" href=""></a>
-					<ul class="dropdown-menu dm-icon pull-right">
-						<li class="hidden-xs">
-							<a data-action="fullscreen" href=""><i class="zmdi zmdi-fullscreen"></i> Toggle Fullscreen</a>
-						</li>
-						<li>
-							<a data-action="clear-localstorage" href=""><i class="zmdi zmdi-delete"></i> Clear Local Storage</a>
-						</li>
-					</ul>
-				</li>
-			</li>
-		</ul>
-		
-		<!-- Top Search Content -->
-		<div id="top-search-wrap">
-			<input type="text">
-			<i id="top-search-close">&times;</i>
-		</div>
-    </header>
-
-    <section id="main">
-		<aside id="sidebar">
-			<div class="sidebar-inner c-overflow">
-				<div class="profile-menu">
-					<a href="">
-						<div id="drawer_user_profile" class="profile-pic">
-							<img src="img/profile-pics/1.jpg" alt="">
-						</div>
-
-						<div id="drawer_user_id" class="profile-info">
-                            <i class="zmdi zmdi-arrow-drop-down"></i>
-						</div>
-					</a>
-
-					<ul class="main-menu" id="menu-user">
-						<li>
-							<a href="profile-about.html"><i class="zmdi zmdi-account"></i> View Profile</a>
-						</li>
-						<li>
-							<a href=""><i class="zmdi zmdi-input-antenna"></i> Privacy Settings</a>
-						</li>
-						<li>
-							<a href=""><i class="zmdi zmdi-settings"></i> Other Settings</a>
-						</li>
-						<li>
-							<a href=""><i class="zmdi zmdi-time-restore"></i> Logout</a>
-						</li>
-					</ul>
-				</div>
-
-				<ul class="main-menu" id="menu-public">
-				</ul>
-			</div>
-		</aside>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Soma 2nd Project</title>
         
-        <section id="content">
-			<div class="container">
+        <!-- Vendor CSS -->
+        <link href="vendors/bootgrid/jquery.bootgrid.min.css" rel="stylesheet">
+        <link href="vendors/bower_components/animate.css/animate.min.css" rel="stylesheet">
+        <link href="vendors/bower_components/bootstrap-sweetalert/lib/sweet-alert.css" rel="stylesheet">
+        <link href="vendors/bower_components/material-design-iconic-font/dist/css/material-design-iconic-font.min.css" rel="stylesheet">
+        <link href="vendors/bower_components/bootstrap-select/dist/css/bootstrap-select.css" rel="stylesheet">
+        <link href="vendors/bower_components/nouislider/distribute/jquery.nouislider.min.css" rel="stylesheet">
+        <link href="vendors/bower_components/summernote/dist/summernote.css" rel="stylesheet">
+        <link href="vendors/bower_components/eonasdan-bootstrap-datetimepicker/build/css/bootstrap-datetimepicker.min.css" rel="stylesheet">
+        <link href="vendors/farbtastic/farbtastic.css" rel="stylesheet">
+        <link href="vendors/chosen_v1.4.2/chosen.min.css" rel="stylesheet">
+        
+        <!-- CSS -->
+        <link href="css/app.min.1.css" rel="stylesheet">
+        <link href="css/app.min.2.css" rel="stylesheet">
+    </head>
+
+    <body>
+        <header id="header">
+            <ul class="header-inner">
+                <li id="menu-trigger" data-trigger="#sidebar">
+                    <div class="line-wrap">
+                        <div class="line top"></div>
+                        <div class="line center"></div>
+                        <div class="line bottom"></div>
+                    </div>
+                </li>
+            
+                <li class="logo hidden-xs">
+                    <a href="">Wrap Talk</a>
+                </li>
                 
-                <div class="card" style="display: none;">
-					   <div class="card-header">
-                           <h2>Table CRUD <small>CRUD : create / read / update / delete</small></h2>    
-                           <p class="c-gray f-500 m-b-20">테이블 스키마를 선택해서 데이터를 관리할 수 있습니다.</p>
-                       </div>
-                    
-					   <div class="card-body card-padding">
-                           <p class="c-deeporange f-500 m-b-20">Database Table은 옆의 메뉴에서 선택할 수 있습니다.</p>
-                           <br/><br/>
-                           <div class="row">
-                                <div class="col-sm-3">
-                                    <p class="c-darkgray f-500 m-b-20">Application</p>
-                                    <div class="form-group fg-line">
-                                        <div class="select">
-                                            <select class="form-control">
-                                                <option>Select an App</option>
-                                                <option>Option 1</option>
-                                                <option>Option 2</option>
-                                                <option>Option 3</option>
-                                                <option>Option 4</option>
-                                                <option>Option 5</option>
-                                            </select>
-                                        </div>
+                <li class="pull-right">
+                    <ul class="top-menu">
+                        <li id="top-search">
+                            <a class="tm-search" href=""></a>
+                        </li>
+                        <li class="dropdown">
+                            <a data-toggle="dropdown" class="tm-message" href=""><i class="tmn-counts">4</i></a>
+                            <div class="dropdown-menu dropdown-menu-lg pull-right">
+                                <div class="listview">
+                                    <div class="lv-header">
+                                        Messages
                                     </div>
-                                </div>
-                                <div class="col-sm-3">
-                                    <p class="c-darkgray f-500 m-b-20">Channel</p>
-                                    <div class="form-group fg-line">
-                                        <div class="select">
-                                            <select class="form-control">
-                                                <option>Select an Channel</option>
-                                                <option>Option 1</option>
-                                                <option>Option 2</option>
-                                                <option>Option 3</option>
-                                                <option>Option 4</option>
-                                                <option>Option 5</option>
-                                            </select>
-                                        </div>
+                                    <div class="lv-body">
+                                        <a class="lv-item" href="">
+                                            <div class="media">
+                                                <div class="pull-left">
+                                                    <img class="lv-img-sm" src="img/profile-pics/1.jpg" alt="">
+                                                </div>
+                                                <div class="media-body">
+                                                    <div class="lv-title">지영</div>
+                                                    <small class="lv-small">팀원 1</small>
+                                                </div>
+                                            </div>
+                                        </a>
+                                        <a class="lv-item" href="">
+                                            <div class="media">
+                                                <div class="pull-left">
+                                                    <img class="lv-img-sm" src="img/profile-pics/2.jpg" alt="">
+                                                </div>
+                                                <div class="media-body">
+                                                    <div class="lv-title">한별</div>
+                                                    <small class="lv-small">팀장</small>
+                                                </div>
+                                            </div>
+                                        </a>
+                                        <a class="lv-item" href="">
+                                            <div class="media">
+                                                <div class="pull-left">
+                                                    <img class="lv-img-sm" src="img/profile-pics/3.jpg" alt="">
+                                                </div>
+                                                <div class="media-body">
+                                                    <div class="lv-title">다현</div>
+                                                    <small class="lv-small">팀원 2</small>
+                                                </div>
+                                            </div>
+                                        </a>
+                                        <a class="lv-item" href="">
+                                            <div class="media">
+                                                <div class="pull-left">
+                                                    <img class="lv-img-sm" src="img/profile-pics/4.jpg" alt="">
+                                                </div>
+                                                <div class="media-body">
+                                                    <div class="lv-title">경완</div>
+                                                    <small class="lv-small">팀원 3</small>
+                                                </div>
+                                            </div>
+                                        </a>
                                     </div>
+                                    <a class="lv-footer" href="">View More</a>
                                 </div>
-                                <div class="col-sm-3">
-                                    <p class="c-darkgray f-500 m-b-20">User</p>
-                                    <div class="form-group fg-line">
-                                        <div class="select">
-                                            <select class="form-control">
-                                                <option>Select an User</option>
-                                                <option>Option 1</option>
-                                                <option>Option 2</option>
-                                                <option>Option 3</option>
-                                                <option>Option 4</option>
-                                                <option>Option 5</option>
-                                            </select>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-sm-3">
-                                    <p class="c-white f-500 m-b-20">.</p>
-                                    <button type="button" id="btn_table_search" class="btn btn-primary btn-sm m-t-5 fg-line">Search</button>
-							    </div>
                             </div>
-					   </div>
-				</div>
-                
-                <div class="card" id="card_input" style="display: none;">
-					<form class="form-horizontal" role="form">
-						<div class="card-header">
-							<div class="row">
-                                <div class="col-xs-12 col-sm-6 col-md-8">
-                                    <h5><big>데이터</big> 입력 / 수정 / 삭제</h5> 
+                        </li>
+                        <li class="dropdown">
+                            <a data-toggle="dropdown" class="tm-notification" href=""><i class="tmn-counts">1</i></a>
+                            <div class="dropdown-menu dropdown-menu-lg pull-right">
+                                <div class="listview" id="notifications">
+                                    <div class="lv-header">
+                                        Notification
+
+                                        <ul class="actions">
+                                            <li class="dropdown">
+                                                <a href="" data-clear="notification">
+                                                    <i class="zmdi zmdi-check-all"></i>
+                                                </a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                    <div class="lv-body">
+                                        <a class="lv-item" href="">
+                                            <div class="media">
+                                                <div class="pull-left">
+                                                    <img class="lv-img-sm" src="img/profile-pics/2.jpg" alt="">
+                                                </div>
+                                                <div class="media-body">
+                                                    <div class="lv-title">정원용 멘토님</div>
+                                                    <small class="lv-small">프로젝트 화이팅!</small>
+                                                </div>
+                                            </div>
+                                        </a>
+                                    </div>
+                                    <a class="lv-footer" href="">View Previous</a>
                                 </div>
-                                
+                            </div>
+                        </li>
+                        <li class="dropdown hidden-xs">
+                            <div class="dropdown-menu pull-right dropdown-menu-lg">
+                                <div class="listview">
+                                    <div class="lv-header">
+                                        Tasks
+                                    </div>
+                                    <div class="lv-body">
+                                        <div class="lv-item">
+                                            <div class="lv-title m-b-5">HTML5 Validation Report</div>
+
+                                            <div class="progress">
+                                                <div class="progress-bar" role="progressbar" aria-valuenow="95" aria-valuemin="0" aria-valuemax="100" style="width: 95%">
+                                                    <span class="sr-only">95% Complete (success)</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="lv-item">
+                                            <div class="lv-title m-b-5">Google Chrome Extension</div>
+
+                                            <div class="progress">
+                                                <div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100" style="width: 80%">
+                                                    <span class="sr-only">80% Complete (success)</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="lv-item">
+                                            <div class="lv-title m-b-5">Social Intranet Projects</div>
+
+                                            <div class="progress">
+                                                <div class="progress-bar progress-bar-info" role="progressbar" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100" style="width: 20%">
+                                                    <span class="sr-only">20% Complete</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="lv-item">
+                                            <div class="lv-title m-b-5">Bootstrap Admin Template</div>
+
+                                            <div class="progress">
+                                                <div class="progress-bar progress-bar-warning" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 60%">
+                                                    <span class="sr-only">60% Complete (warning)</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="lv-item">
+                                            <div class="lv-title m-b-5">Youtube Client App</div>
+
+                                            <div class="progress">
+                                                <div class="progress-bar progress-bar-danger" role="progressbar" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100" style="width: 80%">
+                                                    <span class="sr-only">80% Complete (danger)</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <a class="lv-footer" href="">View All</a>
+                                </div>
+                            </div>
+                        </li>
+                        <li class="dropdown">
+                            <a data-toggle="dropdown" class="tm-settings" href=""></a>
+                            <ul class="dropdown-menu dm-icon pull-right">
+                                <li class="hidden-xs">
+                                    <a data-action="fullscreen" href=""><i class="zmdi zmdi-fullscreen"></i> Toggle Fullscreen</a>
+                                </li>
+                                <li>
+                                    <a data-action="clear-localstorage" href=""><i class="zmdi zmdi-delete"></i> Clear Local Storage</a>
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+            
+            <!-- Top Search Content -->
+            <div id="top-search-wrap">
+                <input type="text">
+                <i id="top-search-close">&times;</i>
+            </div>
+        </header>
+        
+        <section id="main">
+            <aside id="sidebar">
+                <div class="sidebar-inner c-overflow">
+                    <div class="profile-menu">
+                        <a href="">
+                            <div id="drawer_user_profile" class="profile-pic">
+                                <!-- 사용자 이미지 변경 -->
+                                <img src="img/profile-pics/1.jpg" alt="">
+                            </div>
+
+                            <div id="drawer_user_id" class="profile-info">
+                                <!-- 사용자 id 받아와서 보여주기 : func show user_name -->
+                                <i class="zmdi zmdi-arrow-drop-down"></i>
+                            </div>
+                        </a>
+                    </div>
+
+                    <ul class="main-menu">
+                        <!-- View Profile에 profile-about.html 연결하기 -->
+                        <li><a href="profile-about.html"><i class="zmdi zmdi-account"></i> View Profile</a></li>
+                        <li class="sub-menu">
+                            <a href=""><i class="zmdi zmdi-view-list"></i> Database Tables</a>
+
+                            <!-- javascript로 menu.json에서 불러와서 추가 -->
+                            <ul id="menu-db-table">
+                            </ul>
+                        </li>
+                        <li><a href=""><i class="zmdi zmdi-format-underlined"></i> Push Notification</a></li>
+                        <li><a href=""><i class="zmdi zmdi-remote-control"></i> Black List</a></li>
+                        <li><a href=""><i class="zmdi zmdi-seat"></i> Word Filter</a></li>
+                        <li><a href=""><i class="zmdi zmdi-portable-wifi"></i> Server Traffic</a></li>
+                        <li><a href=""><i class="zmdi zmdi-settings"></i> Setting</a></li>
+                        <li><a href=""><i class="zmdi zmdi-swap-alt"></i> Logout</a></li>
+                    </ul>
+                </div>
+            </aside>
+                        
+            <section id="content">
+                <div class="container">
+                    <div class="block-header">
+                        <h2>Table CRUD <small>CRUD : create / read / update / delete</small></h2>
+                    </div>
+                    <br/>
+                    
+                    <div class="card" id="card_main">
+                        <div class="card-header">
+                            <h2>Select Application, first!</h2>
+                            <p class="c-darkgray">application을 선택한 후, channel 혹은 user를 선택해주세요.</p>
+                        </div>
+
+                        <div class="card-body card-padding">
+                            <div class="row">
+                                <div class="col-sm-3 m-b-15">
+                                    <p class="c-darkgray f-500 m-b-20">Application</p>
+                                    <select id="sel_app" class="tag-select" multiple data-placeholder="Select Applicaions">
+                                        <option>Option 1</option>
+                                        <option>Option 2</option>
+                                        <option>Option 3</option>
+                                        <option>Option 4</option>
+                                        <option>Option 5</option>
+                                        <option>Option 6</option>
+                                        <option>Option 1</option>
+                                        <option>Option 2</option>
+                                        <option>Option 3</option>
+                                        <option>Option 4</option>
+                                        <option>Option 5</option>
+                                        <option>Option 6</option>
+                                    </select>
+                                </div>
+                                <div class="col-sm-3 m-b-15">
+                                    <label id="radio_channel" class="radio radio-inline f-500 m-b-20">
+                                        <input type="radio" name="tableRadio" value="channel">
+                                        <i class="input-helper"></i>  
+                                        Channel
+                                    </label>
+                                    <div class="select">
+                                        <select id="sel_channel" class="selectpicker" multiple title="Select Channels" disabled="true">
+                                            <optgroup>
+                                                <option>All Channels</option>
+                                            </optgroup>
+                                            <optgroup>
+                                                <option>c 1</option>
+                                                <option>c 2</option>
+                                                <option>c 3</option>
+                                                <option>c 4</option>
+                                                <option>c 5</option>
+                                                <option>c 6</option>
+                                                <option>c 1</option>
+                                                <option>c 2</option>
+                                                <option>c 3</option>
+                                                <option>c 4</option>
+                                                <option>c 5</option>
+                                                <option>c 6</option>
+                                            </optgroup>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="col-sm-3 m-b-15">
+                                    <label id="radio_user" class="radio radio-inline f-500 m-b-20">
+                                        <input type="radio" name="tableRadio" value="user">
+                                        <i class="input-helper"></i>  
+                                        User
+                                    </label>
+                                    <div class="select">
+                                        <select id="sel_user" class="selectpicker" multiple title="Select Users" disabled="true">
+                                            <optgroup>
+                                                <option>All Users</option>
+                                            </optgroup>
+                                            <optgroup>
+                                                <option>u 1</option>
+                                                <option>u 2</option>
+                                                <option>u 3</option>
+                                                <option>u 4</option>
+                                                <option>u 5</option>
+                                                <option>u 6</option>
+                                            </optgroup>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="col-sm-3 m-b-15">
+                                    <p class="c-white f-500 m-b-15">.</p>
+                                    <button type="button" id="btn_table_search" class="btn btn-primary btn-sm m-t-5 fg-line">Search</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+     
+                    <div class="card" id="card_input">
+                        <div class="card-header">
+                            <div class="row">
+                                <div class="col-xs-6 col-md-8">
+                                    <h5><big>데이터</big> 입력/수정/삭제</h5> 
+                                </div>
+
                                 <div class="col-xs-6 col-md-4">
-                                    <button id="emptyBtn" type="button" class="btn btn-primary btn-sm waves-effect">비우기</button> 
-                                    <button id="insertBtn" type="button" class="btn btn-success btn-sm waves-effect">입력</button> 
-                                    <button id="updateBtn" type="button" class="btn btn-warning btn-sm waves-effect">수정</button>
-                                    <button id="deleteBtn" type="button" class="btn btn-danger btn-sm waves-effect">삭제</button>
+                                    <div class="pull-right">
+                                        <button id="emptyBtn" type="button" class="btn btn-primary btn-sm waves-effect" style="margin:3px">비우기</button> 
+                                        <button id="insertBtn" type="button" class="btn btn-success btn-sm waves-effect" style="margin:3px">입력</button> 
+                                        <button id="updateBtn" type="button" class="btn btn-warning btn-sm waves-effect" style="margin:3px">수정</button>
+                                        <button id="deleteBtn" type="button" class="btn btn-danger btn-sm waves-effect" style="margin:3px">삭제</button>
+                                    </div>
                                 </div> 
                             </div>
-						</div>
-						
-						<div class="card-body card-padding">
-						</div>
-					</form>
-				</div>
-			</div>
-		</section>
-    </section>    
-   
-    
-    
-    
-    <footer id="footer">
-        Software Maestro &copy; 2015년 1단계 2차 프로젝트
+                        </div>
+                        <div class="table-responsive"></div>
+                    </div>
+                    
+                    <div class="card" id="card_table">
+                      <div class="table-responsive"></div>
+                    </div>
+                    
+                    <div class="card">
+                        <div class="card-header">
+                            <h2>Selection Example <small>Ensure that the data attribute [data-identifier="true"] is set on one column header.</small></h2>
+                        </div>
+                        
+                        <div class="table-responsive">
+                            <table id="data-table-selection" class="table table-striped">
+                                <thead>
+                                    <tr>
+                                        <th data-column-id="id" data-type="numeric" data-identifier="true">ID</th>
+                                        <th data-column-id="sender">Sender</th>
+                                        <th data-column-id="received" data-order="desc">Received</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>10238</td>
+                                        <td>eduardo@pingpong.comeduardo@pingpong.comeduardo@pingpong.comeduardo@pingpong.com</td>
+                                        <td>14.10.2013</td>
+                                    </tr>
+                                    <tr>
+                                        <td>10243</td>
+                                        <td>eduardo@pingpong.com</td>
+                                        <td>19.10.2013</td>
+                                    </tr>
+                                    <tr>
+                                        <td>10248</td>
+                                        <td>eduardo@pingpong.com</td>
+                                        <td>24.10.2013</td>
+                                    </tr>
+                                    <tr>
+                                        <td>10253</td>
+                                        <td>eduardo@pingpong.com</td>
+                                        <td>29.10.2013</td>
+                                    </tr>
+                                    <tr>
+                                        <td>10234</td>
+                                        <td>lila@google.com</td>
+                                        <td>10.10.2013</td>
+                                    </tr>
+                                    <tr>
+                                        <td>10239</td>
+                                        <td>lila@google.com</td>
+                                        <td>15.10.2013</td>
+                                    </tr>
+                                    <tr>
+                                        <td>10244</td>
+                                        <td>lila@google.com</td>
+                                        <td>20.10.2013</td>
+                                    </tr>
+                                    <tr>
+                                        <td>10249</td>
+                                        <td>lila@google.com</td>
+                                        <td>25.10.2013</td>
+                                    </tr>
+                                    <tr>
+                                        <td>10237</td>
+                                        <td>robert@bingo.com</td>
+                                        <td>13.10.2013</td>
+                                    </tr>
+                                    <tr>
+                                        <td>10242</td>
+                                        <td>robert@bingo.com</td>
+                                        <td>18.10.2013</td>
+                                    </tr>
+                                    <tr>
+                                        <td>10247</td>
+                                        <td>robert@bingo.com</td>
+                                        <td>23.10.2013</td>
+                                    </tr>
+                                    <tr>
+                                        <td>10252</td>
+                                        <td>robert@bingo.com</td>
+                                        <td>28.10.2013</td>
+                                    </tr>
+                                    <tr>
+                                        <td>10236</td>
+                                        <td>simon@yahoo.com</td>
+                                        <td>12.10.2013</td>
+                                    </tr>
+                                    <tr>
+                                        <td>10241</td>
+                                        <td>simon@yahoo.com</td>
+                                        <td>17.10.2013</td>
+                                    </tr>
+                                    <tr>
+                                        <td>10246</td>
+                                        <td>simon@yahoo.com</td>
+                                        <td>22.10.2013</td>
+                                    </tr>
+                                    <tr>
+                                        <td>10251</td>
+                                        <td>simon@yahoo.com</td>
+                                        <td>27.10.2013</td>
+                                    </tr>
+                                    <tr>
+                                        <td>10235</td>
+                                        <td>tim@microsoft.com</td>
+                                        <td>11.10.2013</td>
+                                    </tr>
+                                    <tr>
+                                        <td>10240</td>
+                                        <td>tim@microsoft.com</td>
+                                        <td>16.10.2013</td>
+                                    </tr>
+                                    <tr>
+                                        <td>10245</td>
+                                        <td>tim@microsoft.com</td>
+                                        <td>21.10.2013</td>
+                                    </tr>
+                                    <tr>
+                                        <td>10250</td>
+                                        <td>tim@microsoft.com</td>
+                                        <td>26.10.2013</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    
+                </div>
+            </section>
+        </section>
+        
+        <footer id="footer">
+            Software Maestro &copy; 2015년 1단계 2차 프로젝트
 
-        <ul class="f-menu">
-            <li><a href="">Home</a></li>
-            <li><a href="">Dashboard</a></li>
-            <li><a href="">Support</a></li>
-            <li><a href="">Contact</a></li>
-        </ul>
-    </footer>
-    
-    <!-- Javascript Libraries -->
-    <script src="vendors/bower_components/jquery/dist/jquery.min.js"></script>
-    <script src="vendors/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
-    <script src="vendors/bower_components/Waves/dist/waves.min.js"></script>
+            <ul class="f-menu">
+                <li><a href="">Home</a></li>
+                <li><a href="">Dashboard</a></li>
+                <li><a href="">Support</a></li>
+                <li><a href="">Contact</a></li>
+            </ul>
+        </footer>
+        
+        
+        <!-- Javascript Libraries -->
+        <script src="vendors/bower_components/jquery/dist/jquery.min.js"></script>
+        <script src="vendors/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+        <script src="vendors/bower_components/jquery.nicescroll/jquery.nicescroll.min.js"></script>
+        <script src="vendors/bower_components/Waves/dist/waves.min.js"></script>
+        <script src="vendors/bower_components/bootstrap-sweetalert/lib/sweet-alert.min.js"></script>  
+        <script src="vendors/bower_components/moment/min/moment.min.js"></script>
+        <script src="vendors/bower_components/bootstrap-select/dist/js/bootstrap-select.js"></script>
+        <script src="vendors/bower_components/nouislider/distribute/jquery.nouislider.all.min.js"></script>
+        <script src="vendors/bower_components/summernote/dist/summernote.min.js"></script>
+        <script src="vendors/bower_components/eonasdan-bootstrap-datetimepicker/build/js/bootstrap-datetimepicker.min.js"></script>
+        <script src="vendors/bower_components/typeahead.js/dist/typeahead.bundle.min.js"></script>
+        
+        <script src="vendors/bootstrap-growl/bootstrap-growl.min.js"></script>
+        <script src="vendors/bootgrid/jquery.bootgrid.min.js"></script>
+        <script src="vendors/chosen_v1.4.2/chosen.jquery.min.js"></script>
+        <script src="vendors/fileinput/fileinput.min.js"></script>
+        <script src="vendors/input-mask/input-mask.min.js"></script>
+        <script src="vendors/farbtastic/farbtastic.min.js"></script>
+        
+        <script src="js/functions.js"></script>
+        <script src="js/demo.js"></script>
+        
+        <script src="js/crud.js"></script>
 
-    <script src="vendors/bootstrap-growl/bootstrap-growl.min.js"></script>
-    <script src="js/demo.js"></script>
-    <script src="vendors/bower_components/jquery.nicescroll/jquery.nicescroll.min.js"></script>
-    <script src="js/functions.js"></script>
-    <script src="vendors/bower_components/bootstrap-sweetalert/lib/sweet-alert.min.js"></script>
-    <script src="vendors/bootgrid/jquery.bootgrid.min.js"></script>
-    
-    <script src="js/crud.js"></script> 
-    <script src="js/wraptalk.js"></script> 
-    
-    <script>
+      
+        <script type="text/javascript">
+            $(document).ready(function(){
+                
+                var table = getLocationParameter('type');
+	            initMenu(table);
+                
+                if(table)
+                    requestSelect(table, onCrud);
+                
+                //Selection
+                $("#data-table-selection").bootgrid({
+                    css: {
+                        icon: 'zmdi icon',
+                        iconColumns: 'zmdi-view-module',
+                        iconDown: 'zmdi-expand-more',
+                        iconRefresh: 'zmdi-refresh',
+                        iconUp: 'zmdi-expand-less'
+                    },
+                    selection: true,
+                    multiSelect: true,
+                    rowSelect: true,
+                    keepSelection: true
+                });
+                
+                // radio button & selector
+                $('input[type=radio][name=tableRadio]').on('change', function(){
+                    switch($(this).val()){
+                        case 'user' :
+                            $('#sel_channel').prop('disabled', true).selectpicker('refresh');
+                            $('#sel_channel').val("").selectpicker('refresh');
+                            $('#sel_user').prop('disabled', false).selectpicker('refresh');
+                            break;
+                        case 'channel' :
+                            $('#sel_channel').prop('disabled', false).selectpicker('refresh');
+                            $('#sel_user').val("").selectpicker('refresh');
+                            $('#sel_user').prop('disabled', true).selectpicker('refresh');
+                            break;
+                    }            
+                });
 
-function onCrud(table, json){
-    var $container = $('#card_table');
-   	var header = '<h2>'+table+' <small>Show database tables for admin user.</small></h2>';
-	var $card = $('<div id="card_table" class="card"><div class="card-header">'+header+'</div><div class="table-responsive"><table class="table table-striped" id="data-table-basic"><thead></thead><tbody></tbody></table></div></div>');  
-
-    // setting table header columns
-	var colArr = json.columnNames;
-	if(colArr.length > 0) {
-		var $thead = $card.find('thead');
-		var $tr = $('<tr></tr>');
-		for(i=0; i<colArr.length; i++) {
-			$tr.append('<th data-column-id=\"'+colArr[i].toLowerCase()+'\">'+colArr[i].toUpperCase()+'</th>');
-		}
-		$thead.append($tr);
-
-		// 입력폼에 항목 추가 - 추가/수정/삭제 가능한 칸
-		var input_template = '<div class="form-group"><label class="col-sm-2 control-label" for="input_id_{COLUMN}">{COLUMN}</label><div class="col-sm-10"><div class="fg-line"><input type="text" class="form-control input-sm" id="input_id_{COLUMN}" name="{COLUMN}" placeholder="{COLUMN}"></div></div></div>';
-		for(i=colArr.length-1; i>=0; i--) {
-			if(colArr[i] == 'seq' || colArr[i] == 'ipt_date')
-				continue;
-			$('#card_input .card-body').prepend(input_template.replaceAll('{COLUMN}', colArr[i].toUpperCase()));
-		}
-	}
-	
-
-	// 내용 추가
-	var rowArr = json.results;
-	if(rowArr.length > 0) {
-		var $tbody = $card.find('tbody');
-		for(i=0; i<rowArr.length; i++) {
-			var $tr = $('<tr></tr>');
-            //$tr.click(function(e){ });도 가능하나 이건 row마다 click event가 붙음.
-			var dataArr = rowArr[i];
-			for(j=0; j<dataArr.length; j++) {
-				$($tr).append('<td>'+dataArr[j]+'</td>');
-			}
-			$tbody.append($tr);
-		}
-	}
-    
-    // 이건 table 하나에 전체 event 걸어놓은 것.
-    // $는 jQurey Obj를 의미함.
-	var $table = $card.find('table');
-	var $tbody = $card.find('tbody');
-	$tbody.click(function (e) {
-    		e = e || window.event;
-    		var data = [];
-    		var target = e.srcElement || e.target;
-    		while (target && target.nodeName !== "TR") {
-        		target = target.parentNode;
-    		}
-    		if (target) {
-        		var cells = target.getElementsByTagName("td");
-        		
-                for (i = 0; i < cells.length; i++) {
-            			data.push(cells[i].innerHTML);
-        		}
-    		}				
-    		//alert(data);
-            //for(i=0; i<colArr.length; i++)
-            //{
-            //    var name = 'input_id_'+colArr[i].toUpperCase();
-            //    $(name).val(data[i]);
-            //}
-
-		var i=0;
-		$('#card_input').find('.form-group').each(function(index, element){
-			$(this).find('input').val(data[i++]);
-		});   
-	});
-
-
-
-   	$('#card_input').after($card); 
-	$('#card_input').show();
-	
-    $('#emptyBtn').click(function(event){
-        var i=0;
-		$('#card_input').find('.form-group').each(function(index, element){
-			$(this).find('input').val("");
-		});   
-	})
-    
-    $('#insertBtn').click(function(event){
-		var json = getJsonFromFormGroup( $('#card_input') );
-		json['table_name'] = g_target_table;
-		var str = JSON.stringify(json);
-		console.log(str);
-		str = Base64.encode(str);
-		console.log(str);
-
-		requestInsert(json, function(table, recv) {
-			console.log(table + ','+recv);
-		});
-	})
-    
-    $('#updateBtn').click(function(event){
-		var json = getJsonFromFormGroup( $('#card_input') );
-		json['table_name'] = g_target_table;
-		var str = JSON.stringify(json);
-		console.log(str);
-		str = Base64.encode(str);
-		console.log(str);
-
-		requestUpdate(json, function(table, recv) {
-			console.log(table + ','+recv);
-		});
-	})
-    
-    $('#deleteBtn').click(function(event){
-		var json = getJsonFromFormGroup( $('#card_input') );
-		json['table_name'] = g_target_table;
-		var str = JSON.stringify(json);
-		console.log(str);
-		str = Base64.encode(str);
-		console.log(str);
-
-		requestDelete(json, function(table, recv) {
-			console.log(table + ','+recv);
-		});
-	})
-}
-
-//function func(id) {
-//	if(id == "")
-//     document.getElementById('drawer_user_id').innerHTML = 'default';   
-//  else document.getElementById('drawer_user_id').innerHTML = String(id);
-//}
-
-$(document).ready(function(){
-  
-    var token = getLocationParameter('token');
-    if(token!="") g_token = token;
-
-    var userid = getLocationParameter('id');
-    if(userid == "")
-       document.getElementById('drawer_user_id').innerHTML = 'default';   
-    else{
-	   user_id = userid;
-	   document.getElementById('drawer_user_id').innerHTML = String(user_id);
-    }
-
-//    getUserInfoFromJson(func);
-    
-	var table = getLocationParameter('type');
-	initMenu(table);
-	
-	if(table) {
-		requestSelect(table, onCrud);
-		return;
-	}
-    
-    //Basic Example
-    $("#data-table-basic").bootgrid({
-        css: {
-            icon: 'zmdi icon',
-            iconColumns: 'zmdi-view-module',
-            iconDown: 'zmdi-expand-more',
-            iconRefresh: 'zmdi-refresh',
-            iconUp: 'zmdi-expand-less'
-        },
-    });
-
-//	$('#btn_table_search').click(function(event){
-//		var targetTable = $('#sel_table_search').val();
-//		requestSelect(targetTable, onCrud);
-//	});
-
-    $('#content .card').eq(0).show();
-});
-</script>
-</body>
-    
-</html>
-
-
-
-
+                $('#btn_table_search').click(function() {
+                    console.log($('#sel_app').val());   
+                });
+            });
+        </script>
+    </body>
+  </html>

@@ -475,9 +475,9 @@ function onCrud(table, json){
     var $header = $('<div class="card-header"><h2>'+table.toUpperCase()+' <small>Show database tables for admin user.</small></h2></div>');
 	var $body = $('<table class="table table-striped"><thead></thead><tbody></tbody></table>');  
 
-    // setting table header columns
 	var colArr = json.columnNames;
 	if(colArr.length > 0) {
+        // setting table header columns
 		var $thead = $body.find('thead');
 		var $tr = $('<tr></tr>');
 		for(i=0; i<colArr.length; i++) 
@@ -485,25 +485,22 @@ function onCrud(table, json){
 		$thead.append($tr);
 
 		// 입력폼에 항목 추가 - 추가/수정/삭제 가능한 칸
-        var $input_table = $('<table class="table table-bordered"><thead></thead><tbody></tbody></table><br/><br/>');
+        var $input_table = $('<table class="table table-bordered"><thead></thead><tbody></tbody></table>');
         var $input_head = $input_table.find('thead');
         var $input_htr = $('<tr></tr>');
         var $input_body = $input_table.find('tbody');
         var $input_btr = $('<tr></tr>');
         
-//		var input_template = '<div class="form-group"><label class="col-sm-2 control-label" for="input_id_{COLUMN}">{COLUMN}</label><div class="col-sm-10"><div class="fg-line"><input type="text" class="form-control input-sm" id="input_id_{COLUMN}" name="{COLUMN}" placeholder="{COLUMN}"></div></div></div>';
 		for(i=colArr.length-1; i>=0; i--) {
 			if(colArr[i] == 'seq' || colArr[i] == 'ipt_date')
 				continue;
             $input_htr.append('<th>'+colArr[i].toUpperCase()+'</th>');
-            $input_btr.append('<td><input type="text" class="form-control input-sm" id="input_id_{COLUMN}" name="{COLUMN}" placeholder="{COLUMN}"><td>');
-            $input_btr.replaceAll('{COLUMN}', colArr[i].toLowerCase());
-            
-//			$('#card_input .card-body').prepend(input_template.replaceAll('{COLUMN}', colArr[i].toUpperCase()));
+            $input_btr.append('<td><input type="text" class="form-control input-sm" id="input_id_'+colArr[i].toLowerCase()+'" name="'+colArr[i].toLowerCase()+'" placeholder="'+colArr[i].toLowerCase()+'"></td>');
 		}
         
         $input_head.append($input_htr);
         $input_body.append($input_btr);
+        $input_table.append('<br/><br/>');
         $('#card_input .table-responsive').append($input_table);
 	}
 	
@@ -538,7 +535,7 @@ function onCrud(table, json){
             }
         }
 		var i=0;
-		$('#card_input').find('.form-group').each(function(index, element){
+		$('#card_input').find('td').each(function(index, element){
 			$(this).find('input').val(data[i++]);
 		});   
 	});
@@ -548,7 +545,7 @@ function onCrud(table, json){
     
     $('#emptyBtn').click(function(event){
         var i=0;
-		$('#card_input').find('.form-group').each(function(index, element){
+		$('#card_input').find('.table').each(function(index, element){
 			$(this).find('input').val("");
 		});   
 	})
