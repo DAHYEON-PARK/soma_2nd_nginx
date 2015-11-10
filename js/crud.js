@@ -161,14 +161,7 @@ function initMenu(menuKey)
 				$('#menu-db-table').append($menu);
 			}
 
-//			if(menuKey) {
-//				for(i=0; i<g_app_menu.length; i++) {
-//					if(g_app_menu[i].url.indexOf(menuKey) != -1) {
-//						$('#content .block-header h2').text(g_app_menu[i].title);
-//						break;
-//					}
-//				}
-//			}
+//	ㅈ
 		},
 		error: function(e) {
 			console.log('접속이 원활하지 않습니다.');
