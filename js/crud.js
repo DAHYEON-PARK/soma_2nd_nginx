@@ -472,7 +472,7 @@ function getLocationParameter( name )
 
 
 function onCrud(table, json){
-    var $header = $('<div class="card-header"><h2>'+table+' <small>Show database tables for admin user.</small></h2></div>');
+    var $header = $('<div class="card-header"><h2>'+table.toUpperCase()+' <small>Show database tables for admin user.</small></h2></div>');
 	var $body = $('<table class="table table-striped"><thead></thead><tbody></tbody></table>');  
 
     // setting table header columns
@@ -480,9 +480,8 @@ function onCrud(table, json){
 	if(colArr.length > 0) {
 		var $thead = $body.find('thead');
 		var $tr = $('<tr></tr>');
-		for(i=0; i<colArr.length; i++) {
+		for(i=0; i<colArr.length; i++) 
 			$tr.append('<th>'+colArr[i].toUpperCase()+'</th>');
-		}
 		$thead.append($tr);
 
 		// 입력폼에 항목 추가 - 추가/수정/삭제 가능한 칸
@@ -500,17 +499,14 @@ function onCrud(table, json){
 		var $tbody = $body.find('tbody');
 		for(i=0; i<rowArr.length; i++) {
 			var $tr = $('<tr></tr>');
-            //$tr.click(function(e){ });도 가능하나 이건 row마다 click event가 붙음.
 			var dataArr = rowArr[i];
-			for(j=0; j<dataArr.length; j++) {
-				$($tr).append('<td>'+dataArr[j]+'</td>');
-			}
+			for(j=0; j<dataArr.length; j++) 
+				$tr.append('<td>'+dataArr[j]+'</td>');
 			$tbody.append($tr);
 		}
 	}
     
-    // 이건 table 하나에 전체 event 걸어놓은 것.
-    // $는 jQurey Obj를 의미함.
+    // table click
 	var $table = $body.find('table');
 	var $tbody = $body.find('tbody');
 	$tbody.click(function (e) {
@@ -526,14 +522,7 @@ function onCrud(table, json){
             for (i = 0; i < cells.length; i++) {
                     data.push(cells[i].innerHTML);
             }
-        }				
-        //alert(data);
-        //for(i=0; i<colArr.length; i++)
-        //{
-        //    var name = 'input_id_'+colArr[i].toUpperCase(); - id 필요 없으므로 위의 tr.append에서 삭제.
-        //    $(name).val(data[i]);
-        //}
-
+        }
 		var i=0;
 		$('#card_input').find('.form-group').each(function(index, element){
 			$(this).find('input').val(data[i++]);
@@ -543,9 +532,6 @@ function onCrud(table, json){
     $('#card_table .table-responsive').before($header);
     $('#card_table .table-responsive').append($body);
     
-   	//$('#card_input').after($card); 
-	//$('#card_input').show();
-	
     $('#emptyBtn').click(function(event){
         var i=0;
 		$('#card_input').find('.form-group').each(function(index, element){
