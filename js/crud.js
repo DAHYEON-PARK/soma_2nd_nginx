@@ -482,7 +482,8 @@ function getLocationParameter( name )
 }
 
 
-function onCrud(table, json){
+function onCrud(table, json)
+{
     var $header = $('<div class="card-header"><h2>'+table.toUpperCase()+' <small>Show database tables for admin user.</small></h2></div>');
 	var $body = $('<table class="table table-striped"><thead></thead><tbody></tbody></table>');  
 

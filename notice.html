@@ -241,7 +241,7 @@
                             <ul id="menu-db-table">
                             </ul>
                         </li>
-                        <li><a href="notice.html"><i class="zmdi zmdi-format-underlined"></i> Push Notification</a></li>
+                        <li><a href=""><i class="zmdi zmdi-format-underlined"></i> Push Notification</a></li>
                         <li><a href=""><i class="zmdi zmdi-remote-control"></i> Black List</a></li>
                         <li><a href=""><i class="zmdi zmdi-seat"></i> Word Filter</a></li>
                         <li><a href=""><i class="zmdi zmdi-portable-wifi"></i> Server Traffic</a></li>
@@ -253,82 +253,46 @@
                         
             <section id="content">
                 <div class="container">
+                    
                     <div class="block-header">
-                        <h2>Table CRUD <small>CRUD : create / read / update / delete</small></h2>
+                        <h2>Write and Send Notice <small>사용자에게 보낼 공지사항을 입력하세요.</small></h2>
                     </div>
                     <br/>
                     
-                    <div class="card" id="card_main" style="display: none;">
-                        <div class="card-header">
-                            <h2>Select Application, first!</h2>
-                            <p class="c-darkgray">application을 선택한 후, channel 혹은 user를 선택해주세요.</p>
-                        </div>
-
-                        <div class="card-body card-padding">
-                            <div class="row">
-                                <div class="col-sm-3 m-b-15">
-                                    <p class="c-darkgray f-500 m-b-20">Application</p>
-                                    <select id="sel_app" class="selectpicker" multiple title="Select Applicaions">
-                                    </select>
-                                </div>
-                                <div class="col-sm-3 m-b-15">
-                                    <label id="radio_channel" class="radio radio-inline f-500 m-b-20">
-                                        <input type="radio" name="tableRadio" value="channel">
-                                        <i class="input-helper"></i>  
-                                        Channel
-                                    </label>
-                                    <div class="select">
-                                        <select id="sel_channel" class="selectpicker" multiple title="Select Channels" disabled="true">
-                                            <optgroup>
-                                                <option>All Channels</option>
-                                            </optgroup>
-                                        </select>
+                    <div class="row">
+                        <div class="col-md-8">
+                            <div class="card wall-posting">
+                                <div class="card-body card-padding">
+                                    <textarea class="wp-text" data-auto-size placeholder="Write Something..."></textarea>
+                                    
+                                    <div class="tab-content p-0">
+                                        <div class="wp-media tab-pane" id="wpm-image">
+                                            Images - Coming soon...
+                                        </div>
+                                        
+                                        <div class="wp-media tab-pane" id="wpm-video">
+                                            Video Links - Coming soon...
+                                        </div>
+                                        
+                                        <div class="wp-media tab-pane" id="wpm-link">
+                                            Links - Coming soon...
+                                        </div>
                                     </div>
                                 </div>
-                                <div class="col-sm-3 m-b-15">
-                                    <label id="radio_user" class="radio radio-inline f-500 m-b-20">
-                                        <input type="radio" name="tableRadio" value="user">
-                                        <i class="input-helper"></i>  
-                                        User
-                                    </label>
-                                    <div class="select">
-                                        <select id="sel_user" class="selectpicker" multiple title="Select Users" disabled="true">
-                                            <optgroup>
-                                                <option>All Users</option>
-                                            </optgroup>
-                                        </select>
-                                    </div>
-                                </div>
-                                <div class="col-sm-3 m-b-15">
-                                    <p class="c-white f-500 m-b-15">.</p>
-                                    <button type="button" id="btn_table_search" class="btn btn-primary btn-sm m-t-5 fg-line">Search</button>
-                                </div>
+                                
+                                <ul class="list-unstyled clearfix wpb-actions">
+                                    <li class="wpba-attrs">
+                                        <ul class="list-unstyled list-inline m-l-0 m-t-5">
+                                            <li><a data-wpba="image" data-toggle="tab" href="" data-target="#wpm-image"><i class="zmdi zmdi-image"></i></a></li>
+                                            <li><a data-wpba="video" data-toggle="tab" href="" data-target="#wpm-video"><i class="zmdi zmdi-play-circle"></i></a></li>
+                                            <li><a data-wpba="link" data-toggle="tab" href="" data-target="#wpm-link"><i class="zmdi zmdi-link"></i></a></li>
+                                        </ul>
+                                    </li>
+                
+                                    <li class="pull-right"><button id="postBtn" class="btn btn-primary btn-sm">Post</button></li>
+                                </ul>
                             </div>
                         </div>
-                    </div>
-     
-                    <div class="card" id="card_input" style="display: none;">
-                        <div class="card-header">
-                            <div class="row">
-                                <div class="col-xs-6 col-md-8">
-                                    <h5><big>데이터</big> 입력/수정/삭제</h5> 
-                                </div>
-
-                                <div class="col-xs-6 col-md-4">
-                                    <div class="pull-right">
-                                        <button id="emptyBtn" type="button" class="btn btn-primary btn-sm waves-effect" style="margin:3px">비우기</button> 
-                                        <button id="insertBtn" type="button" class="btn btn-success btn-sm waves-effect" style="margin:3px">입력</button> 
-                                        <button id="updateBtn" type="button" class="btn btn-warning btn-sm waves-effect" style="margin:3px">수정</button>
-                                        <button id="deleteBtn" type="button" class="btn btn-danger btn-sm waves-effect" style="margin:3px">삭제</button>
-                                    </div>
-                                </div> 
-                            </div>
-                        </div>
-                        <div class="table-responsive"></div>
-                    </div>
-                    
-                    <div class="card" id="card_table">
-                      <div class="table-responsive"></div>
                     </div>
                     
                 </div>
@@ -387,70 +351,45 @@
                 else{
                     user_id = userid;
                     document.getElementById('drawer_user_id').innerHTML = String(user_id);
-                }		
-
-
-                var table = getLocationParameter('type');
-	            initMenu(table);
-                
-                if(table){
-                    $('#card_main').hide();
-                    $('#card_input').show();
-                    requestSelect(table, onCrud);
-                }else{
-                    $('#card_main').show();
                 }
                 
-            
-                // radio button & selector
-                $('input[type=radio][name=tableRadio]').on('change', function(){
-                    switch($(this).val()){
-                        case 'user' :
-                            $('#sel_channel').prop('disabled', true).selectpicker('refresh');
-                            $('#sel_channel').val("").selectpicker('refresh');
-                            $('#sel_user').prop('disabled', false).selectpicker('refresh');
-                            
-                            getUserList($('#sel_app').val(), function(json){
-                                var arr = json.result.results;
-                                for(var i=0; i<arr.length; i++)
-                                {
-                                    var $option = '<option>'+arr[i][0]+'</option>';
-                                    $('#sel_user').append($option);
-                                }
-                                $('#sel_user').selectpicker('refresh');
-                            });
-                            break;
-                        case 'channel' :
-                            $('#sel_channel').prop('disabled', false).selectpicker('refresh');
-                            $('#sel_user').val("").selectpicker('refresh');
-                            $('#sel_user').prop('disabled', true).selectpicker('refresh');
-                            
-                            getChannelList($('#sel_app').val(), function(json){
-                                var arr = json.result.results;
-                                for(var i=0; i<arr.length; i++)
-                                {
-                                    var $option = '<option>'+arr[i][0]+'</option>';
-                                    $('#sel_channel').append($option);
-                                }
-                                $('#sel_channel').selectpicker('refresh');
-                            });
-                            break;
-                    }            
+                $('#postBtn').click(function() {
+                    var text = $('.wall-posting .wp-text').val();
+                    
+                    requestInsert(json, function(table, recv) {
+                        console.log(table + ','+recv);
+                    });
                 });
-
-                $('#btn_table_search').click(function() {
-                    console.log($('#sel_app').val());  
-                    getAppList(function(json){
-                    var arr = json.result.results;
-                    for(var i=0; i<arr.length; i++)
-                    {
-                        var $option = '<option>'+arr[i]+'</option>';
-                        $('#sel_app').append($option);
-                    }
-                    $('#sel_app').selectpicker('refresh');
-                })});
-                
             });
+            
+            function sendGCM()
+            {
+                $.ajax({
+                    type: 'POST',
+                    url: 'http://133.130.113.101:7010/user/noticePush',
+                    success: function(data, status) {
+
+                        var obj;
+                        try
+                        {
+                            obj = parseJson(data);
+                        }
+                        catch (e)
+                        {
+                            console.log('json error:'+data);
+                            //alert("JSON Parsing Error. "+e);
+                            alert(data);
+                            return;
+                        }
+
+                        if(func)
+                            func(obj);
+                    },
+                    error: function(e) {
+                        console.log('접속이 원활하지 않습니다.');
+                    }
+                });
+            }
         </script>
     </body>
   </html>
