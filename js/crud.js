@@ -644,10 +644,10 @@ function getChannelList(app, func)
 	{
         str = str.concat('"'+app[i]+'"');                 
 		if(i!=(app.length-1))
-			attr = attr.concat(',');
+			str = str.concat(',');
     }
     
-    var query = 'select channel_name from channel_list where app_id='+str;
+    var query = 'select channel_name from channel where app_id='+str;
     query = query.toLowerCase();
     query = encodeURIComponent(query);
         
@@ -687,7 +687,7 @@ function getUserList(app, func)
 	{
         str = str.concat('"'+app[i]+'"');                 
 		if(i!=(app.length-1))
-			attr = attr.concat(',');
+			str = str.concat(',');
     }
     
     var query = 'select user_id from app_user_list where app_id='+str;

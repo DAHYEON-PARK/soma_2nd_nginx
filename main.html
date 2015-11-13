@@ -419,7 +419,7 @@
                             $('#sel_user').prop('disabled', false).selectpicker('refresh');
                             
                             getUserList($('#sel_app').val(), function(json){
-                                var arr = json.results;
+                                var arr = json.result.results;
                                 for(var i=0; i<arr.length; i++)
                                 {
                                     var $option = '<option>'+arr[i][0]+'</option>';
@@ -434,7 +434,7 @@
                             $('#sel_user').prop('disabled', true).selectpicker('refresh');
                             
                             getChannelList($('#sel_app').val(), function(json){
-                                var arr = json.results;
+                                var arr = json.result.results;
                                 for(var i=0; i<arr.length; i++)
                                 {
                                     var $option = '<option>'+arr[i][0]+'</option>';
