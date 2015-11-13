@@ -359,6 +359,10 @@
                 $('#postBtn').click(function() {
                     var text = $('.wall-posting .wp-text').val();
                     
+                    var json = {};
+                    json['subject'] = 'default';
+                    json['content'] = text;
+                    
                     requestInsert(json, function(table, recv) {
                         console.log(table + ','+recv);
                     });
@@ -371,7 +375,7 @@
             {
                 $.ajax({
                     type: 'POST',
-                    url: 'http://133.130.113.101:7010/user/noticePush?token='++'&msg_type=gcm&to_what=all&msg='+text,
+                    url: 'http://133.130.113.101:7010/user/noticePush?token=&msg_type=gcm&to_what=all&msg='+text,
                     success: function(data, status) {
 
                         var obj;

@@ -401,6 +401,15 @@
                     $('#card_main').show();
                 }
                 
+                getAppList(function(json){
+                    var arr = json.result.results;
+                    for(var i=0; i<arr.length; i++)
+                    {
+                        var $option = '<option>'+arr[i]+'</option>';
+                        $('#sel_app').append($option);
+                    }
+                    $('#sel_app').selectpicker('refresh');
+                });
             
                 // radio button & selector
                 $('input[type=radio][name=tableRadio]').on('change', function(){
@@ -440,15 +449,7 @@
 
                 $('#btn_table_search').click(function() {
                     console.log($('#sel_app').val());  
-                    getAppList(function(json){
-                    var arr = json.result.results;
-                    for(var i=0; i<arr.length; i++)
-                    {
-                        var $option = '<option>'+arr[i]+'</option>';
-                        $('#sel_app').append($option);
-                    }
-                    $('#sel_app').selectpicker('refresh');
-                })});
+                });
                 
             });
         </script>
