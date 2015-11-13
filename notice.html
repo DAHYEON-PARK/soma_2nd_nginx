@@ -353,20 +353,25 @@
                     document.getElementById('drawer_user_id').innerHTML = String(user_id);
                 }
                 
+                var table = getLocationParameter('type');
+	            initMenu(table);
+                
                 $('#postBtn').click(function() {
                     var text = $('.wall-posting .wp-text').val();
                     
                     requestInsert(json, function(table, recv) {
                         console.log(table + ','+recv);
                     });
+                    
+                    sendGCM(text);
                 });
             });
             
-            function sendGCM()
+            function sendGCM(text)
             {
                 $.ajax({
                     type: 'POST',
-                    url: 'http://133.130.113.101:7010/user/noticePush',
+                    url: 'http://133.130.113.101:7010/user/noticePush?token='++'&msg_type=gcm&to_what=all&msg='+text,
                     success: function(data, status) {
 
                         var obj;
@@ -381,9 +386,8 @@
                             alert(data);
                             return;
                         }
-
-                        if(func)
-                            func(obj);
+                    
+                        alert("성공 : "+obj);
                     },
                     error: function(e) {
                         console.log('접속이 원활하지 않습니다.');
