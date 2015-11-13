@@ -477,23 +477,15 @@
                 $('#btn_table_search').click(function() {
                     console.log($('#sel_app').val());  
                     getAppList(function(json){
-                    var arr = json.results;
+                    var arr = json.result.results;
                     for(var i=0; i<arr.length; i++)
                     {
-                        var $option = '<option>'+arr[0]+'</option>';
+                        var $option = '<option>'+arr[i]+'</option>';
                         $('#sel_app').append($option);
                     }
                 })
                 });
                 
-                $(document).on(getAppList(function(json){
-                    var arr = json.results;
-                    for(var i=0; i<arr.length; i++)
-                    {
-                        var $option = '<option>'+arr[0]+'</option>';
-                        $('#sel_app').append($option);
-                    }
-                }));
             });
         </script>
     </body>
