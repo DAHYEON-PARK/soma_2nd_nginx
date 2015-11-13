@@ -678,11 +678,19 @@ function getChannelList(app, func)
 	});
 }
 
-function getUserList(func)
+function getUserList(app, func)
 {
     if(app == null) return;
     
-    var query = 'select channel_name from channel_list';
+    var str = '';
+	for(var i=0; i<app.length; i++)
+	{
+        str = str.concat('"'+app[i]+'"');                 
+		if(i!=(app.length-1))
+			attr = attr.concat(',');
+    }
+    
+    var query = 'select user_id from app_user_list where app_id='+str;
     query = query.toLowerCase();
     query = encodeURIComponent(query);
         
