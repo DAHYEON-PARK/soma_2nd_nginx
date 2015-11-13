@@ -601,3 +601,69 @@ function onCrud(table, json){
 		});
 	})
 }
+
+function getAppList(func)
+{
+    var query = 'select app_id from app';
+    query = query.toLowerCase();
+    query = encodeURIComponent(query);
+        
+	$.ajax({
+		type: 'POST',
+		url: 'http://133.130.113.101:7010/user/customQuery?query='+query,
+		success: function(data, status) {
+			
+			var obj;
+			try
+			{
+				obj = parseJson(data);
+			}
+			catch (e)
+			{
+				console.log('json error:'+data);
+				//alert("JSON Parsing Error. "+e);
+				alert(data);
+				return;
+			}
+			
+			if(func)
+				func(obj);
+		},
+		error: function(e) {
+			console.log('접속이 원활하지 않습니다.');
+		}
+	});
+}
+
+function getChannelList(func)
+{
+    var query = 'select channel_name from channel_list';
+    query = query.toLowerCase();
+    query = encodeURIComponent(query);
+        
+	$.ajax({
+		type: 'POST',
+		url: 'http://133.130.113.101:7010/user/customQuery?query='+query,
+		success: function(data, status) {
+			
+			var obj;
+			try
+			{
+				obj = parseJson(data);
+			}
+			catch (e)
+			{
+				console.log('json error:'+data);
+				//alert("JSON Parsing Error. "+e);
+				alert(data);
+				return;
+			}
+			
+			if(func)
+				func(obj);
+		},
+		error: function(e) {
+			console.log('접속이 원활하지 않습니다.');
+		}
+	});
+}

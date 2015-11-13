@@ -320,14 +320,13 @@
                                             <optgroup>
                                                 <option>All Users</option>
                                             </optgroup>
-                                            <optgroup>
                                                 <option>u 1</option>
                                                 <option>u 2</option>
                                                 <option>u 3</option>
                                                 <option>u 4</option>
                                                 <option>u 5</option>
                                                 <option>u 6</option>
-                                            </optgroup>
+                                            
                                         </select>
                                     </div>
                                 </div>
@@ -448,18 +447,53 @@
                             $('#sel_channel').prop('disabled', true).selectpicker('refresh');
                             $('#sel_channel').val("").selectpicker('refresh');
                             $('#sel_user').prop('disabled', false).selectpicker('refresh');
+                            
+                            getUserList($('#sel_app').val(), function(json){
+                                var arr = json.results;
+                                for(var i=0; i<arr.length; i++)
+                                {
+                                    var $option = '<option>'+arr[i][0]+'</option>';
+                                    $('#sel_channel').append($option);
+                                }
+                            });
                             break;
                         case 'channel' :
                             $('#sel_channel').prop('disabled', false).selectpicker('refresh');
                             $('#sel_user').val("").selectpicker('refresh');
                             $('#sel_user').prop('disabled', true).selectpicker('refresh');
+                            
+                            getChannelList($('#sel_app').val(), function(json){
+                                var arr = json.results;
+                                for(var i=0; i<arr.length; i++)
+                                {
+                                    var $option = '<option>'+arr[i][0]+'</option>';
+                                    $('#sel_channel').append($option);
+                                }
+                            });
                             break;
                     }            
                 });
 
                 $('#btn_table_search').click(function() {
-                    console.log($('#sel_app').val());   
+                    console.log($('#sel_app').val());  
+                    getAppList(function(json){
+                    var arr = json.results;
+                    for(var i=0; i<arr.length; i++)
+                    {
+                        var $option = '<option>'+arr[0]+'</option>';
+                        $('#sel_app').append($option);
+                    }
+                })
                 });
+                
+                $(document).on(getAppList(function(json){
+                    var arr = json.results;
+                    for(var i=0; i<arr.length; i++)
+                    {
+                        var $option = '<option>'+arr[0]+'</option>';
+                        $('#sel_app').append($option);
+                    }
+                }));
             });
         </script>
     </body>
