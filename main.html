@@ -256,7 +256,7 @@
                     </div>
                     <br/>
                     
-                    <div class="card" id="card_main">
+                    <div class="card" id="card_main" style="display: none;">
                         <div class="card-header">
                             <h2>Select Application, first!</h2>
                             <p class="c-darkgray">application을 선택한 후, channel 혹은 user를 선택해주세요.</p>
@@ -305,7 +305,7 @@
                         </div>
                     </div>
      
-                    <div class="card" id="card_input">
+                    <div class="card" id="card_input" style="display: none;">
                         <div class="card-header">
                             <div class="row">
                                 <div class="col-xs-6 col-md-8">
@@ -406,6 +406,9 @@
                     rowSelect: true,
                     keepSelection: true
                 });
+                
+                
+                $('#card_main').eq(0).show();
                 
                 // radio button & selector
                 $('input[type=radio][name=tableRadio]').on('change', function(){
