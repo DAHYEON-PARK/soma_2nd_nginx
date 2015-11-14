@@ -134,8 +134,7 @@
                                 </div>
                             </div>
                         </li>
-                        
-                        <li class="dropdown">
+                        <li class="dropdown hidden-xs">
                             <div class="dropdown-menu pull-right dropdown-menu-lg">
                                 <div class="listview">
                                     <div class="lv-header">
@@ -188,11 +187,11 @@
                                             </div>
                                         </div>
                                     </div>
+
                                     <a class="lv-footer" href="">View All</a>
                                 </div>
                             </div>
                         </li>
-                        
                         <li class="dropdown">
                             <a data-toggle="dropdown" class="tm-settings" href=""></a>
                             <ul class="dropdown-menu dm-icon pull-right">
@@ -237,100 +236,63 @@
                         <li><a href="profile-about.html"><i class="zmdi zmdi-account"></i> View Profile</a></li>
                         <li class="sub-menu">
                             <a href=""><i class="zmdi zmdi-view-list"></i> Database Tables</a>
+
                             <!-- javascript로 menu.json에서 불러와서 추가 -->
                             <ul id="menu-db-table">
                             </ul>
                         </li>
-                        <li><a href="notice.html"><i class="zmdi zmdi-format-underlined"></i> Push Notification</a></li>
-                        <li><a href="blacklist.html"><i class="zmdi zmdi-remote-control"></i> Black List</a></li>
-                        <li><a href="wordfilter.html"><i class="zmdi zmdi-seat"></i> Word Filter</a></li>
-                        <li><a href="traffic.html"><i class="zmdi zmdi-portable-wifi"></i> Server Traffic</a></li>
-                        <li><a href="setting.html"><i class="zmdi zmdi-settings"></i> Setting</a></li>
-                        <li><a href="logout.html"><i class="zmdi zmdi-swap-alt"></i> Logout</a></li>
+                        <li><a href=""><i class="zmdi zmdi-format-underlined"></i> Push Notification</a></li>
+                        <li><a href=""><i class="zmdi zmdi-remote-control"></i> Black List</a></li>
+                        <li><a href=""><i class="zmdi zmdi-seat"></i> Word Filter</a></li>
+                        <li><a href=""><i class="zmdi zmdi-portable-wifi"></i> Server Traffic</a></li>
+                        <li><a href=""><i class="zmdi zmdi-settings"></i> Setting</a></li>
+                        <li><a href=""><i class="zmdi zmdi-swap-alt"></i> Logout</a></li>
                     </ul>
                 </div>
             </aside>
                         
             <section id="content">
                 <div class="container">
+                    
                     <div class="block-header">
-                        <h2>Table CRUD <small>CRUD : create / read / update / delete</small></h2>
+                        <h2>Write and Send Notice <small>사용자에게 보낼 공지사항을 입력하세요.</small></h2>
                     </div>
                     <br/>
                     
-                    <div class="card" id="card_main" style="display: none;">
-                        <div class="card-header">
-                            <h2>Select Application, First!!</h2>
-                            <p class="c-gray">application을 선택한 후, channel 혹은 user를 선택해주세요.</p>
-                        </div>
-
-                        <div class="card-body card-padding">
-                            <div class="row">
-                                <div class="col-sm-3 m-b-15">
-                                    <p class="c-darkgray f-500 m-b-20">Application</p>
-                                    <!-- 이상해 ㅠㅠ 이상해;; tag-select는 function.js에 있고 selectpicker는 bootstrap에 있음. 원래 refresh 안해줘도 된다고 함;;-->
-                                    <!-- 그리고 select에 id넣고 func를 bind시키면 안되고 div class에는 또 된다;;-->
-                                    <div id="sel_app" class="select">
-                                        <select class="selectpicker" multiple title="Select Applicaions"></select>
+                    <div class="row">
+                        <div class="col-md-8">
+                            <div class="card wall-posting">
+                                <div class="card-body card-padding">
+                                    <textarea class="wp-text" data-auto-size placeholder="Write Something..."></textarea>
+                                    
+                                    <div class="tab-content p-0">
+                                        <div class="wp-media tab-pane" id="wpm-image">
+                                            Images - Coming soon...
+                                        </div>
+                                        
+                                        <div class="wp-media tab-pane" id="wpm-video">
+                                            Video Links - Coming soon...
+                                        </div>
+                                        
+                                        <div class="wp-media tab-pane" id="wpm-link">
+                                            Links - Coming soon...
+                                        </div>
                                     </div>
                                 </div>
-                                <div class="col-sm-3 m-b-15">
-                                    <label id="radio_channel" class="radio radio-inline f-500 m-b-20">
-                                        <input type="radio" name="tableRadio" value="channel" disabled="true">
-                                        <i class="input-helper"></i>  
-                                        Channel
-                                    </label>
-                                    <div id="sel_channel" class="select">
-                                        <select class="selectpicker" multiple title="Select Channels" disabled="true">
-                                            <option>All Channels</option>
-                                            <option data-divider="true"></option>
-                                        </select>
-                                    </div>
-                                </div>
-                                <div class="col-sm-3 m-b-15">
-                                    <!-- label에 disabled는 원래 안먹힘?? -->
-                                    <label id="radio_user" class="radio radio-inline f-500 m-b-20">
-                                        <input type="radio" name="tableRadio" value="user" disabled="true">
-                                        <i class="input-helper"></i>  
-                                        User
-                                    </label>
-                                    <div id="sel_user" class="select">
-                                        <select class="selectpicker" multiple title="Select Users" disabled="true">
-                                            <option>All Users</option>
-                                            <option data-divider="true"></option>
-                                        </select>
-                                    </div>
-                                </div>
-                                <div class="col-sm-3 m-b-15">
-                                    <p class="c-white f-500 m-b-15">.</p>
-                                    <button type="button" id="btn_table_search" class="btn btn-primary btn-sm m-t-5 fg-line">Search</button>
-                                </div>
+                                
+                                <ul class="list-unstyled clearfix wpb-actions">
+                                    <li class="wpba-attrs">
+                                        <ul class="list-unstyled list-inline m-l-0 m-t-5">
+                                            <li><a data-wpba="image" data-toggle="tab" href="" data-target="#wpm-image"><i class="zmdi zmdi-image"></i></a></li>
+                                            <li><a data-wpba="video" data-toggle="tab" href="" data-target="#wpm-video"><i class="zmdi zmdi-play-circle"></i></a></li>
+                                            <li><a data-wpba="link" data-toggle="tab" href="" data-target="#wpm-link"><i class="zmdi zmdi-link"></i></a></li>
+                                        </ul>
+                                    </li>
+                
+                                    <li class="pull-right"><button id="postBtn" class="btn btn-primary btn-sm">Post</button></li>
+                                </ul>
                             </div>
                         </div>
-                    </div>
-     
-                    <div class="card" id="card_input" style="display: none;">
-                        <div class="card-header">
-                            <div class="row">
-                                <div class="col-xs-6 col-md-8">
-                                    <h5><big>데이터</big> 입력/수정/삭제</h5> 
-                                </div>
-
-                                <div class="col-xs-6 col-md-4">
-                                    <div class="pull-right">
-                                        <button id="emptyBtn" type="button" class="btn btn-primary btn-sm waves-effect" style="margin:3px">비우기</button> 
-                                        <button id="insertBtn" type="button" class="btn btn-success btn-sm waves-effect" style="margin:3px">입력</button> 
-                                        <button id="updateBtn" type="button" class="btn btn-warning btn-sm waves-effect" style="margin:3px">수정</button>
-                                        <button id="deleteBtn" type="button" class="btn btn-danger btn-sm waves-effect" style="margin:3px">삭제</button>
-                                    </div>
-                                </div> 
-                            </div>
-                        </div>
-                        <div class="table-responsive"></div>
-                    </div>
-                    
-                    <div class="card" id="card_table">
-                      <div class="table-responsive"></div>
                     </div>
                     
                 </div>
@@ -380,110 +342,61 @@
         <script type="text/javascript">
             $(document).ready(function(){
 
-                var token = localStorage.getItem('user_token');
-                if(token == "" | token == null) 
-                    location.replace("login.html");
-                
-                var id = localStorage.getItem('user_id');
-                document.getElementById('drawer_user_id').innerHTML = String(id);
+                // sqlite부분으로 수정해야 함
+                var token = getLocationParameter('token');
+                if(token!="") g_token = token;
+                    var userid = getLocationParameter('id');
+                if(userid == "")
+                    document.getElementById('drawer_user_id').innerHTML = 'default';   
+                else{
+                    user_id = userid;
+                    document.getElementById('drawer_user_id').innerHTML = String(user_id);
+                }
                 
                 var table = getLocationParameter('type');
 	            initMenu(table);
                 
-                if(table){
-                    $('#card_main').hide();
-                    $('#card_input').show();
-                    requestSelect(table, onCrud);
-                }else{
-                    $('#card_main').show();
-                    $('#card_input').hide();
+                $('#postBtn').click(function() {
+                    var text = $('.wall-posting .wp-text').val();
                     
-                    getAppList(function(json){
-                        var arr = json.result.results;
-                        var len = arr.length;
-                        
-                        if(len == 0)    return;
-                        
-                        for(var i=0; i<len; i++)
-                        {
-                            var $option = '<option>'+arr[i]+'</option>';
-                            $('#sel_app .selectpicker').append($option);
-                        }
-                        $('#sel_app .selectpicker').selectpicker('refresh');   
+                    var json = {};
+                    json['subject'] = 'default';
+                    json['content'] = text;
+                    
+                    requestInsert(json, function(table, recv) {
+                        console.log(table + ','+recv);
                     });
-                }
-            
-                $('#sel_app').bind('click', function(){
-                    $('#radio_channel input:radio').prop('disabled', false);
-                    $('#radio_user input:radio').prop('disabled', false);
+                    
+                    sendGCM(text);
                 });
-                
-                $('#radio_user input:radio').bind('click', function(){
-                    clickSelApp();
-                });
-                
-                $('#radio_channel input:radio').bind('click', function(){
-                    clickSelApp();
-                });
-                
-                
-                $('#btn_table_search').click(function() {
-                    var app = $('#sel_app').val();  
-                    var channel = $('#sel_channel').val();  
-                    var user = $('#sel_user').val();  
-                });
-                
             });
             
-            function clickSelApp() 
+            function sendGCM(text)
             {
-                // radio button & selector
-                if($('#sel_app .selectpicker').val() != null)
-                {
-                    $('input[type=radio][name=tableRadio]').on('change', function(){
-                        switch($(this).val()){
-                            case 'user' :
-                                $('#sel_channel .selectpicker').prop('disabled', true).selectpicker('refresh');
-                                $('#sel_channel .selectpicker').val("").selectpicker('refresh');
-                                $('#sel_user .selectpicker').prop('disabled', false).selectpicker('refresh');
+                $.ajax({
+                    type: 'POST',
+                    url: 'http://133.130.113.101:7010/user/noticePush?token=&msg_type=gcm&to_what=all&msg='+text,
+                    success: function(data, status) {
 
-                                getUserList($('#sel_app .selectpicker').val(), function(json){
-                                    var arr = json.result.results;
-                                    var len = arr.length;
-                        
-                                    if(len == 0)    return;
-                                    
-                                    for(var i=0; i<len; i++)
-                                    {
-                                        var $option = '<option>'+arr[i][0]+'</option>';
-                                        $('#sel_user .selectpicker').append($option);
-                                    }
-                                    $('#sel_user .selectpicker').selectpicker('refresh');
-                                });
-                                break;
-
-                            case 'channel' :
-                                $('#sel_channel .selectpicker').prop('disabled', false).selectpicker('refresh');
-                                $('#sel_user .selectpicker').val("").selectpicker('refresh');
-                                $('#sel_user .selectpicker').prop('disabled', true).selectpicker('refresh');
-
-                                getChannelList($('#sel_app .selectpicker').val(), function(json){
-                                    var arr = json.result.results;
-                                    var len = arr.length;
-                        
-                                    if(len == 0)    return;
-                                    
-                                    for(var i=0; i<len; i++)
-                                    {
-                                        var $option = '<option>'+arr[i][0]+'</option>';
-                                        $('#sel_channel .selectpicker').append($option);
-                                    }
-                                    $('#sel_channel .selectpicker').selectpicker('refresh');
-                                });
-                                break;
-                        }            
-                    });
-                }   
+                        var obj;
+                        try
+                        {
+                            obj = parseJson(data);
+                        }
+                        catch (e)
+                        {
+                            console.log('json error:'+data);
+                            //alert("JSON Parsing Error. "+e);
+                            alert(data);
+                            return;
+                        }
+                    
+                        alert("성공 : "+obj);
+                    },
+                    error: function(e) {
+                        console.log('접속이 원활하지 않습니다.');
+                    }
+                });
             }
         </script>
     </body>

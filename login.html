@@ -158,13 +158,12 @@
             error:function(){
                 alert('Network Error');
             },
-
-        /*
-        *********** sqlite로 저장하는 부분 추가하기
-        */
+            
             success:function(obj){
                 if(obj.result_code == 0){
-                    window.location.href = "main.html?token="+obj.token+"?id="+id;
+                    localStorage.setItem('user_id', id);
+                    localStorage.setItem('user_token', obj.token);
+                    window.location.href = "main.html";
                 }else if(obj.result_code == -1){
                     alert(obj.result_msg);
                 }
