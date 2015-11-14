@@ -167,7 +167,6 @@ function initMenu(menuKey)
 	});
 }
 
-
 function requestSelect(table, cbComplete)
 {
 	var query = 'SELECT * FROM ' + table;
@@ -335,9 +334,9 @@ function requestDelete(table, cbComplete)
 	});
 }
 
-function requestGameList(table, cbComplete)
+// app별 user list & channel list
+function requestByApp(query)
 {
-    var query = 'select from app where app_cate=\"game\"';
     query = query.toLowerCase();
     query = encodeURIComponent(query);
         
@@ -359,44 +358,7 @@ function requestGameList(table, cbComplete)
 				return;
 			}
 			
-			if(cbComplete)
-				cbComplete(table, obj);
-		},
-		error: function(e) {
-			console.log('접속이 원활하지 않습니다.');
-		}
-	});
-}
-
-// app별 user list & user별 app list
-function requestUserByApp(json, cbComplete)
-{
-    // json = {"id":"id_value"}
-    var key = Object.keys(json);
-    var query = 'select * from app_user_list where '+key[0]+'=\"'+json[key[0]]+'\"';
-    query = query.toLowerCase();
-    query = encodeURIComponent(query);
-        
-	$.ajax({
-		type: 'POST',
-		url: 'http://133.130.113.101:7010/user/customQuery?query='+query,
-		success: function(data, status) {
-			
-			var obj;
-			try
-			{
-				obj = parseJson(data);
-			}
-			catch (e)
-			{
-				console.log('json error:'+data);
-				//alert("JSON Parsing Error. "+e);
-				alert(data);
-				return;
-			}
-			
-			if(cbComplete)
-				cbComplete(table, obj);
+            showMainTable(obj.result);
 		},
 		error: function(e) {
 			console.log('접속이 원활하지 않습니다.');
@@ -479,6 +441,39 @@ function getLocationParameter( name )
 	var results = regex.exec( window.location.href ); 
 	 if( results == null )    return "";  
 	else    return results[1];
+}
+
+function showMainTable(json)
+{
+    
+    var $header = $('<div class="card-header"><h2>Custom Table for Admin. <small>위의 간단한 조회 결과입니다.</small></h2></div>');
+	var $body = $('<table class="table table-striped"><thead></thead><tbody></tbody></table>');  
+    
+    var colArr = json.columnNames;
+	if(colArr.length > 0) {
+        // setting table header columns
+		var $thead = $body.find('thead');
+		var $tr = $('<tr></tr>');
+		for(i=0; i<colArr.length; i++) 
+			$tr.append('<th>'+colArr[i].toUpperCase()+'</th>');
+		$thead.append($tr);
+	}
+	
+	// 내용 추가
+	var rowArr = json.results;
+	if(rowArr.length > 0) {
+		var $tbody = $body.find('tbody');
+		for(i=0; i<rowArr.length; i++) {
+			var $tr = $('<tr></tr>');
+			var dataArr = rowArr[i];
+			for(j=0; j<dataArr.length; j++) 
+				$tr.append('<td>'+dataArr[j]+'</td>');
+			$tbody.append($tr);
+		}
+	}
+    
+    $('#card_table .table-responsive').before($header);
+    $('#card_table .table-responsive').append($body);
 }
 
 
@@ -607,7 +602,7 @@ function onCrud(table, json)
 
 function getAppList(func)
 {
-    var query = 'select app_id from app';
+    var query = 'select app_id from app_user_list';
     query = query.toLowerCase();
     query = encodeURIComponent(query);
         
@@ -630,7 +625,7 @@ function getAppList(func)
 			}
 			
 			if(func)
-				func(obj);
+				func(obj.result);
 		},
 		error: function(e) {
 			console.log('접속이 원활하지 않습니다.');
@@ -640,17 +635,9 @@ function getAppList(func)
 
 function getChannelList(app, func)
 {
-    if(app == null) return;
+    if(app==null | app=="") return;
     
-    var str = '';
-	for(var i=0; i<app.length; i++)
-	{
-        str = str.concat('"'+app[i]+'"');                 
-		if(i!=(app.length-1))
-			str = str.concat(',');
-    }
-    
-    var query = 'select channel_name from channel where app_id='+str;
+    var query = 'select channel_name from channel where app_id='+app;
     query = query.toLowerCase();
     query = encodeURIComponent(query);
         
@@ -673,7 +660,7 @@ function getChannelList(app, func)
 			}
 			
 			if(func)
-				func(obj);
+				func(obj.result);
 		},
 		error: function(e) {
 			console.log('접속이 원활하지 않습니다.');
@@ -683,17 +670,9 @@ function getChannelList(app, func)
 
 function getUserList(app, func)
 {
-    if(app == null) return;
+    if(app==null | app=="") return;
     
-    var str = '';
-	for(var i=0; i<app.length; i++)
-	{
-        str = str.concat('"'+app[i]+'"');                 
-		if(i!=(app.length-1))
-			str = str.concat(',');
-    }
-    
-    var query = 'select user_id from app_user_list where app_id='+str;
+    var query = 'select user_id from app_user_list where app_id='+app;
     query = query.toLowerCase();
     query = encodeURIComponent(query);
         
@@ -716,7 +695,7 @@ function getUserList(app, func)
 			}
 			
 			if(func)
-				func(obj);
+				func(obj.result);
 		},
 		error: function(e) {
 			console.log('접속이 원활하지 않습니다.');
