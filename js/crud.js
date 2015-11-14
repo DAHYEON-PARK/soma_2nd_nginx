@@ -472,6 +472,8 @@ function showMainTable(json)
 		}
 	}
     
+    $('#card_table .card-header').eq(0).remove();
+    $('#card_table .table').eq(0).remove();
     $('#card_table .table-responsive').before($header);
     $('#card_table .table-responsive').append($body);
 }
@@ -637,7 +639,7 @@ function getChannelList(app, func)
 {
     if(app==null | app=="") return;
     
-    var query = 'select channel_name from channel where app_id='+app;
+    var query = 'select channel_name from channel where app_id="'+app+'"';
     query = query.toLowerCase();
     query = encodeURIComponent(query);
         
@@ -672,7 +674,7 @@ function getUserList(app, func)
 {
     if(app==null | app=="") return;
     
-    var query = 'select user_id from app_user_list where app_id='+app;
+    var query = 'select user_id from app_user_list where app_id="'+app+'"';
     query = query.toLowerCase();
     query = encodeURIComponent(query);
         
