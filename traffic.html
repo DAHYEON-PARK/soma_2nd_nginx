@@ -253,48 +253,206 @@
                         
             <section id="content">
                 <div class="container">
-                    
                     <div class="block-header">
-                        <h2>Write and Send Notice <small>사용자에게 보낼 공지사항을 입력하세요.</small></h2>
+                        <h2>Flot Charts <small>Flot is a pure JavaScript plotting library for jQuery, with a focus on simple usage, attractive looks and interactive features.</small></h2>
+                    
+                        <ul class="actions">
+                            <li>
+                                <a href="">
+                                    <i class="zmdi zmdi-trending-up"></i>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="">
+                                    <i class="zmdi zmdi-check-all"></i>
+                                </a>
+                            </li>
+                            <li class="dropdown">
+                                <a href="" data-toggle="dropdown">
+                                    <i class="zmdi zmdi-more-vert"></i>
+                                </a>
+                    
+                                <ul class="dropdown-menu dropdown-menu-right">
+                                    <li>
+                                        <a href="">Refresh</a>
+                                    </li>
+                                    <li>
+                                        <a href="">Manage Widgets</a>
+                                    </li>
+                                    <li>
+                                        <a href="">Widgets Settings</a>
+                                    </li>
+                                </ul>
+                            </li>
+                        </ul>
+                    
                     </div>
-                    <br/>
                     
                     <div class="row">
-                        <div class="col-md-8">
-                            <div class="card wall-posting">
-                                <div class="card-body card-padding">
-                                    <textarea class="wp-text" data-auto-size placeholder="Write Something..."></textarea>
-                                    
-                                    <div class="tab-content p-0">
-                                        <div class="wp-media tab-pane" id="wpm-image">
-                                            Images - Coming soon...
-                                        </div>
-                                        
-                                        <div class="wp-media tab-pane" id="wpm-video">
-                                            Video Links - Coming soon...
-                                        </div>
-                                        
-                                        <div class="wp-media tab-pane" id="wpm-link">
-                                            Links - Coming soon...
-                                        </div>
+                        <div class="col-md-6">
+                            <div class="card">
+                                <div class="card-header">
+                                    <h2>Line Chart with curved edges <small>Curved edges made possible using curvedLines Flot plugin.</small></h2>
+                            
+                                    <ul class="actions">
+                                        <li class="dropdown action-show">
+                                            <a href="" data-toggle="dropdown">
+                                                <i class="zmdi zmdi-more-vert"></i>
+                                            </a>
+                            
+                                            <div class="dropdown-menu pull-right">
+                                                <p class="p-20">
+                                                    You can put anything here
+                                                </p>
+                                            </div>
+                                        </li>
+                                    </ul>
+                                </div>
+                            
+                                <div class="card-body">
+                                    <div class="chart-edge">
+                                        <div id="curved-line-chart" class="flot-chart"></div>
                                     </div>
                                 </div>
+                            </div>
+                        </div>
+                        
+                        <div class="col-md-6">
+                            <div class="card">
+                                <div class="card-header">
+                                    <h2>Lines Chart <small>Same above example without curved edges.</small></h2>
+                                    
+                                    <ul class="actions">
+                                        <li class="dropdown action-show">
+                                            <a href="" data-toggle="dropdown">
+                                                <i class="zmdi zmdi-more-vert"></i>
+                                            </a>
+                            
+                                            <div class="dropdown-menu pull-right">
+                                                <p class="p-20">
+                                                    You can put anything here
+                                                </p>
+                                            </div>
+                                        </li>
+                                    </ul>
+                                </div>
                                 
-                                <ul class="list-unstyled clearfix wpb-actions">
-                                    <li class="wpba-attrs">
-                                        <ul class="list-unstyled list-inline m-l-0 m-t-5">
-                                            <li><a data-wpba="image" data-toggle="tab" href="" data-target="#wpm-image"><i class="zmdi zmdi-image"></i></a></li>
-                                            <li><a data-wpba="video" data-toggle="tab" href="" data-target="#wpm-video"><i class="zmdi zmdi-play-circle"></i></a></li>
-                                            <li><a data-wpba="link" data-toggle="tab" href="" data-target="#wpm-link"><i class="zmdi zmdi-link"></i></a></li>
-                                        </ul>
-                                    </li>
-                
-                                    <li class="pull-right"><button id="postBtn" class="btn btn-primary btn-sm">Post</button></li>
-                                </ul>
+                                <div class="card-body">
+                                    <div class="chart-edge">
+                                        <div id="line-chart" class="flot-chart"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="col-md-6">
+                            <div class="card">
+                                <div class="card-header">
+                                    <h2>Bar Chart</h2>
+                                    
+                                    <ul class="actions">
+                                        <li class="dropdown action-show">
+                                            <a href="" data-toggle="dropdown">
+                                                <i class="zmdi zmdi-more-vert"></i>
+                                            </a>
+                            
+                                            <div class="dropdown-menu pull-right">
+                                                <p class="p-20">
+                                                    You can put anything here
+                                                </p>
+                                            </div>
+                                        </li>
+                                    </ul>
+                                </div>
+                                
+                                <div class="card-body card-padding-sm">
+                                    <div id="bar-chart" class="flot-chart"></div>
+                                    <div class="flc-bar"></div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="col-md-6">
+                            <div class="card">
+                                <div class="card-header">
+                                    <h2>Dynamic Chart</h2>
+                                    
+                                    <ul class="actions">
+                                        <li class="dropdown action-show">
+                                            <a href="" data-toggle="dropdown">
+                                                <i class="zmdi zmdi-more-vert"></i>
+                                            </a>
+                            
+                                            <div class="dropdown-menu pull-right">
+                                                <p class="p-20">
+                                                    You can put anything here
+                                                </p>
+                                            </div>
+                                        </li>
+                                    </ul>
+                                </div>
+                                
+                                <div class="card-body card-padding-sm">
+                                    <div id="dynamic-chart" class="flot-chart"></div>
+                                    <div class="flc-dynamic"></div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="col-md-6">
+                            <div class="card">
+                                <div class="card-header">
+                                    <h2>Pie Chart</h2>
+                                    
+                                    <ul class="actions">
+                                        <li class="dropdown action-show">
+                                            <a href="" data-toggle="dropdown">
+                                                <i class="zmdi zmdi-more-vert"></i>
+                                            </a>
+                            
+                                            <div class="dropdown-menu pull-right">
+                                                <p class="p-20">
+                                                    You can put anything here
+                                                </p>
+                                            </div>
+                                        </li>
+                                    </ul>
+                                </div>
+                                
+                                <div class="card-body card-padding">
+                                    <div id="pie-chart" class="flot-chart-pie"></div>
+                                    <div class="flc-pie hidden-xs"></div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="col-md-6">
+                            <div class="card">
+                                <div class="card-header">
+                                    <h2>Donut Chart</h2>
+                                    
+                                    <ul class="actions">
+                                        <li class="dropdown action-show">
+                                            <a href="" data-toggle="dropdown">
+                                                <i class="zmdi zmdi-more-vert"></i>
+                                            </a>
+                            
+                                            <div class="dropdown-menu pull-right">
+                                                <p class="p-20">
+                                                    You can put anything here
+                                                </p>
+                                            </div>
+                                        </li>
+                                    </ul>
+                                </div>
+                                
+                                <div class="card-body card-padding">
+                                    <div id="donut-chart" class="flot-chart-pie"></div>
+                                    <div class="flc-donut hidden-xs"></div>
+                                </div>
                             </div>
                         </div>
                     </div>
-                    
                 </div>
             </section>
         </section>
@@ -332,6 +490,22 @@
         <script src="vendors/fileinput/fileinput.min.js"></script>
         <script src="vendors/input-mask/input-mask.min.js"></script>
         <script src="vendors/farbtastic/farbtastic.min.js"></script>
+        
+        <script src="vendors/bower_components/flot/jquery.flot.js"></script>
+        <script src="vendors/bower_components/flot/jquery.flot.resize.js"></script>
+        <script src="vendors/bower_components/flot/jquery.flot.pie.js"></script>
+        <script src="vendors/bower_components/flot.tooltip/js/jquery.flot.tooltip.min.js"></script>
+        <script src="vendors/bower_components/flot-orderBars/js/jquery.flot.orderBars.js"></script>
+        <script src="vendors/bower_components/flot.curvedlines/curvedLines.js"></script>                         
+        <script src="vendors/bower_components/flot-orderBars/js/jquery.flot.orderBars.js"></script>
+        
+        <!-- Charts - Please read the read-me.txt inside the js folder-->
+        <script src="js/flot-charts/curved-line-chart.js"></script>
+        <script src="js/flot-charts/line-chart.js"></script>
+        <script src="js/flot-charts/bar-chart.js"></script>
+        <script src="js/flot-charts/dynamic-chart.js"></script>
+        <script src="js/flot-charts/pie-chart.js"></script>
+        
         
         <script src="js/functions.js"></script>
         <script src="js/demo.js"></script>
