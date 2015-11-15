@@ -135,6 +135,8 @@ function channelBarChart(json)
     var obj = json[11]['traffic:/user/makeChannel']; // channel 생성, 추가
     for(var i=0; i<obj.length; i++)
     {
+        var date = obj[i]['date'];
+        
         data1.push([obj[i]['date'], obj[i]['count']]);
     }
     obj = json[2]['traffic:/user/joinChannel']; // channel에 가입
