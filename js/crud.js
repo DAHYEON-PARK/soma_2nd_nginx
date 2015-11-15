@@ -366,43 +366,6 @@ function requestByApp(query)
 	});
 }
 
-// category별 channel & app별 channel & user별 channel
-function requestByChannel(json, cbComplete)
-{
-    // json = { "key":"value" }
-    var key = Object.keys(json);
-    var query = 'select * from channel_user_list where '+key[0]+'=\"'+json[key[0]]+'\"';
-    query = query.toLowerCase();
-    query = encodeURIComponent(query);
-        
-	$.ajax({
-		type: 'POST',
-		url: 'http://133.130.113.101:7010/user/customQuery?query='+query,
-		success: function(data, status) {
-			
-			var obj;
-			try
-			{
-				obj = parseJson(data);
-			}
-			catch (e)
-			{
-				console.log('json error:'+data);
-				//alert("JSON Parsing Error. "+e);
-				alert(data);
-				return;
-			}
-			
-			if(cbComplete)
-				cbComplete(table, obj);
-		},
-		error: function(e) {
-			console.log('접속이 원활하지 않습니다.');
-		}
-	});
-}
-
-
 function parseJson(data)
 {
 	if(typeof(data) == 'object')
@@ -703,4 +666,10 @@ function getUserList(app, func)
 			console.log('접속이 원활하지 않습니다.');
 		}
 	});
+}
+
+function logout()
+{
+    localStorage.removeItem('user_token');
+    localStorage.removeItem('user_id');
 }

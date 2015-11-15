@@ -18,7 +18,7 @@
         <link href="vendors/bower_components/eonasdan-bootstrap-datetimepicker/build/css/bootstrap-datetimepicker.min.css" rel="stylesheet">
         <link href="vendors/farbtastic/farbtastic.css" rel="stylesheet">
         <link href="vendors/chosen_v1.4.2/chosen.min.css" rel="stylesheet">
-        
+        <link href="vendors/bower_components/fullcalendar/dist/fullcalendar.min.css" rel="stylesheet">
         
         <!-- CSS -->
         <link href="css/app.min.1.css" rel="stylesheet">
@@ -134,11 +134,12 @@
                                 </div>
                             </div>
                         </li>
-                        <li class="dropdown hidden-xs">
+                        <li class="dropdown">
+                            <a data-toggle="dropdown" class="tm-task" href=""></a>
                             <div class="dropdown-menu pull-right dropdown-menu-lg">
-                                <div class="listview">
+                                <div class="listview">    
                                     <div class="lv-header">
-                                        Tasks
+                                            Tasks
                                     </div>
                                     <div class="lv-body">
                                         <div class="lv-item">
@@ -179,7 +180,6 @@
                                         </div>
                                         <div class="lv-item">
                                             <div class="lv-title m-b-5">Youtube Client App</div>
-
                                             <div class="progress">
                                                 <div class="progress-bar progress-bar-danger" role="progressbar" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100" style="width: 80%">
                                                     <span class="sr-only">80% Complete (danger)</span>
@@ -187,11 +187,10 @@
                                             </div>
                                         </div>
                                     </div>
-
                                     <a class="lv-footer" href="">View All</a>
                                 </div>
                             </div>
-                        </li>
+                        </li> 
                         <li class="dropdown">
                             <a data-toggle="dropdown" class="tm-settings" href=""></a>
                             <ul class="dropdown-menu dm-icon pull-right">
@@ -236,23 +235,115 @@
                         <li><a href="profile-about.html"><i class="zmdi zmdi-account"></i> View Profile</a></li>
                         <li class="sub-menu">
                             <a href=""><i class="zmdi zmdi-view-list"></i> Database Tables</a>
-
                             <!-- javascript로 menu.json에서 불러와서 추가 -->
                             <ul id="menu-db-table">
                             </ul>
                         </li>
-                        <li><a href=""><i class="zmdi zmdi-format-underlined"></i> Push Notification</a></li>
-                        <li><a href=""><i class="zmdi zmdi-remote-control"></i> Black List</a></li>
-                        <li><a href=""><i class="zmdi zmdi-seat"></i> Word Filter</a></li>
-                        <li><a href=""><i class="zmdi zmdi-portable-wifi"></i> Server Traffic</a></li>
-                        <li><a href=""><i class="zmdi zmdi-settings"></i> Setting</a></li>
-                        <li><a href=""><i class="zmdi zmdi-swap-alt"></i> Logout</a></li>
+                        <li><a href="notice.html"><i class="zmdi zmdi-format-underlined"></i> Push Notification</a></li>
+                        <li><a href="blacklist.html"><i class="zmdi zmdi-remote-control"></i> Black List</a></li>
+                        <li><a href="wordfilter.html"><i class="zmdi zmdi-seat"></i> Word Filter</a></li>
+                        <li><a href="traffic.html"><i class="zmdi zmdi-portable-wifi"></i> Server Traffic</a></li>
+                        <li onclick="logout()"><a href=""><i class="zmdi zmdi-swap-alt"></i> Logout</a></li>
                     </ul>
                 </div>
             </aside>
                         
             <section id="content">
                 <div class="container">
+                    <div class="card">
+                        <div class="card-header">
+                            <h2>Sales Statistics <small>Vestibulum purus quam scelerisque, mollis nonummy metus</small></h2>
+                            
+                            <ul class="actions">
+                                <li>
+                                    <a href="">
+                                        <i class="zmdi zmdi-refresh-alt"></i>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="">
+                                        <i class="zmdi zmdi-download"></i>
+                                    </a>
+                                </li>
+                                <li class="dropdown">
+                                    <a href="" data-toggle="dropdown">
+                                        <i class="zmdi zmdi-more-vert"></i>
+                                    </a>
+                                    
+                                    <ul class="dropdown-menu dropdown-menu-right">
+                                        <li>
+                                            <a href="">Change Date Range</a>
+                                        </li>
+                                        <li>
+                                            <a href="">Change Graph Type</a>
+                                        </li>
+                                        <li>
+                                            <a href="">Other Settings</a>
+                                        </li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </div>
+                        
+                        <div class="card-body">
+                            <div class="chart-edge">
+                                <div id="curved-line-chart" class="flot-chart "></div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="mini-charts">
+                        <div class="row">
+                            <div class="col-sm-6 col-md-3">
+                                <div class="mini-charts-item bgm-cyan">
+                                    <div class="clearfix">
+                                        <div class="chart stats-bar"></div>
+                                        <div class="count">
+                                            <small>Website Traffics</small>
+                                            <h2>987,459</h2>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="col-sm-6 col-md-3">
+                                <div class="mini-charts-item bgm-lightgreen">
+                                    <div class="clearfix">
+                                        <div class="chart stats-bar-2"></div>
+                                        <div class="count">
+                                            <small>Website Impressions</small>
+                                            <h2>356,785K</h2>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="col-sm-6 col-md-3">
+                                <div class="mini-charts-item bgm-orange">
+                                    <div class="clearfix">
+                                        <div class="chart stats-line"></div>
+                                        <div class="count">
+                                            <small>Total Sales</small>
+                                            <h2>$ 458,778</h2>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="col-sm-6 col-md-3">
+                                <div class="mini-charts-item bgm-bluegray">
+                                    <div class="clearfix">
+                                        <div class="chart stats-line-2"></div>
+                                        <div class="count">
+                                            <small>Support Tickets</small>
+                                            <h2>23,856</h2>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
                     <div class="block-header">
                         <h2>Flot Charts <small>Flot is a pure JavaScript plotting library for jQuery, with a focus on simple usage, attractive looks and interactive features.</small></h2>
                     
@@ -498,6 +589,8 @@
         <script src="vendors/bower_components/flot-orderBars/js/jquery.flot.orderBars.js"></script>
         <script src="vendors/bower_components/flot.curvedlines/curvedLines.js"></script>                         
         <script src="vendors/bower_components/flot-orderBars/js/jquery.flot.orderBars.js"></script>
+        <script src="vendors/sparklines/jquery.sparkline.min.js"></script>
+        <script src="vendors/bower_components/jquery.easy-pie-chart/dist/jquery.easypiechart.min.js"></script>
         
         <!-- Charts - Please read the read-me.txt inside the js folder-->
         <script src="js/flot-charts/curved-line-chart.js"></script>
@@ -505,7 +598,7 @@
         <script src="js/flot-charts/bar-chart.js"></script>
         <script src="js/flot-charts/dynamic-chart.js"></script>
         <script src="js/flot-charts/pie-chart.js"></script>
-        
+        <script src="js/charts.js"></script>
         
         <script src="js/functions.js"></script>
         <script src="js/demo.js"></script>
@@ -515,63 +608,13 @@
       
         <script type="text/javascript">
             $(document).ready(function(){
-
-                // sqlite부분으로 수정해야 함
-                var token = getLocationParameter('token');
-                if(token!="") g_token = token;
-                    var userid = getLocationParameter('id');
-                if(userid == "")
-                    document.getElementById('drawer_user_id').innerHTML = 'default';   
-                else{
-                    user_id = userid;
-                    document.getElementById('drawer_user_id').innerHTML = String(user_id);
-                }
+                var token = localStorage.getItem('user_token');
+                if(token == "" | token == null) 
+                    location.replace("login.html");
                 
-                var table = getLocationParameter('type');
-	            initMenu(table);
-                
-                $('#postBtn').click(function() {
-                    var text = $('.wall-posting .wp-text').val();
-                    
-                    var json = {};
-                    json['subject'] = 'default';
-                    json['content'] = text;
-                    
-                    requestInsert(json, function(table, recv) {
-                        console.log(table + ','+recv);
-                    });
-                    
-                    sendGCM(text);
-                });
+                var id = localStorage.getItem('user_id');
+                document.getElementById('drawer_user_id').innerHTML = String(id);
             });
-            
-            function sendGCM(text)
-            {
-                $.ajax({
-                    type: 'POST',
-                    url: 'http://133.130.113.101:7010/user/noticePush?token=&msg_type=gcm&to_what=all&msg='+text,
-                    success: function(data, status) {
-
-                        var obj;
-                        try
-                        {
-                            obj = parseJson(data);
-                        }
-                        catch (e)
-                        {
-                            console.log('json error:'+data);
-                            //alert("JSON Parsing Error. "+e);
-                            alert(data);
-                            return;
-                        }
-                    
-                        alert("성공 : "+obj);
-                    },
-                    error: function(e) {
-                        console.log('접속이 원활하지 않습니다.');
-                    }
-                });
-            }
         </script>
     </body>
   </html>
