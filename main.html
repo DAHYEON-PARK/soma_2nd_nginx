@@ -460,12 +460,13 @@
                         
                                     if(len == 0)    return;
                                     
+                                    /////////////// 기존에 있던 내용에서 추가되는 것 제외시키기!!
+                                    ////// 왜 호출이 4번됨?? 그리고 그 배수로 호출되는 이유는 뭐지??
                                     for(var i=0; i<len; i++)
                                     {
                                         var $option = '<option>'+arr[i][0]+'</option>';
-                                        $('#sel_user .selectpicker').append($option);
+                                        $('#sel_user .selectpicker').append($option).selectpicker('refresh');
                                     }
-                                    $('#sel_user .selectpicker').selectpicker('refresh');
                                 });
                                 break;
 

@@ -250,16 +250,15 @@
                         
             <section id="content">
                 <div class="container">
+                    <div class="block-header">
+                        <h2>Server / Application Traffic <small>서버와 애플리케이션의 traffic을 graph로 한눈에 볼 수 있습니다.</small></h2>
+                    </div>
+                    
                     <div class="card">
                         <div class="card-header">
-                            <h2>Sales Statistics <small>Vestibulum purus quam scelerisque, mollis nonummy metus</small></h2>
+                            <h2>Lines Chart : Login <small>Login에 관한 Date별 Count입니다.</small></h2>
                             
                             <ul class="actions">
-                                <li>
-                                    <a href="">
-                                        <i class="zmdi zmdi-refresh-alt"></i>
-                                    </a>
-                                </li>
                                 <li>
                                     <a href="">
                                         <i class="zmdi zmdi-download"></i>
@@ -274,12 +273,6 @@
                                         <li>
                                             <a href="">Change Date Range</a>
                                         </li>
-                                        <li>
-                                            <a href="">Change Graph Type</a>
-                                        </li>
-                                        <li>
-                                            <a href="">Other Settings</a>
-                                        </li>
                                     </ul>
                                 </li>
                             </ul>
@@ -287,7 +280,7 @@
                         
                         <div class="card-body">
                             <div class="chart-edge">
-                                <div id="curved-line-chart" class="flot-chart "></div>
+                                <div id="line-chart" class="flot-chart"></div>
                             </div>
                         </div>
                     </div>
@@ -344,120 +337,65 @@
                         </div>
                     </div>
                     
-                    <div class="block-header">
-                        <h2>Flot Charts <small>Flot is a pure JavaScript plotting library for jQuery, with a focus on simple usage, attractive looks and interactive features.</small></h2>
-                    
-                        <ul class="actions">
-                            <li>
-                                <a href="">
-                                    <i class="zmdi zmdi-trending-up"></i>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="">
-                                    <i class="zmdi zmdi-check-all"></i>
-                                </a>
-                            </li>
-                            <li class="dropdown">
-                                <a href="" data-toggle="dropdown">
-                                    <i class="zmdi zmdi-more-vert"></i>
-                                </a>
-                    
-                                <ul class="dropdown-menu dropdown-menu-right">
-                                    <li>
-                                        <a href="">Refresh</a>
-                                    </li>
-                                    <li>
-                                        <a href="">Manage Widgets</a>
-                                    </li>
-                                    <li>
-                                        <a href="">Widgets Settings</a>
-                                    </li>
-                                </ul>
-                            </li>
-                        </ul>
-                    
-                    </div>
-                    
                     <div class="row">
                         <div class="col-md-6">
                             <div class="card">
                                 <div class="card-header">
-                                    <h2>Line Chart with curved edges <small>Curved edges made possible using curvedLines Flot plugin.</small></h2>
-                            
-                                    <ul class="actions">
-                                        <li class="dropdown action-show">
-                                            <a href="" data-toggle="dropdown">
-                                                <i class="zmdi zmdi-more-vert"></i>
-                                            </a>
-                            
-                                            <div class="dropdown-menu pull-right">
-                                                <p class="p-20">
-                                                    You can put anything here
-                                                </p>
-                                            </div>
-                                        </li>
-                                    </ul>
-                                </div>
-                            
-                                <div class="card-body">
-                                    <div class="chart-edge">
-                                        <div id="curved-line-chart" class="flot-chart"></div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        
-                        <div class="col-md-6">
-                            <div class="card">
-                                <div class="card-header">
-                                    <h2>Lines Chart <small>Same above example without curved edges.</small></h2>
+                                    <h2>Bar Chart : App <small>App 생성/가입/탈퇴에 관한 Date와 Count입니다.</small></h2>
                                     
                                     <ul class="actions">
-                                        <li class="dropdown action-show">
-                                            <a href="" data-toggle="dropdown">
-                                                <i class="zmdi zmdi-more-vert"></i>
+                                        <li>
+                                            <a href="">
+                                                <i class="zmdi zmdi-download"></i>
                                             </a>
-                            
-                                            <div class="dropdown-menu pull-right">
-                                                <p class="p-20">
-                                                    You can put anything here
-                                                </p>
-                                            </div>
                                         </li>
-                                    </ul>
-                                </div>
-                                
-                                <div class="card-body">
-                                    <div class="chart-edge">
-                                        <div id="line-chart" class="flot-chart"></div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        
-                        <div class="col-md-6">
-                            <div class="card">
-                                <div class="card-header">
-                                    <h2>Bar Chart</h2>
-                                    
-                                    <ul class="actions">
-                                        <li class="dropdown action-show">
+                                        <li class="dropdown">
                                             <a href="" data-toggle="dropdown">
                                                 <i class="zmdi zmdi-more-vert"></i>
                                             </a>
-                            
-                                            <div class="dropdown-menu pull-right">
-                                                <p class="p-20">
-                                                    You can put anything here
-                                                </p>
-                                            </div>
+
+                                            <ul class="dropdown-menu dropdown-menu-right">
+                                                <li>
+                                                    <a href="">Change Date Range</a>
+                                                </li>
+                                            </ul>
                                         </li>
                                     </ul>
                                 </div>
                                 
                                 <div class="card-body card-padding-sm">
-                                    <div id="bar-chart" class="flot-chart"></div>
+                                    <div id="app-bar-chart" class="flot-chart"></div>
+                                    <div class="flc-bar"></div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="col-md-6">
+                            <div class="card">
+                                <div class="card-header">
+                                    <h2>Bar Chart : Channel <small>Channel 생성/가입/탈퇴에 관한 Date와 Count입니다.</small></h2>
+                                    <ul class="actions">
+                                        <li>
+                                            <a href="">
+                                                <i class="zmdi zmdi-download"></i>
+                                            </a>
+                                        </li>
+                                        <li class="dropdown">
+                                            <a href="" data-toggle="dropdown">
+                                                <i class="zmdi zmdi-more-vert"></i>
+                                            </a>
+
+                                            <ul class="dropdown-menu dropdown-menu-right">
+                                                <li>
+                                                    <a href="">Change Date Range</a>
+                                                </li>
+                                            </ul>
+                                        </li>
+                                    </ul>
+                                </div>
+                                
+                                <div class="card-body card-padding-sm">
+                                    <div id="channel-bar-chart" class="flot-chart"></div>
                                     <div class="flc-bar"></div>
                                 </div>
                             </div>
@@ -467,20 +405,6 @@
                             <div class="card">
                                 <div class="card-header">
                                     <h2>Dynamic Chart</h2>
-                                    
-                                    <ul class="actions">
-                                        <li class="dropdown action-show">
-                                            <a href="" data-toggle="dropdown">
-                                                <i class="zmdi zmdi-more-vert"></i>
-                                            </a>
-                            
-                                            <div class="dropdown-menu pull-right">
-                                                <p class="p-20">
-                                                    You can put anything here
-                                                </p>
-                                            </div>
-                                        </li>
-                                    </ul>
                                 </div>
                                 
                                 <div class="card-body card-padding-sm">
@@ -493,19 +417,24 @@
                         <div class="col-md-6">
                             <div class="card">
                                 <div class="card-header">
-                                    <h2>Pie Chart</h2>
+                                    <h2>Pie Chart : All <small>Login, App, Channel에 관한 모든 % 정보입니다.</small></h2>
                                     
                                     <ul class="actions">
-                                        <li class="dropdown action-show">
+                                        <li>
+                                            <a href="">
+                                                <i class="zmdi zmdi-download"></i>
+                                            </a>
+                                        </li>
+                                        <li class="dropdown">
                                             <a href="" data-toggle="dropdown">
                                                 <i class="zmdi zmdi-more-vert"></i>
                                             </a>
-                            
-                                            <div class="dropdown-menu pull-right">
-                                                <p class="p-20">
-                                                    You can put anything here
-                                                </p>
-                                            </div>
+
+                                            <ul class="dropdown-menu dropdown-menu-right">
+                                                <li>
+                                                    <a href="">Change Date Range</a>
+                                                </li>
+                                            </ul>
                                         </li>
                                     </ul>
                                 </div>
@@ -517,32 +446,6 @@
                             </div>
                         </div>
                         
-                        <div class="col-md-6">
-                            <div class="card">
-                                <div class="card-header">
-                                    <h2>Donut Chart</h2>
-                                    
-                                    <ul class="actions">
-                                        <li class="dropdown action-show">
-                                            <a href="" data-toggle="dropdown">
-                                                <i class="zmdi zmdi-more-vert"></i>
-                                            </a>
-                            
-                                            <div class="dropdown-menu pull-right">
-                                                <p class="p-20">
-                                                    You can put anything here
-                                                </p>
-                                            </div>
-                                        </li>
-                                    </ul>
-                                </div>
-                                
-                                <div class="card-body card-padding">
-                                    <div id="donut-chart" class="flot-chart-pie"></div>
-                                    <div class="flc-donut hidden-xs"></div>
-                                </div>
-                            </div>
-                        </div>
                     </div>
                 </div>
             </section>
@@ -593,7 +496,6 @@
         <script src="vendors/bower_components/jquery.easy-pie-chart/dist/jquery.easypiechart.min.js"></script>
         
         <!-- Charts - Please read the read-me.txt inside the js folder-->
-        <script src="js/flot-charts/curved-line-chart.js"></script>
         <script src="js/flot-charts/line-chart.js"></script>
         <script src="js/flot-charts/bar-chart.js"></script>
         <script src="js/flot-charts/dynamic-chart.js"></script>
@@ -616,6 +518,8 @@
                 document.getElementById('drawer_user_id').innerHTML = String(id);
                 
                 initMenu("");
+                
+                getTraffic();
             });
         </script>
     </body>

@@ -1,3 +1,4 @@
+
 var g_app_menu;
 var g_target_table;
 
@@ -441,7 +442,6 @@ function showMainTable(json)
     $('#card_table .table-responsive').append($body);
 }
 
-
 function onCrud(table, json)
 {
     var $header = $('<div class="card-header"><h2>'+table.toUpperCase()+' <small>Show database tables for admin user.</small></h2></div>');
@@ -673,3 +673,32 @@ function logout()
     localStorage.removeItem('user_token');
     localStorage.removeItem('user_id');
 }
+
+function getTraffic()
+{
+    $.ajax({
+		type: 'GET',
+		url: 'http://133.130.113.101:7010/user/traffic',
+		success: function(data, status) {
+			var obj;
+			try
+			{
+				obj = parseJson(data);
+			}
+			catch (e)
+			{
+				alert("JSON Parsing Error. "+e);
+				return;
+			}
+
+			drawLineChart(obj[0]['traffic:/user/login']); // login (line-chart.js에 존재)
+            appBarChart(obj);   // regApp, removeApp, regNick
+            channelBarChart(obj); // makeCha, joinCha, withdrawCha
+            //drawPieChart(obj); // all
+		},
+		error: function(e) {
+			console.log('접속이 원활하지 않습니다.');
+		}
+	});   
+}
+
