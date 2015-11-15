@@ -112,13 +112,13 @@ function appBarChart(json)
                 shadowSize: 0,
             },
     
-            legend:{
-                container: '.flc-bar',
-                backgroundOpacity: 0.5,
-                noColumns: 0,
-                backgroundColor: "white",
-                lineWidth: 0
-            }
+//            legend:{
+//                container: '.flc-bar',
+//                backgroundOpacity: 0.5,
+//                noColumns: 0,
+//                backgroundColor: "white",
+//                lineWidth: 0
+//            }
         });
     }
 }
@@ -220,13 +220,13 @@ function channelBarChart(json)
                 shadowSize: 0,
             },
     
-            legend:{
-                container: '.flc-bar',
-                backgroundOpacity: 0.5,
-                noColumns: 0,
-                backgroundColor: "white",
-                lineWidth: 0
-            }
+//            legend:{
+//                container: '#flc-bar-channel',
+//                backgroundOpacity: 0.5,
+//                noColumns: 0,
+//                backgroundColor: "white",
+//                lineWidth: 0
+//            }
         });
     }
    
