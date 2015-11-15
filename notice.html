@@ -346,6 +346,8 @@
                 var id = localStorage.getItem('user_id');
                 document.getElementById('drawer_user_id').innerHTML = String(id);
                 
+                initMenu("");
+                
                 $('#postBtn').click(function() {
                     var text = $('.wall-posting .wp-text').val();
                     
