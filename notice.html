@@ -350,8 +350,8 @@
                     }); 
                     
                     var json = {};
-                    json['subject'] = title;
-                    json['content'] = content;
+                    json['"subject"'] = title;
+                    json['"content"'] = content;
                     
                     requestInsert(json, function(table, recv) {
                         console.log(table + ','+recv);

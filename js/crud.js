@@ -702,3 +702,29 @@ function getTraffic()
 	});   
 }
 
+function divideDate(num, func)
+{
+    var init = num.toString();
+    
+//    var time = init % 100;
+//    init = init/100;
+//    var day = init % 100;
+//    init = init/100;
+//    var month = init/100;
+//    init = init/100;
+//    var year = init;
+    
+    var year = init.substring(0,4);
+    var month = init.substring(4,6);
+    var day = init.substring(6,8);
+    var time = init.substring(8,10);
+    
+    var json = {};
+    json['time'] = time;
+    json['day'] = day;
+    json['month'] = month;
+    json['year'] = year;
+    
+    if(func)
+        func(parseJson(json));
+}

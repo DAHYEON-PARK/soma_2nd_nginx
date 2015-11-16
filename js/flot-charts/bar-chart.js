@@ -26,26 +26,32 @@ function appBarChart(json)
     var data3 = [];
     
     
-    var obj = json[7]['traffic:/user/registApp']; // app 생성, 추가
+    var obj = json[9]['traffic:/user/registApp']; // app 생성, 추가
     for(var i=0; i<obj.length; i++)
     {
-        data1.push([obj[i]['date'], obj[i]['count']]);
+        divideDate(obj[i]['date'], function(jsonDate) {
+            data1.push([jsonDate['time'], obj[i]['count']]);
+        });
     }
     obj = json[3]['traffic:/user/registNick']; // app에 가입
     for(var i=0; i<obj.length; i++)
     {
-        data2.push([obj[i]['date'], obj[i]['count']]);
+        divideDate(obj[i]['date'], function(jsonDate) {
+            data2.push([jsonDate['time'], obj[i]['count']]);
+        });
     }
     obj = json[1]['traffic:/user/removeApp']; // app에서 탈퇴
     for(var i=0; i<obj.length; i++)
     {
-        data3.push([obj[i]['date'], obj[i]['count']]);
+        divideDate(obj[i]['date'], function(jsonDate) {
+            data3.push([jsonDate['time'], obj[i]['count']]);
+        });
     }
     
     
     barData.push({
         data : data1,
-        label: 'App Create',
+        //label: 'App Create',
         bars : {
                 show : true,
                 barWidth : 0.08,
@@ -57,7 +63,7 @@ function appBarChart(json)
     
     barData.push({
         data : data2,
-        label: 'App Join',
+        //label: 'App Join',
         bars : {
                 show : true,
                 barWidth : 0.08,
@@ -69,7 +75,7 @@ function appBarChart(json)
     
     barData.push({
         data : data3,
-        label: 'App Drop Out',
+        //label: 'App Drop Out',
         bars : {
                 show : true,
                 barWidth : 0.08,
@@ -112,13 +118,13 @@ function appBarChart(json)
                 shadowSize: 0,
             },
     
-            legend:{
-                container: '.flc-bar',
-                backgroundOpacity: 0.5,
-                noColumns: 0,
-                backgroundColor: "white",
-                lineWidth: 0
-            }
+//            legend:{
+//                container: '.flc-bar',
+//                backgroundOpacity: 0.5,
+//                noColumns: 0,
+//                backgroundColor: "white",
+//                lineWidth: 0
+//            }
         });
     }
 }
@@ -132,28 +138,32 @@ function channelBarChart(json)
     var data3 = [];
     
     
-    var obj = json[11]['traffic:/user/makeChannel']; // channel 생성, 추가
+    var obj = json[13]['traffic:/user/makeChannel']; // channel 생성, 추가
     for(var i=0; i<obj.length; i++)
     {
-        var date = obj[i]['date'];
-        
-        data1.push([obj[i]['date'], obj[i]['count']]);
+        divideDate(obj[i]['date'], function(jsonDate) {
+            data1.push([jsonDate['time'], obj[i]['count']]);
+        });
     }
     obj = json[2]['traffic:/user/joinChannel']; // channel에 가입
     for(var i=0; i<obj.length; i++)
     {
-        data2.push([obj[i]['date'], obj[i]['count']]);
+        divideDate(obj[i]['date'], function(jsonDate) {
+            data2.push([jsonDate['time'], obj[i]['count']]);
+        });
     }
     obj = json[5]['traffic:/user/withdrawChannel']; // channel에서 탈퇴
     for(var i=0; i<obj.length; i++)
     {
-        data3.push([obj[i]['date'], obj[i]['count']]);
+        divideDate(obj[i]['date'], function(jsonDate) {
+            data3.push([jsonDate['time'], obj[i]['count']]);
+        });
     }
     
     
     barData.push({
         data : data1,
-        label: 'Channel Create',
+        //label: 'Channel Create',
         bars : {
                 show : true,
                 barWidth : 0.08,
@@ -165,7 +175,7 @@ function channelBarChart(json)
     
     barData.push({
         data : data2,
-        label: 'Channel Join',
+        //label: 'Channel Join',
         bars : {
                 show : true,
                 barWidth : 0.08,
@@ -177,7 +187,7 @@ function channelBarChart(json)
     
     barData.push({
         data : data3,
-        label: 'Channel Drop Out',
+        //label: 'Channel Drop Out',
         bars : {
                 show : true,
                 barWidth : 0.08,
