@@ -707,7 +707,7 @@ function logout()
     localStorage.removeItem('user_id');
 }
 
-function getTraffic()
+function getTraffic(func)
 {
     $.ajax({
 		type: 'GET',
@@ -726,15 +726,8 @@ function getTraffic()
             
 			drawLineChart(obj[0]['traffic:/user/login']); // login (line-chart.js에 존재)
             
-            var keys = {};
-            var values = {};
-            for(i=0; i<obj.length; i++)
-            {
-                keys[i] = Object.keys(obj[i]);
-                values[i] = obj[i][keys[i]];
-            }
-
-            drawBarChart();
+            if(func)
+                func(obj);
 		},
 		error: function(e) {
 			console.log('접속이 원활하지 않습니다.');

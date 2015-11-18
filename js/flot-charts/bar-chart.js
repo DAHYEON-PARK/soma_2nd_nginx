@@ -17,30 +17,33 @@ $(document).ready(function(){
     }
 });
 
-function drawBarChart()
+function drawBarChart($table, obj, size)
 {
     var barData = new Array();
-    var size = keys.length;
-    
-    for(i=0; i<size; i++)
+    var data = [];
+
+    var len = obj.length;
+    for(var j=0; j<len; j++)
     {
-        var $content = '<div class="col-md-6"><div class="card"><div class="card-header><h2>'+keys[i]+'</h2><ul class="actions"><li><a href=""><i class="zmdi zmdi-download"></i></a></li><li class="dropdown"><a href="" data-toggle="dropdown"><i class="zmdi zmdi-more-vert"></i></a><ul class="dropdown-menu dropdown-menu-right"><li><a href="">Change Date Range</a></li></ul></li></ul></div><div class="card-body card-padding-sm"><div id="'+i+'" class="flot-chart"></div><div class="flc-bar"></div></div></div</div>';
-        
-        $table.append($content);   
-        
-        var data1 = [];
-        
-        var obj = values[i]; // app 생성, 추가
-        for(var i=0; i<obj.length; i++)
-        {
-            divideDate(obj['date'], function(jsonDate) {
-                data1.push([jsonDate['time'], obj['count']]);
-            });
+        divideDate(obj[j]['date'], function(jsonDate) {
+            data.push([jsonDate['time'], obj[j]['count']]);
+        });
+    }
+
+    barData.push({
+        data : data,
+        label: 'None',
+        bars : {
+                show : true,
+                barWidth : 0.08,
+                order : 3,
+                lineWidth: 0,
+                fillColor: '#FF9800'
         }
-        
-        var id = '\'#'+keys[i];
-        if ($('''+key+''')[0]) {
-        $.plot($("#app-bar-chart"), barData, {
+    });
+
+    if ($table[0]) {
+        $.plot($table, barData, {
             grid : {
                     borderWidth: 1,
                     borderColor: '#eee',
@@ -48,7 +51,7 @@ function drawBarChart()
                     hoverable : true,
                     clickable : true
             },
-            
+
             yaxis: {
                 tickColor: '#eee',
                 tickDecimals: 0,
@@ -59,7 +62,7 @@ function drawBarChart()
                 },
                 shadowSize: 0
             },
-            
+
             xaxis: {
                 tickColor: '#fff',
                 tickDecimals: 0,
@@ -70,7 +73,7 @@ function drawBarChart()
                 },
                 shadowSize: 0,
             },
-    
+
             legend:{
                 container: '.flc-bar',
                 backgroundOpacity: 0.5,
@@ -79,7 +82,16 @@ function drawBarChart()
                 lineWidth: 0
             }
         });
-        }
+    }
+}
+
+function addBarChart($table, keys, values, size)
+{
+    for(var i=1; i<size; i++)
+    {
+        var $content = '<div class="col-md-6"><div class="card"><div class="card-header"><h2>'+keys[i]+'</h2><ul class="actions"><li><a href=""><i class="zmdi zmdi-download"></i></a></li><li class="dropdown"><a href="" data-toggle="dropdown"><i class="zmdi zmdi-more-vert"></i></a><ul class="dropdown-menu dropdown-menu-right"><li><a href="">Change Date Range</a></li></ul></li></ul></div><div class="card-body card-padding-sm"><div id="'+i+'" class="flot-chart"></div><div class="flc-bar"></div></div></div</div>';
+        
+        $table.append($content);    
     }
 }
    

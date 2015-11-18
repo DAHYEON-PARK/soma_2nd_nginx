@@ -337,69 +337,7 @@
                         </div>
                     </div>
                     
-                    <div class="row">
-                        <div class="col-md-6">
-                            <div class="card">
-                                <div class="card-header">
-                                    
-                                    <ul class="actions">
-                                        <li>
-                                            <a href="">
-                                                <i class="zmdi zmdi-download"></i>
-                                            </a>
-                                        </li>
-                                        <li class="dropdown">
-                                            <a href="" data-toggle="dropdown">
-                                                <i class="zmdi zmdi-more-vert"></i>
-                                            </a>
-
-                                            <ul class="dropdown-menu dropdown-menu-right">
-                                                <li>
-                                                    <a href="">Change Date Range</a>
-                                                </li>
-                                            </ul>
-                                        </li>
-                                    </ul>
-                                </div>
-                                
-                                <div class="card-body card-padding-sm">
-                                    <div id="app-bar-chart" class="flot-chart"></div>
-                                    <div class="flc-bar"></div>
-                                </div>
-                            </div>
-                        </div>
-                        
-                        <div class="col-md-6">
-                            <div class="card">
-                                <div class="card-header">
-                                    <h2>Bar Chart : Channel <small>Channel 생성/가입/탈퇴에 관한 Date와 Count입니다.</small></h2>
-                                    <ul class="actions">
-                                        <li>
-                                            <a href="">
-                                                <i class="zmdi zmdi-download"></i>
-                                            </a>
-                                        </li>
-                                        <li class="dropdown">
-                                            <a href="" data-toggle="dropdown">
-                                                <i class="zmdi zmdi-more-vert"></i>
-                                            </a>
-
-                                            <ul class="dropdown-menu dropdown-menu-right">
-                                                <li>
-                                                    <a href="">Change Date Range</a>
-                                                </li>
-                                            </ul>
-                                        </li>
-                                    </ul>
-                                </div>
-                                
-                                <div class="card-body card-padding-sm">
-                                    <div id="channel-bar-chart" class="flot-chart"></div>
-                                    <div class="flc-bar"></div>
-                                </div>
-                            </div>
-                        </div>
-                        
+                    <div id="row" class="row">
                     </div>
                 </div>
             </section>
@@ -468,7 +406,25 @@
                 
                 initMenu("");
                 
-                getTraffic();
+                getTraffic(function(obj) {
+                    
+                    var keys = {};
+                    var values = {};
+                    var size = obj.length;
+                    for(i=1; i<size; i++)
+                    {
+                        keys[i] = Object.keys(obj[i]);
+                        values[i] = obj[i][keys[i]];
+                    }   
+                    
+                    addBarChart($('#row'), keys, values, size);
+                    
+                    for(i=1; i<size; i++)
+                    {
+                        var id = '#'+i
+                        drawBarChart($(id), values[i], size);   
+                    }
+                });
             });
         </script>
     </body>
