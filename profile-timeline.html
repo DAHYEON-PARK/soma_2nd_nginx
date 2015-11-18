@@ -37,7 +37,7 @@
                 </li>
             
                 <li class="logo hidden-xs">
-                    <a href="main.html">GGame Toc</a>
+                    <a href="main.html">껨톡</a>
                 </li>
                 
                 <li class="pull-right">
@@ -219,23 +219,19 @@
                     <div class="profile-menu">
                         <a href="">
                             <div id="drawer_user_profile" class="profile-pic">
-                                <!-- 사용자 이미지 변경 -->
                                 <img src="img/profile-pics/1.jpg" alt="">
                             </div>
 
                             <div id="drawer_user_id" class="profile-info">
-                                <!-- 사용자 id 받아와서 보여주기 : func show user_name -->
                                 <i class="zmdi zmdi-arrow-drop-down"></i>
                             </div>
                         </a>
                     </div>
 
                     <ul class="main-menu">
-                        <!-- View Profile에 profile-about.html 연결하기 -->
                         <li><a href="profile-about.html"><i class="zmdi zmdi-account"></i> View Profile</a></li>
                         <li class="sub-menu">
                             <a href=""><i class="zmdi zmdi-view-list"></i> Database Tables</a>
-                            <!-- javascript로 menu.json에서 불러와서 추가 -->
                             <ul id="menu-db-table">
                             </ul>
                         </li>
@@ -252,7 +248,7 @@
                 <div class="container">
                     
                     <div class="block-header">
-                        <h2>Malinda Hollaway <small>Web/UI Developer, Dubai, United Arab Emirates</small></h2>
+                        <h2>Hello Admin!! <small>Welcom to our "GGame Toc" admin page.</small></h2>
                     </div>
                     
                     <div class="card c-timeline" id="profile-main">
@@ -262,45 +258,21 @@
                                     <a href="">
                                         <img class="img-responsive" src="img/profile-pics/profile-pic-2.jpg" alt=""> 
                                     </a>
-                                    
-                                    <div class="dropdown pmop-message">
-                                        <a data-toggle="dropdown" href="" class="btn bgm-white btn-float z-depth-1">
-                                            <i class="zmdi zmdi-comment-text-alt"></i>
-                                        </a>
-                                        
-                                        <div class="dropdown-menu">
-                                            <textarea placeholder="Write something..."></textarea>
-                                            
-                                            <button class="btn bgm-green btn-icon"><i class="zmdi zmdi-mail-send"></i></button>
-                                        </div>
-                                    </div>
-                                    
-                                    <a href="" class="pmop-edit">
-                                        <i class="zmdi zmdi-camera"></i> <span class="hidden-xs">Update Profile Picture</span>
-                                    </a>
                                 </div>
-                                
-                                
-                                <div class="pmo-stat">
-                                    <h2 class="m-0 c-white">1562</h2>
-                                    Total Connections
-                                </div>
+                                <div class="pmo-stat" id="profile_user_id"></div>
                             </div>
                             
                             <div class="pmo-block pmo-contact hidden-xs">
-                                <h2>Contact</h2>
-                                
+                                <h2>SNS</h2>
                                 <ul>
-                                    <li><i class="zmdi zmdi-phone"></i> 00971 12345678 9</li>
-                                    <li><i class="zmdi zmdi-email"></i> malinda-h@gmail.com</li>
-                                    <li><i class="zmdi zmdi-facebook-box"></i> malinda.hollaway</li>
-                                    <li><i class="zmdi zmdi-twitter"></i> @malinda (twitter.com/malinda)</li>
+                                    <li><i class="zmdi zmdi-facebook-box"></i> maestro.sw</li>
+                                    <li><i class="zmdi zmdi-twitter"></i> @maestro (twitter.com/maestro)</li>
                                     <li>
                                         <i class="zmdi zmdi-pin"></i>
                                         <address class="m-b-0">
-                                            10098 ABC Towers, <br/>
-                                            Dubai Silicon Oasis, Dubai, <br/>
-                                            United Arab Emirates
+                                            Anam Towers, <br/>
+                                            Gangnam, Seoul, <br/>
+                                            Korea
                                         </address>
                                     </li>
                                 </ul>
@@ -742,6 +714,7 @@
                 
                 var id = localStorage.getItem('user_id');
                 document.getElementById('drawer_user_id').innerHTML = String(id);
+                $('#profile_user_id').append('<h2 class="m-0 c-white">'+id+'</h2><br/>');
                 
                 initMenu("");
             });

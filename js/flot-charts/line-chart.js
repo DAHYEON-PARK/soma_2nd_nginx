@@ -77,9 +77,11 @@ $(document).ready(function(){
     if ($(".flot-chart")[0]) {
         $(".flot-chart").bind("plothover", function (event, pos, item) {
             if (item) {
-                var x = item.datapoint[0].toFixed(2),
-                    y = item.datapoint[1].toFixed(2);
-                $(".flot-tooltip").html(item.series.label + " of " + x + " = " + y).css({top: item.pageY+5, left: item.pageX+5}).show();
+                var x = item.datapoint[0].toFixed(0),
+                    y = item.datapoint[1].toFixed(0);
+                var day = x.toString().substring(6,8);
+                var time = x.toString().substring(8,10);
+                $(".flot-tooltip").html(item.series.label + " of " + day + "일"+time+"시 = " + y).css({top: item.pageY+5, left: item.pageX+5}).show();
             }
             else {
                 $(".flot-tooltip").hide();
@@ -100,7 +102,7 @@ function drawLineChart(json)
     /* Regular Line Chart */
     if ($("#line-chart")[0]) {
         $.plot($("#line-chart"), [
-            {data: d3, lines: { show: true, fill: 0.98 }, label: 'Users', stack: true, color: '#FFC107' }
+            {data: d3, lines: { show: true, fill: 0.98 }, label: 'Login', stack: true, color: '#FFC107' }
         ], options);
     }
 }

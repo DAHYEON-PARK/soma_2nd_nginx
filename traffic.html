@@ -37,7 +37,7 @@
                 </li>
             
                 <li class="logo hidden-xs">
-                    <a href="main.html">GGame Toc</a>
+                    <a href="main.html">껨톡/a>
                 </li>
                 
                 <li class="pull-right">
@@ -341,7 +341,6 @@
                         <div class="col-md-6">
                             <div class="card">
                                 <div class="card-header">
-                                    <h2>Bar Chart : App <small>App 생성/가입/탈퇴에 관한 Date와 Count입니다.</small></h2>
                                     
                                     <ul class="actions">
                                         <li>
@@ -365,32 +364,7 @@
                                 
                                 <div class="card-body card-padding-sm">
                                     <div id="app-bar-chart" class="flot-chart"></div>
-                                    <div class="flc-bar">
-                                        <table style="font-size:smaller;color:#545454">
-                                            <tbody>
-                                                <tr>
-                                                    <td class="legendColorBox">
-                                                        <div style="border:1px solid #ccc;padding:1px">
-                                                            <div style="width:4px;height:0;border:5px solid #8BC34A;overflow:hidden"></div>
-                                                        </div>
-                                                    </td>
-                                                    <td class="legendLabel">App Create</td>
-                                                    <td class="legendColorBox">
-                                                        <div style="border:1px solid #ccc;padding:1px">
-                                                            <div style="width:4px;height:0;border:5px solid #00BCD4;overflow:hidden"></div>
-                                                        </div>
-                                                    </td>
-                                                    <td class="legendLabel">App Join</td>
-                                                    <td class="legendColorBox">
-                                                        <div style="border:1px solid #ccc;padding:1px">
-                                                            <div style="width:4px;height:0;border:5px solid #FF9800;overflow:hidden"></div>
-                                                        </div>
-                                                    </td>
-                                                    <td class="legendLabel">App Drop Out</td>
-                                                </tr>
-                                            </tbody>
-                                        </table>
-                                    </div>
+                                    <div class="flc-bar"></div>
                                 </div>
                             </div>
                         </div>
@@ -421,77 +395,7 @@
                                 
                                 <div class="card-body card-padding-sm">
                                     <div id="channel-bar-chart" class="flot-chart"></div>
-                                    <div class="flc-bar">
-                                        <table style="font-size:smaller;color:#545454">
-                                            <tbody>
-                                                <tr>
-                                                    <td class="legendColorBox">
-                                                        <div style="border:1px solid #ccc;padding:1px">
-                                                            <div style="width:4px;height:0;border:5px solid rgb(237,194,64);overflow:hidden"></div>
-                                                        </div>
-                                                    </td>
-                                                    <td class="legendLabel">Channel Create</td>
-                                                    <td class="legendColorBox">
-                                                        <div style="border:1px solid #ccc;padding:1px">
-                                                            <div style="width:4px;height:0;border:5px solid rgb(175,216,248);overflow:hidden"></div>
-                                                        </div>
-                                                    </td>
-                                                    <td class="legendLabel">Channel Join</td>
-                                                    <td class="legendColorBox">
-                                                        <div style="border:1px solid #ccc;padding:1px">
-                                                            <div style="width:4px;height:0;border:5px solid rgb(203,75,75);overflow:hidden"></div>
-                                                        </div>
-                                                    </td>
-                                                    <td class="legendLabel">Channel Drop Out</td>
-                                                </tr>
-                                            </tbody>
-                                        </table>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        
-                        <div class="col-md-6">
-                            <div class="card">
-                                <div class="card-header">
-                                    <h2>Dynamic Chart</h2>
-                                </div>
-                                
-                                <div class="card-body card-padding-sm">
-                                    <div id="dynamic-chart" class="flot-chart"></div>
-                                    <div class="flc-dynamic"></div>
-                                </div>
-                            </div>
-                        </div>
-                        
-                        <div class="col-md-6">
-                            <div class="card">
-                                <div class="card-header">
-                                    <h2>Pie Chart : All <small>Login, App, Channel에 관한 모든 % 정보입니다.</small></h2>
-                                    
-                                    <ul class="actions">
-                                        <li>
-                                            <a href="">
-                                                <i class="zmdi zmdi-download"></i>
-                                            </a>
-                                        </li>
-                                        <li class="dropdown">
-                                            <a href="" data-toggle="dropdown">
-                                                <i class="zmdi zmdi-more-vert"></i>
-                                            </a>
-
-                                            <ul class="dropdown-menu dropdown-menu-right">
-                                                <li>
-                                                    <a href="">Change Date Range</a>
-                                                </li>
-                                            </ul>
-                                        </li>
-                                    </ul>
-                                </div>
-                                
-                                <div class="card-body card-padding">
-                                    <div id="pie-chart" class="flot-chart-pie"></div>
-                                    <div class="flc-pie hidden-xs"></div>
+                                    <div class="flc-bar"></div>
                                 </div>
                             </div>
                         </div>
@@ -537,18 +441,14 @@
         
         <script src="vendors/bower_components/flot/jquery.flot.js"></script>
         <script src="vendors/bower_components/flot/jquery.flot.resize.js"></script>
-        <script src="vendors/bower_components/flot/jquery.flot.pie.js"></script>
         <script src="vendors/bower_components/flot.tooltip/js/jquery.flot.tooltip.min.js"></script>
-        <script src="vendors/bower_components/flot-orderBars/js/jquery.flot.orderBars.js"></script>
-        <script src="vendors/bower_components/flot.curvedlines/curvedLines.js"></script>                         
+        <script src="vendors/bower_components/flot-orderBars/js/jquery.flot.orderBars.js"></script>                        
         <script src="vendors/sparklines/jquery.sparkline.min.js"></script>
         <script src="vendors/bower_components/jquery.easy-pie-chart/dist/jquery.easypiechart.min.js"></script>
         
         <!-- Charts - Please read the read-me.txt inside the js folder-->
         <script src="js/flot-charts/line-chart.js"></script>
         <script src="js/flot-charts/bar-chart.js"></script>
-        <script src="js/flot-charts/dynamic-chart.js"></script>
-        <script src="js/flot-charts/pie-chart.js"></script>
         <script src="js/charts.js"></script>
         
         <script src="js/functions.js"></script>

@@ -1638,7 +1638,7 @@ Licensed under the MIT license.
                 drawAxisLabels();
             }
 
-            insertLegend();
+            //insertLegend();
         }
 
         function setRange(axis) {

@@ -567,7 +567,7 @@ function onCrud(table, json)
 
 function getAppList(func)
 {
-    var query = 'select app_id from app_user_list';
+    var query = 'select distinct app_id from app_user_list';
     query = query.toLowerCase();
     query = encodeURIComponent(query);
         
@@ -668,6 +668,39 @@ function getUserList(app, func)
 	});
 }
 
+function insertNoti(json, func)
+{
+    var query = 'insert into notice (subject, content) values ("'+json.subject+'","'+json.content+'")';
+    query = query.toLowerCase();
+    query = encodeURIComponent(query);
+        
+	$.ajax({
+		type: 'POST',
+		url: 'http://133.130.113.101:7010/user/customQuery?query='+query,
+		success: function(data, status) {
+			
+			var obj;
+			try
+			{
+				obj = parseJson(data);
+			}
+			catch (e)
+			{
+				console.log('json error:'+data);
+				//alert("JSON Parsing Error. "+e);
+				alert(data);
+				return;
+			}
+			
+			if(func)
+				func('success');
+		},
+		error: function(e) {
+			console.log('접속이 원활하지 않습니다.');
+		}
+	});
+}
+
 function logout()
 {
     localStorage.removeItem('user_token');
@@ -690,11 +723,18 @@ function getTraffic()
 				alert("JSON Parsing Error. "+e);
 				return;
 			}
-
+            
 			drawLineChart(obj[0]['traffic:/user/login']); // login (line-chart.js에 존재)
-            appBarChart(obj);   // regApp, removeApp, regNick
-            channelBarChart(obj); // makeCha, joinCha, withdrawCha
-            //drawPieChart(obj); // all
+            
+            var keys = {};
+            var values = {};
+            for(i=0; i<obj.length; i++)
+            {
+                keys[i] = Object.keys(obj[i]);
+                values[i] = obj[i][keys[i]];
+            }
+
+            drawBarChart();
 		},
 		error: function(e) {
 			console.log('접속이 원활하지 않습니다.');

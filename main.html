@@ -37,7 +37,7 @@
                 </li>
             
                 <li class="logo hidden-xs">
-                    <a href="main.html">GGame Toc</a>
+                    <a href="main.html">껨톡</a>
                 </li>
                 
                 <li class="pull-right">
@@ -219,23 +219,19 @@
                     <div class="profile-menu">
                         <a href="">
                             <div id="drawer_user_profile" class="profile-pic">
-                                <!-- 사용자 이미지 변경 -->
                                 <img src="img/profile-pics/1.jpg" alt="">
                             </div>
 
                             <div id="drawer_user_id" class="profile-info">
-                                <!-- 사용자 id 받아와서 보여주기 : func show user_name -->
                                 <i class="zmdi zmdi-arrow-drop-down"></i>
                             </div>
                         </a>
                     </div>
 
                     <ul class="main-menu">
-                        <!-- View Profile에 profile-about.html 연결하기 -->
                         <li><a href="profile-about.html"><i class="zmdi zmdi-account"></i> View Profile</a></li>
                         <li class="sub-menu">
                             <a href=""><i class="zmdi zmdi-view-list"></i> Database Tables</a>
-                            <!-- javascript로 menu.json에서 불러와서 추가 -->
                             <ul id="menu-db-table">
                             </ul>
                         </li>
@@ -265,8 +261,6 @@
                             <div class="row">
                                 <div class="col-sm-3 m-b-15">
                                     <p class="c-darkgray f-500 m-b-20">Application</p>
-                                    <!-- 이상해 ㅠㅠ 이상해;; tag-select는 function.js에 있고 selectpicker는 bootstrap에 있음. 원래 refresh 안해줘도 된다고 함;;-->
-                                    <!-- 그리고 select에 id넣고 func를 bind시키면 안되고 div class에는 또 된다;;-->
                                     <div id="sel_app" class="select">
                                         <select class="selectpicker" title="Select Applicaions"></select>
                                     </div>
@@ -283,7 +277,6 @@
                                     </div>
                                 </div>
                                 <div class="col-sm-3 m-b-15">
-                                    <!-- label에 disabled는 원래 안먹힘?? -->
                                     <label id="radio_user" class="radio radio-inline f-500 m-b-20">
                                         <input type="radio" name="tableRadio" value="user" disabled="true">
                                         <i class="input-helper"></i>  
@@ -412,16 +405,15 @@
                 });
                 
                 $('#radio_user input:radio').bind('click', function(){
-                    clickSelApp();
+                    clickSelApp($(this));
                 });
                 
                 $('#radio_channel input:radio').bind('click', function(){
-                    clickSelApp();
+                    clickSelApp($(this));
                 });
                 
                 
                 $('#btn_table_search').click(function() {
-                    // 그냥 배열로 들어옴.
                     var app = $('#sel_app .selectpicker').val();  
                     var channel = $('#sel_channel .selectpicker').val();  
                     var user = $('#sel_user .selectpicker').val(); 
@@ -436,21 +428,23 @@
                         {    query = 'select * from channel where app_id="'+app+'" and channel_name="'+channel+'"'; }
                         else
                         {    query = 'select * from app_user_list where app_id="'+app+'"'; }
+                        
+                        requestByApp(query);
                     }
-                    requestByApp(query);
                 });
                 
             });
             
-            function clickSelApp() 
+            function clickSelApp($this) 
             {
                 // radio button & selector
                 if($('#sel_app .selectpicker').val() != null)
                 {
-                    $('input[type=radio][name=tableRadio]').on('change', function(){
-                        switch($(this).val()){
+                    // 요거땜시 event가 계속 추가되어서 dropdown이 계속 배로 늘어남.
+                    //$('input[type=radio][name=tableRadio]').on('change', function(){
+                        switch($this.val()){
                             case 'user' :
-                                $('#sel_channel .selectpicker').prop('disabled', true).selectpicker('refresh');
+                                $('#sel_channel .selectpicker').prop('disabled', true);
                                 $('#sel_channel .selectpicker').val("").selectpicker('refresh');
                                 $('#sel_user .selectpicker').prop('disabled', false).selectpicker('refresh');
 
@@ -458,10 +452,13 @@
                                     var arr = json.results;
                                     var len = arr.length;
                         
-                                    if(len == 0)    return;
+                                    if(len == 0){
+                                        $('#sel_user .selectpicker').children().remove();
+                                        $('#sel_user .selectpicker').selectpicker('refresh')
+                                        return;
+                                    }
                                     
-                                    /////////////// 기존에 있던 내용에서 추가되는 것 제외시키기!!
-                                    ////// 왜 호출이 4번됨?? 그리고 그 배수로 호출되는 이유는 뭐지??
+                                    $('#sel_user .selectpicker').children().remove();
                                     for(var i=0; i<len; i++)
                                     {
                                         var $option = '<option>'+arr[i][0]+'</option>';
@@ -472,15 +469,20 @@
 
                             case 'channel' :
                                 $('#sel_channel .selectpicker').prop('disabled', false).selectpicker('refresh');
-                                $('#sel_user .selectpicker').val("").selectpicker('refresh');
+                                $('#sel_user .selectpicker').val("");
                                 $('#sel_user .selectpicker').prop('disabled', true).selectpicker('refresh');
 
                                 getChannelList($('#sel_app .selectpicker').val(), function(json){
                                     var arr = json.results;
                                     var len = arr.length;
                         
-                                    if(len == 0)    return;
+                                    if(len == 0){
+                                        $('#sel_channel .selectpicker').children().remove();
+                                        $('#sel_channel .selectpicker').selectpicker('refresh')
+                                        return;
+                                    }
                                     
+                                    $('#sel_channel .selectpicker').children().remove();
                                     for(var i=0; i<len; i++)
                                     {
                                         var $option = '<option>'+arr[i][0]+'</option>';
@@ -490,7 +492,7 @@
                                 });
                                 break;
                         }            
-                    });
+                    //});
                 }   
             }
         </script>
